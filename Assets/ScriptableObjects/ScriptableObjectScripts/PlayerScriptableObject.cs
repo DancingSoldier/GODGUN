@@ -21,6 +21,9 @@ public class PlayerScriptableObject : ScriptableObject
     public List<GunScriptableObject> availableGuns;
     public Guns chosenGun;
 
+    [Header("Pickup Progress")]
+    public List<GameObject> availablePickups;
+    public List<GameObject> chosenPickups;
 
     public GunScriptableObject ChooseGun(Guns chosenGun, List<GunScriptableObject> availableGuns)
   

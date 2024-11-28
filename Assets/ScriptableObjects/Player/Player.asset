@@ -22,3 +22,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b4bd4612895eac94cba00974e235d687, type: 2}
   - {fileID: 11400000, guid: 704215467d705b24285d5143bd5d68da, type: 2}
   chosenGun: 0
+  availablePickups:
+  - {fileID: 7116851386659630341, guid: df473237b7932d24485f973d3c1a6095, type: 3}
+  - {fileID: 1910592109284520576, guid: 845b4d0b84d4fd24c94e24a1146cac90, type: 3}
+  - {fileID: 1581274209897888783, guid: 83ce803917be873499ea7cea86d75ec7, type: 3}
+  chosenPickups:
+  - {fileID: 7116851386659630341, guid: df473237b7932d24485f973d3c1a6095, type: 3}
+  - {fileID: 1910592109284520576, guid: 845b4d0b84d4fd24c94e24a1146cac90, type: 3}
+  - {fileID: 1581274209897888783, guid: 83ce803917be873499ea7cea86d75ec7, type: 3}
+  - {fileID: 1581274209897888783, guid: 83ce803917be873499ea7cea86d75ec7, type: 3}
+  - {fileID: 1581274209897888783, guid: 83ce803917be873499ea7cea86d75ec7, type: 3}

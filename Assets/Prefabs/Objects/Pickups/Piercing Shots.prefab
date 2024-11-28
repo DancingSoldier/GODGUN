@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2727479838112929164}
   - component: {fileID: 4656649488455995465}
   m_Layer: 9
-  m_Name: PiercingShotsPickup
+  m_Name: Piercing Shots
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

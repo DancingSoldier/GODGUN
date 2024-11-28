@@ -13,6 +13,11 @@ public class ArenaManager : MonoBehaviour
     public GameObject gameUI;
 
 
+    //pickupit
+
+    public List<Transform> pickupPositions;
+    public List<GameObject> pickups;
+    public List<int> positionSpawnTimes;
     //UI
 
     public Timer timer;
@@ -40,6 +45,7 @@ public class ArenaManager : MonoBehaviour
     //tänne mitä spawnataan ja milloin
     public List<GameObject> enemyList;
     public List<GameObject> spawnPointList;
+    
     [Header("Waves")]
     [SerializeField]
     private float cooldown;
@@ -57,6 +63,7 @@ public class ArenaManager : MonoBehaviour
     void PlayerSpawn()
     {
         Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        
     }
 
     //Pelaajan kuolema
@@ -76,7 +83,34 @@ public class ArenaManager : MonoBehaviour
         gameOver.GameOverSetup(Mathf.Round(elapsedTime * 100.0f) / 100f);
     }
     
+    //Pickuppien spawnaus
 
+    private void PickupSpawn()
+    {
+        pickups.Clear();
+        for (int i = 0; i < pickupPositions.Count; i++)
+        {
+            if (pickupPositions[i] != null && player.player.chosenPickups != null && i < player.player.chosenPickups.Count)
+            {
+
+                GameObject pickup = Instantiate(player.player.chosenPickups[i]);
+                pickup.transform.position = pickupPositions[i].transform.position;
+                pickups.Add(pickup);
+                pickup.SetActive(false);
+            }
+        }
+    }
+
+    private void PickupActivation()
+    {
+        for (int i = 0; i < pickups.Count; i++)
+        {
+            if(elapsedTime >= positionSpawnTimes[i])
+            {
+                pickups[i].SetActive(true);
+            }
+        }
+    }
 
     //Vihollisten Spawnaus
 
@@ -121,13 +155,14 @@ public class ArenaManager : MonoBehaviour
     private void Awake()
     {
         PlayerSpawn();
+        
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerManager>();
         gameUI = GameObject.FindGameObjectWithTag("GameUI");
         timer = gameUI.GetComponent<Timer>();
         gameOver = gameUI.GetComponent<GameOver>();
         activePickupUi = gameUI.GetComponent<ActiveBuff>();
         lastRecordTime = player.player.bestTime;
-
+        PickupSpawn();
 
 
     }
@@ -173,6 +208,11 @@ public class ArenaManager : MonoBehaviour
                 ));
 
         }
+        if(elapsedTime < 300)
+        {
+            PickupActivation();
+        }
+        
     }
 
 }

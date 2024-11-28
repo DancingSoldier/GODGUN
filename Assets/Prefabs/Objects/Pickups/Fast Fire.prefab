@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8318184113418821861}
   - component: {fileID: 2856656100691346480}
   m_Layer: 9
-  m_Name: FastFirePickup
+  m_Name: Fast Fire
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

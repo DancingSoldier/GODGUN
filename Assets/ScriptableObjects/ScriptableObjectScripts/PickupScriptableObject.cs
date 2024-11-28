@@ -41,7 +41,7 @@ public class PickupScriptableObject : ScriptableObject
     
 
     [Header("Pickup Spawn")]
-    public Transform spawnLocation;
+    
     public float spawnTime;
 
 
