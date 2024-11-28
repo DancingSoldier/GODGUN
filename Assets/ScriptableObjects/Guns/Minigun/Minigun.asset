@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebbbc0172d86e894a9c60146289a971a, type: 3}
+  m_Name: Minigun
+  m_EditorClassIdentifier: 
+  mainAttackConfig: {fileID: 11400000, guid: 8d56132680a5e6043ac307be8776a3fa, type: 2}
+  altAttackConfig: {fileID: 11400000, guid: 6db738210cc0ca847830ebb39dea738c, type: 2}
+  usedMainAttack: 1
+  gunModelPrefab: {fileID: 6627987407914451588, guid: acf07da0b1fba994c8994271a3a25d0e, type: 3}
+  type: 0
+  spawnPoint: {x: 0, y: 0, z: -0.2}
+  spawnRotation: {x: -90, y: 0, z: 0}
+  muzzleVFX: {fileID: 0}
+  projectileSpawnPoint: {fileID: 0}
