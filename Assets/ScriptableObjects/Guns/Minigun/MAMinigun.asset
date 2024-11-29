@@ -15,8 +15,8 @@ MonoBehaviour:
   damage: 15
   projectilesPerShot: 1
   projectilePenetration: 1
-  projectileSpeed: 100
-  roundsPerMin: 400
+  projectileSpeed: 80
+  roundsPerMin: 300
   damageType: 0
   spread: 2
   projectilePrefab: {fileID: 797254483403182715, guid: 6cb5b7203ac303e4a99c3175bbba90fe, type: 3}

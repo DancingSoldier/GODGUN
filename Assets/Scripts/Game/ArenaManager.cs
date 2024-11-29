@@ -23,7 +23,8 @@ public class ArenaManager : MonoBehaviour
     public Timer timer;
     public GameOver gameOver;
     bool timerSetup = false;
-    public ActiveBuff activePickupUi;
+    public SetPickupUIActive activePickupUi;
+
     //Stats
 
     public float elapsedTime;
@@ -151,6 +152,59 @@ public class ArenaManager : MonoBehaviour
 
         
     }
+    //funktiot joita kutsutaan updatessa
+
+    //pickuppien UI asetus ja Spawnaus
+    private void HandlePickups()
+    {
+        if (player.activeShootingPickup != null && !activePickupUi.shootingUIActive)
+        {
+            activePickupUi.StartCoroutine(activePickupUi.SetShootingPickupTextActive(
+                    player.activeShootingPickup.pickupDuration,
+                    player.activeShootingPickup.pickupName,
+                    player.activeShootingPickup.pickupTextColor
+            ));
+        }
+        if (player.activeUtilityPickup != null && !activePickupUi.utilityUIActive)
+        {
+            activePickupUi.StartCoroutine(activePickupUi.SetUtilityPickupTextActive(
+                    player.activeUtilityPickup.pickupDuration,
+                    player.activeUtilityPickup.pickupName,
+                    player.activeUtilityPickup.pickupTextColor
+            ));
+
+
+        }
+        //lopetetaan pickuppien tarkistaminen kun kaikki on spawnattu
+        if (elapsedTime < 300)
+        {
+            PickupActivation();
+        }
+    }
+
+    private void HandlePlayerDeath()
+    {
+        if (player.overrun)
+        {
+
+            Overrun();
+        }
+    }
+
+    private void HandleTime()
+    {
+        if (timerSetup == false)
+        {
+            timer.TimerSetup(lastRecordTime);
+            timerSetup = true;
+        }
+
+        elapsedTime += Time.deltaTime;
+
+        timer.SetTimerText(elapsedTime, lastRecordTime);
+    }
+
+
 
     private void Awake()
     {
@@ -160,7 +214,8 @@ public class ArenaManager : MonoBehaviour
         gameUI = GameObject.FindGameObjectWithTag("GameUI");
         timer = gameUI.GetComponent<Timer>();
         gameOver = gameUI.GetComponent<GameOver>();
-        activePickupUi = gameUI.GetComponent<ActiveBuff>();
+        activePickupUi = gameUI.GetComponent<SetPickupUIActive>();
+
         lastRecordTime = player.player.bestTime;
         PickupSpawn();
 
@@ -182,36 +237,16 @@ public class ArenaManager : MonoBehaviour
 
     private void Update()
     {
-        //UI päivitykset
-        if (timerSetup == false)
-        {
-            timer.TimerSetup(lastRecordTime);
-            timerSetup = true;
-        }
 
-        elapsedTime += Time.deltaTime;
+        //ajanlasku
+        HandleTime();
         
-        timer.SetTimerText(elapsedTime, lastRecordTime);
+        //Pelaajan kuolema
+        HandlePlayerDeath();
 
-        if(player.overrun)
-        {
+        //Pickupin nosto
 
-            Overrun();
-        }
-
-        if (player.activePickup != null && !activePickupUi.pickupActive)
-        {
-            activePickupUi.StartCoroutine(activePickupUi.SetPickupTextActive(
-                player.activePickup.pickupConfig.duration,
-                player.activePickup.pickupConfig.pickupName,
-                player.activePickup.pickupConfig.pickupTextColor
-                ));
-
-        }
-        if(elapsedTime < 300)
-        {
-            PickupActivation();
-        }
+        HandlePickups();
         
     }
 

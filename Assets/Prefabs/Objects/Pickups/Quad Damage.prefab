@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6039162281e1c4bacdbb265c7667b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupConfig: {fileID: 11400000, guid: e2957f63b0f7a5746a289204f65c641e, type: 2}
+  shootingPickup: {fileID: 11400000, guid: e2957f63b0f7a5746a289204f65c641e, type: 2}
+  utilityPickup: {fileID: 0}
   pickupEffectPrefab: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
+  pickupType: 0

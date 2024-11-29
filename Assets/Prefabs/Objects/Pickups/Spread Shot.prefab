@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2003856796508266287}
   - component: {fileID: 5266391735470031255}
   m_Layer: 9
-  m_Name: Double Shot
+  m_Name: Spread Shot
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -68,6 +68,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef6039162281e1c4bacdbb265c7667b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickupConfig: {fileID: 11400000, guid: b55740cf52a610d42b846c438d4980c0, type: 2}
+  shootingPickup: {fileID: 11400000, guid: b55740cf52a610d42b846c438d4980c0, type: 2}
+  utilityPickup: {fileID: 0}
   pickupEffectPrefab: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
+  pickupType: 0

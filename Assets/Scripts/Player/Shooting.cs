@@ -39,25 +39,25 @@ public class Shooting : MonoBehaviour
 
     private (float roundsPerMin, int projectilesPerShot, int damage, float projectileSpeed,
         float spread, DamageTypes type, int penetration, Gradient color)
-        ApplyBuff(Pickup activePickup, AttackScriptableObject usedConfig)
+        ApplyShootingBuff(Pickup activePickup, AttackScriptableObject usedConfig)
     {
-        if (activePickup != null)
+        if (activePickup != null && activePickup.pickupType == PickupType.ShootingPickup)
         {
             
             return (
-                MathF.Round(usedConfig.roundsPerMin * activePickup.pickupConfig.fireRateBuff),
-                usedConfig.projectilesPerShot * activePickup.pickupConfig.projectilesPerShotBuff,
-                (int)MathF.Floor(usedConfig.damage * activePickup.pickupConfig.damageBuff),
-                MathF.Round(usedConfig.projectileSpeed * activePickup.pickupConfig.projectileSpeedBuff),
-                usedConfig.spread * activePickup.pickupConfig.spreadChange,
-                activePickup.pickupConfig.damageType,
-                usedConfig.projectilePenetration + activePickup.pickupConfig.projectilePenetrationBuff,
-                activePickup.pickupConfig.color
+                MathF.Round(usedConfig.roundsPerMin * activePickup.shootingPickup.fireRateBuff),
+                usedConfig.projectilesPerShot * activePickup.shootingPickup.projectilesPerShotBuff,
+                (int)MathF.Floor(usedConfig.damage * activePickup.shootingPickup.damageBuff),
+                MathF.Round(usedConfig.projectileSpeed * activePickup.shootingPickup.projectileSpeedBuff),
+                usedConfig.spread * activePickup.shootingPickup.spreadChange,
+                activePickup.shootingPickup.damageType,
+                usedConfig.projectilePenetration + activePickup.shootingPickup.projectilePenetrationBuff,
+                activePickup.shootingPickup.color
                 
             );
         }
 
-        // Palautetaan alkuperäiset arvot, jos activePickup on null
+        // Palautetaan alkuperäiset arvot jos pickuppia ei ole käytössä, tai pickup ei ole Shooting Pickup
         return (
             usedConfig.roundsPerMin,
             usedConfig.projectilesPerShot,
@@ -68,8 +68,10 @@ public class Shooting : MonoBehaviour
             usedConfig.projectilePenetration,
             usedConfig.projectileColor
         );
+
     }
 
+    
     void Start()
     {
 
@@ -122,7 +124,7 @@ public class Shooting : MonoBehaviour
     private void Shoot(AttackScriptableObject usedConfig, Pickup activePickup)
     {
         var (roundsPerMin, projectilesPerShot, damage, projectileSpeed, spread, type, penetration, color) 
-        = ApplyBuff(activePickup, usedConfig);
+        = ApplyShootingBuff(activePickup, usedConfig);
 
         float projectileLifeTime = usedConfig.projectileLifetime;
         Transform projectileSpawnPoint = gunInUse.projectileSpawnPoint;
@@ -137,7 +139,11 @@ public class Shooting : MonoBehaviour
             mainModule.startColor = color; 
         }
         TrailRenderer projectileTrail = projectilePrefab.GetComponentInChildren<TrailRenderer>();
-        projectileTrail.colorGradient = color;
+        if(projectileTrail != null)
+        {
+            projectileTrail.colorGradient = color;
+        }
+        
 
         if (Time.time > (60 / roundsPerMin) + lastShootTime)
         {

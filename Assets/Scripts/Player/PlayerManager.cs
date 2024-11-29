@@ -15,45 +15,21 @@ public class PlayerManager : MonoBehaviour
     PlayerLocomotion playerLocomotion;
     Shooting weapons;
 
-
+    
     
     public GunScriptableObject gunBeingUsed;
     public PlayerScriptableObject player;
     
     
-    public Pickup activePickup;
-
+    public Pickup activeShootingPickup;
+    public Pickup activeUtilityPickup;
     public int hp;
     public int currentHP;
     public int earnedpoints;
     public float moveSpeed;
     public bool invincible;
     public bool overrun;
-    private void SetPlayerStats()
-    {
-        hp = player.health;
-        currentHP = player.health;
-        earnedpoints = player.earnedPoints;
-        moveSpeed = player.moveSpeed;
-    }
 
-    public IEnumerator ActivatePickup()
-    {
-
-        
-        weapons.pickupInUse = activePickup;
-        Debug.Log("Buff Gained: " + activePickup.pickupConfig.name);
-
-
-        // Buffin vaikutuksen kesto
-        yield return new WaitForSeconds(activePickup.pickupConfig.duration);
-
-        // Palauta alkuperäiset arvot
-        Debug.Log("Buff Ending");
-        weapons.pickupInUse = null;
-        activePickup = null;
-        
-    }
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -66,6 +42,49 @@ public class PlayerManager : MonoBehaviour
         gunBeingUsed = player.ChooseGun(player.chosenGun, player.availableGuns);
         gunBeingUsed.Spawn();
     }
+
+    private void SetPlayerStats()
+    {
+        hp = player.health;
+        currentHP = player.health;
+        earnedpoints = player.earnedPoints;
+        moveSpeed = player.moveSpeed;
+    }
+
+    public IEnumerator ActivateShootingPickup()
+    {
+
+        
+        weapons.pickupInUse = activeShootingPickup;
+        Debug.Log("Buff Gained: " + activeShootingPickup.pickupName);
+
+
+        // Buffin vaikutuksen kesto
+        yield return new WaitForSeconds(activeShootingPickup.pickupDuration);
+
+        // Palauta alkuperäiset arvot
+        Debug.Log("Buff Ending");
+        weapons.pickupInUse = null;
+        activeShootingPickup = null;
+        
+    }
+
+    public IEnumerator ActivateUtilityPickup()
+    {
+        
+        ApplyUtilityPickup();
+
+        yield return new WaitForSeconds(activeUtilityPickup.pickupDuration);
+
+        activeUtilityPickup = null;
+    }
+    private void ApplyUtilityPickup()
+    {
+        GameObject utilityObject = Instantiate(activeUtilityPickup.utilityPickup.effectPrefab, transform.position, Quaternion.identity);
+        Destroy(utilityObject, activeUtilityPickup.pickupDuration);
+
+    }
+
     private IEnumerator InvincibilityFrames()
     {
         invincible = true;

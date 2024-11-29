@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1273001820667796757}
   - component: {fileID: 152127993092171559}
   m_Layer: 0
-  m_Name: DoubleShotParticles
+  m_Name: SpreadShotParticles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

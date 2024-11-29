@@ -21,7 +21,7 @@ MonoBehaviour:
   material: {fileID: 2100000, guid: ff5c38c59fc32074cab87050a4972ff8, type: 2}
   pickupEffect: {fileID: 7217470295840364289, guid: a50dc41bbb4a94b4bb8e99dee6ef3193, type: 3}
   damageBuff: 1
-  fireRateBuff: 2
+  fireRateBuff: 3
   spreadChange: 1.2
   projectilesPerShotBuff: 1
   projectileSpeedBuff: 1.1
@@ -47,7 +47,7 @@ MonoBehaviour:
     ctime7: 0
     atime0: 0
     atime1: 3277
-    atime2: 7325
+    atime2: 49922
     atime3: 0
     atime4: 0
     atime5: 0

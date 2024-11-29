@@ -1312,6 +1312,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunBeingUsed: {fileID: 0}
   player: {fileID: 11400000, guid: ed17531e57582194b870dd98b77c947b, type: 2}
+  activePickup: {fileID: 0}
   hp: 0
   currentHP: 0
   earnedpoints: 0
@@ -1362,6 +1363,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gunInUse: {fileID: 0}
+  pickupInUse: {fileID: 0}
   readyToShoot: 0
   shooting: 0
   usedLeftAttack: 0
