@@ -20,13 +20,17 @@ public class EnemyAI : MonoBehaviour
 
 
 
-    public void TakeDamage(int damage, DamageTypes damageType, Vector3 projectileVector)
+    public void TakeDamage(int damage, DamageTypes damageType, bool hasKnockback, float knockbackMultiplier, Vector3 projectileVector)
     {
 
         StartCoroutine(DamageVFX(damageType));
         currentHealth -= damage;
-        float forceMagnitude = damage * .5f;
-        rb.AddForce(projectileVector * forceMagnitude, ForceMode.Impulse);
+        if(hasKnockback)
+        {
+            float forceMagnitude = damage * knockbackMultiplier;
+            rb.AddForce(projectileVector * forceMagnitude, ForceMode.Impulse);
+        }
+
         //Debug.Log(gameObject.name + " Taken Damage " + damage);
         if (currentHealth <= 0)
         {

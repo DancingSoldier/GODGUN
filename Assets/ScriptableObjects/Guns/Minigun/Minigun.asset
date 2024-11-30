@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainAttackConfig: {fileID: 11400000, guid: 8d56132680a5e6043ac307be8776a3fa, type: 2}
   altAttackConfig: {fileID: 11400000, guid: 6db738210cc0ca847830ebb39dea738c, type: 2}
-  usedMainAttack: 1
+  mainAttackAudio: {fileID: 11400000, guid: 1f8b664bf8007e044ac1e9164299ea2a, type: 2}
+  altAttackAudio: {fileID: 11400000, guid: 3a14299c33d25fa48a0848d19d56e5ba, type: 2}
+  usedMainAttack: 0
   gunModelPrefab: {fileID: 6627987407914451588, guid: acf07da0b1fba994c8994271a3a25d0e, type: 3}
   type: 0
   spawnPoint: {x: 0, y: 0, z: -0.2}
   spawnRotation: {x: -90, y: 0, z: 0}
-  muzzleVFX: {fileID: 0}
   projectileSpawnPoint: {fileID: 0}

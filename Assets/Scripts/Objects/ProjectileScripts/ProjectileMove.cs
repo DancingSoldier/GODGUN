@@ -12,7 +12,8 @@ public class ProjectileMove : MonoBehaviour
     public int damage, penetration;
     public DamageTypes damageType;
     private int passedThroughTriggers = 0;
-
+    public bool hasKnockback;
+    public float knockbackMultiplier;
     public void MoveProjectile()
     {
         if (projectileSpeed != 0)
@@ -52,7 +53,7 @@ public class ProjectileMove : MonoBehaviour
             Vector3 projectileVector = transform.forward;
             if (enemyAI != null)
             {
-                enemyAI.TakeDamage(damage, damageType, projectileVector);
+                enemyAI.TakeDamage(damage, damageType, hasKnockback, knockbackMultiplier, projectileVector);
             }
             if (passedThroughTriggers >= penetration)
             {

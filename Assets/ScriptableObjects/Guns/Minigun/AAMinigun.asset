@@ -19,7 +19,9 @@ MonoBehaviour:
   roundsPerMin: 600
   damageType: 0
   spread: 4
+  hasKnockback: 0
   projectilePrefab: {fileID: 2041344977136216008, guid: 7c8dcd71263ebf34a936b65f6c5515a4, type: 3}
+  projectileShooter: {fileID: 0}
   projectileLifetime: 2
   projectileColor:
     serializedVersion: 2
@@ -51,4 +53,5 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
+  audioConfig: {fileID: 11400000, guid: 1f8b664bf8007e044ac1e9164299ea2a, type: 2}
   playerMovementEffect: 0.5

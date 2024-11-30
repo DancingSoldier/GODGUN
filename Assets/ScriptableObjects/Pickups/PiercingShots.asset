@@ -20,12 +20,20 @@ MonoBehaviour:
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: e88ae903e5cac1342bfd5d95de15e014, type: 2}
   pickupEffect: {fileID: 1766771448535394172, guid: 153829396b1954a449ce96b42e7d5822, type: 3}
+  pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
+  spacialSoundEffect: {fileID: 8300000, guid: 549a6dc77c3741c429c13eca36f5c2a8, type: 3}
+  pickedupSoundpitch: 0.5
+  pickedupSoundvolume: 0.5
+  spacialSoundpitch: 0.5
+  spacialSoundvolume: 0.5
   damageBuff: 2
   fireRateBuff: 1
   spreadChange: 0.2
   projectilesPerShotBuff: 1
-  projectileSpeedBuff: 1.4
+  projectileSpeedBuff: 2
   projectilePenetrationBuff: 50
+  hasKnockback: 1
+  knockbackMultiplier: 0.5
   damageType: 0
   color:
     serializedVersion: 2
@@ -57,6 +65,3 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  invulnerabilityDurationBuff: 0
-  enemySlowDownBuff: 0
-  spawnTime: 0

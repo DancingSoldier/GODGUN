@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Pickup : MonoBehaviour
@@ -17,16 +18,28 @@ public class Pickup : MonoBehaviour
 
     
     ParticleSystem pickupEffect;
+
+
+
     CapsuleCollider pickupTrigger;
     Material pickupMaterial;
     SkinnedMeshRenderer modelRenderer;
-
+    public AudioSource pickedupSound;
+    public AudioSource spacialAudio;
+    public AudioClip pickupSound;
+    public AudioClip spacialSoundEffect;
+    float pickedupVolume;
+    float pickedupPitch;
+    float spacialPitch;
+    float spacialVolume;
     //yhteiset pickupin tiedot
     public float pickupDuration;
     public float pickupCooldown;
     public string pickupName;
     public Color pickupTextColor;
-
+    
+    //lis‰‰ myˆhemmin toiminnallisuus efektille joka humisee pelaajan ollessa buffattuna
+    
 
     // Start is called before the first frame update
     void Start()
@@ -37,29 +50,10 @@ public class Pickup : MonoBehaviour
             return;
         }
 
+        SetPickupValues();
+
         // M‰‰ritet‰‰n pickup-tyyppi
-        if (shootingPickup != null)
-        {
-            pickupType = PickupType.ShootingPickup;
-            pickupEffectPrefab = shootingPickup.pickupEffect;
-            pickupModelPrefab = shootingPickup.pickupModelPrefab;
-            pickupMaterial = shootingPickup.material;
-            pickupDuration = shootingPickup.duration;
-            pickupCooldown = shootingPickup.cooldown;
-            pickupName = shootingPickup.pickupName;
-            pickupTextColor = shootingPickup.pickupTextColor;
-        }
-        else if (utilityPickup != null)
-        {
-            pickupType = PickupType.UtilityPickup;
-            pickupEffectPrefab = utilityPickup.pickupEffect;
-            pickupModelPrefab = utilityPickup.pickupModelPrefab;
-            pickupMaterial = utilityPickup.material;
-            pickupDuration = utilityPickup.duration;
-            pickupCooldown = utilityPickup.cooldown;
-            pickupName = utilityPickup.pickupName;
-            pickupTextColor = utilityPickup.pickupTextColor;
-        }
+
         
         
         PickupSpawn();
@@ -74,9 +68,81 @@ public class Pickup : MonoBehaviour
         {
             modelRenderer.material = pickupMaterial;
         }
-        
+
+        AudioSource[] audioSources = GetComponentsInChildren<AudioSource>();
+        if (audioSources.Length == 0)
+        {
+            Debug.LogWarning($"No Audio Sources on Pickup {pickupName}");
+        }
+        pickedupSound = audioSources[0];
+        spacialAudio = audioSources[1];
+        if (spacialAudio != null && spacialSoundEffect != null)
+        {
+            if(shootingPickup != null)
+            {
+                shootingPickup.SetSpacialSoundSettings(spacialAudio);
+            }
+            else
+            {
+                utilityPickup.SetSpacialSoundSettings(spacialAudio);
+            }
+
+            if (spacialAudio.clip != null)
+            {
+                spacialAudio.Play();
+            }
+            else
+            {
+                Debug.LogWarning($"No spacialSoundEffect assigned for {pickupName}");
+            }
+        }
     }
-    
+    void SetPickupValues()
+    {
+        if (shootingPickup != null)
+        {
+            pickupType = PickupType.ShootingPickup;
+            pickupEffectPrefab = shootingPickup.pickupEffect;
+            pickupModelPrefab = shootingPickup.pickupModelPrefab;
+            pickupMaterial = shootingPickup.material;
+            pickupDuration = shootingPickup.duration;
+            pickupCooldown = shootingPickup.cooldown;
+            pickupName = shootingPickup.pickupName;
+            pickupTextColor = shootingPickup.pickupTextColor;
+            pickupSound = shootingPickup.pickedupSoundEffect;
+            spacialSoundEffect = shootingPickup.spacialSoundEffect;
+            pickedupVolume = shootingPickup.pickedupSoundvolume;
+            pickedupPitch = shootingPickup.pickedupSoundpitch;
+            spacialVolume = shootingPickup.spacialSoundvolume;
+            spacialPitch = shootingPickup.spacialSoundpitch;
+        }
+        else if (utilityPickup != null)
+        {
+            pickupType = PickupType.UtilityPickup;
+            pickupEffectPrefab = utilityPickup.pickupEffect;
+            pickupModelPrefab = utilityPickup.pickupModelPrefab;
+            pickupMaterial = utilityPickup.material;
+            pickupDuration = utilityPickup.duration;
+            pickupCooldown = utilityPickup.cooldown;
+            pickupName = utilityPickup.pickupName;
+            pickupTextColor = utilityPickup.pickupTextColor;
+            pickupSound = utilityPickup.pickedupSoundEffect;
+            spacialSoundEffect = utilityPickup.spacialSoundEffect;
+            pickedupVolume = utilityPickup.pickedupSoundvolume;
+            pickedupPitch = utilityPickup.pickedupSoundpitch;
+            spacialVolume = utilityPickup.spacialSoundvolume;
+            spacialPitch = utilityPickup.spacialSoundpitch;
+        }
+        if(spacialAudio != null)
+        {
+            spacialAudio.clip = spacialSoundEffect;
+            spacialAudio.volume = spacialVolume;
+            spacialAudio.pitch = spacialPitch;
+            spacialAudio.loop = true;
+        }
+
+
+    }
     void PickupSpawn()
     {
         
@@ -101,23 +167,37 @@ public class Pickup : MonoBehaviour
         PickupRespawn();
     }
 
+
+
+    void PlayActivationSound()
+    {
+        if(pickupSound != null)
+        {
+            pickedupSound.pitch = pickedupPitch;
+            pickedupSound.PlayOneShot(pickupSound, pickedupVolume);
+        }
+    }
     private void PickedUp()
     {
         pickupEffect.Play();
+        PlayActivationSound();
         instantiatedModel.SetActive(false);
         pickupTrigger.enabled = false;
-
+        
     }
 
     private void PickupRespawn()
     {
         pickupEffect.Play();
+        PlayActivationSound();
         instantiatedModel.SetActive(true);
         pickupTrigger.enabled = true;
+
     }
 
     private void OnTriggerEnter(Collider player)
     {
+        SetPickupValues();
         if(player.CompareTag("Player"))
         {
             PlayerManager playerManager = player.GetComponent<PlayerManager>();
@@ -135,12 +215,19 @@ public class Pickup : MonoBehaviour
                 playerManager.StartCoroutine(playerManager.ActivateUtilityPickup());
                 StartCoroutine(PickupCooldown());
             }
+        }
+    }
 
-            
+    void Update()
+    {
+        if (pickupTrigger.enabled && spacialAudio.clip != null && !spacialAudio.isPlaying)
+        {
 
-
-
-
+            spacialAudio.Play();
+        }
+        else if (!pickupTrigger.enabled && spacialAudio.isPlaying)
+        {
+            spacialAudio.Pause();
         }
     }
 

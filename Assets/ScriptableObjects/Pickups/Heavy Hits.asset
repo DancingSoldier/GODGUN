@@ -1,0 +1,67 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84cdd8bd04f12478626ac69c6e7efa, type: 3}
+  m_Name: Heavy Hits
+  m_EditorClassIdentifier: 
+  pickupName: Heavy Hits
+  pickupDescription: Kicks back Hard!
+  pickupTextColor: {r: 0.3962264, g: 0.13269848, b: 0.15121986, a: 1}
+  cooldown: 30
+  duration: 10
+  pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
+  material: {fileID: 2100000, guid: 271c45776012afd4489b27a49047ab18, type: 2}
+  pickupEffect: {fileID: 4138426286751005871, guid: 954584617f73f774bb3080d1f29543cd, type: 3}
+  pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
+  spacialSoundEffect: {fileID: 8300000, guid: 97ae8b2ef285d0b4993135f30d2b922f, type: 3}
+  pickedupSoundpitch: 0.5
+  pickedupSoundvolume: 0.5
+  spacialSoundpitch: 0.5
+  spacialSoundvolume: 0.5
+  damageBuff: 2
+  fireRateBuff: 0.8
+  spreadChange: 0
+  projectilesPerShotBuff: 1
+  projectileSpeedBuff: 1.2
+  projectilePenetrationBuff: 3
+  hasKnockback: 1
+  knockbackMultiplier: 2
+  damageType: 0
+  color:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0.554735, g: 0.4236383, b: 0.754717, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 17926
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2

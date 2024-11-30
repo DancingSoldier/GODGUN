@@ -7,6 +7,8 @@ public class GunScriptableObject : ScriptableObject
 {
     public AttackScriptableObject mainAttackConfig;
     public AttackScriptableObject altAttackConfig;
+    public AttackAudioScriptableObject mainAttackAudio;
+    public AttackAudioScriptableObject altAttackAudio;
     public bool usedMainAttack;
     public GameObject gunModelPrefab;
     public Guns type;

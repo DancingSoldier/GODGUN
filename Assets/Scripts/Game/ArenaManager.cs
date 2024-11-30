@@ -6,30 +6,33 @@ using UnityEngine;
 public class ArenaManager : MonoBehaviour
 {
 
-    //Pelaaja ja UI
-
+    //Piilotetut arvot
+    [HideInInspector]
     public PlayerManager player;
+    [HideInInspector]
     public GameObject playerPrefab;
+    [HideInInspector]
     public GameObject gameUI;
-
-
-    //pickupit
-
-    public List<Transform> pickupPositions;
-    public List<GameObject> pickups;
-    public List<int> positionSpawnTimes;
-    //UI
-
+    [HideInInspector]
+    PickupManager pickupManager;
+    [HideInInspector]
     public Timer timer;
+    [HideInInspector]
     public GameOver gameOver;
-    bool timerSetup = false;
+    [HideInInspector]
     public SetPickupUIActive activePickupUi;
-
-    //Stats
-
+    [HideInInspector]
     public float elapsedTime;
+    [HideInInspector]
     public float lastRecordTime;
+    [HideInInspector]
+    public List<GameObject> spawnPointList;
 
+    [Header("Pickup Slots")]
+    public List<Transform> pickupPositions;
+
+    //timer check at the beginning
+    bool timerSetup = false;
 
     [Header("Centipede Spawning")]
     public int initialCentipedeAmount;
@@ -44,8 +47,9 @@ public class ArenaManager : MonoBehaviour
     public int ghostIncrease;
 
     //tänne mitä spawnataan ja milloin
+    [Header("List of Enemies")]
     public List<GameObject> enemyList;
-    public List<GameObject> spawnPointList;
+
     
     [Header("Waves")]
     [SerializeField]
@@ -82,35 +86,6 @@ public class ArenaManager : MonoBehaviour
         }
 
         gameOver.GameOverSetup(Mathf.Round(elapsedTime * 100.0f) / 100f);
-    }
-    
-    //Pickuppien spawnaus
-
-    private void PickupSpawn()
-    {
-        pickups.Clear();
-        for (int i = 0; i < pickupPositions.Count; i++)
-        {
-            if (pickupPositions[i] != null && player.player.chosenPickups != null && i < player.player.chosenPickups.Count)
-            {
-
-                GameObject pickup = Instantiate(player.player.chosenPickups[i]);
-                pickup.transform.position = pickupPositions[i].transform.position;
-                pickups.Add(pickup);
-                pickup.SetActive(false);
-            }
-        }
-    }
-
-    private void PickupActivation()
-    {
-        for (int i = 0; i < pickups.Count; i++)
-        {
-            if(elapsedTime >= positionSpawnTimes[i])
-            {
-                pickups[i].SetActive(true);
-            }
-        }
     }
 
     //Vihollisten Spawnaus
@@ -178,7 +153,8 @@ public class ArenaManager : MonoBehaviour
         //lopetetaan pickuppien tarkistaminen kun kaikki on spawnattu
         if (elapsedTime < 300)
         {
-            PickupActivation();
+            //PickupActivation();
+            pickupManager.ActivatePickup(elapsedTime);
         }
     }
 
@@ -214,10 +190,13 @@ public class ArenaManager : MonoBehaviour
         gameUI = GameObject.FindGameObjectWithTag("GameUI");
         timer = gameUI.GetComponent<Timer>();
         gameOver = gameUI.GetComponent<GameOver>();
+        pickupManager = transform.GetComponent<PickupManager>();
         activePickupUi = gameUI.GetComponent<SetPickupUIActive>();
 
         lastRecordTime = player.player.bestTime;
-        PickupSpawn();
+
+        pickupManager.SpawnPickups(player.player.chosenPickups, pickupPositions);
+
 
 
     }
@@ -229,6 +208,8 @@ public class ArenaManager : MonoBehaviour
         centipedePool = new GameObjectPool(enemyList[0], 50, 100);
         ghostPool = new GameObjectPool(enemyList[1], 50, 100);
         elderPool = new GameObjectPool(enemyList[2], 50, 100);
+
+        
         StartCoroutine(SpawnEnemies(online));
         Time.timeScale = 1.0f;
 

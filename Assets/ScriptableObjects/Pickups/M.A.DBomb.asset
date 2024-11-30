@@ -15,9 +15,17 @@ MonoBehaviour:
   pickupName: M.A.D Bomb
   pickupDescription: Boom!
   pickupTextColor: {r: 0.9811321, g: 0.6381694, b: 0.19900322, a: 1}
-  cooldown: 10
-  duration: 1.5
+  cooldown: 60
+  duration: 5
   pickupModelPrefab: {fileID: 8609801350961030187, guid: 32aee57366d1d4e4f804b4176984ca77, type: 3}
   material: {fileID: 2100000, guid: 557d3d70168ba2646b8d1e7d0781cce9, type: 2}
   pickupEffect: {fileID: 9097368928491548848, guid: 09a18bf7805bd6649bf9f74b184c19b1, type: 3}
+  pickedupSoundEffect: {fileID: 8300000, guid: 47598ec81690cc94cb9f52e3ed7c85d2, type: 3}
+  spacialSoundEffect: {fileID: 8300000, guid: 39d7e392cdb526c42976ad6ba11b45e2, type: 3}
+  pickedupSoundpitch: 0.4
+  pickedupSoundvolume: 1
+  spacialSoundpitch: 1
+  spacialSoundvolume: 1
   effectPrefab: {fileID: 8961804631898717092, guid: fce737204fd79b4499226489bbf7e4d5, type: 3}
+  effectFloat1: 200
+  effectFloat2: 200

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
-
 using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -17,10 +16,11 @@ public class Shooting : MonoBehaviour
     AnimatorManager animatorManager;
     
     public GunScriptableObject gunInUse;
-
+    public AttackAudioScriptableObject attackAudio;
+    public AudioSource shootingAudioSource;
     public Pickup pickupInUse;
-
-
+    float originalKnockbackMultiplier = 0.5f;
+    public float knockbackMultiplier;
 
     public bool readyToShoot;
     public bool shooting;
@@ -38,11 +38,12 @@ public class Shooting : MonoBehaviour
     }
 
     private (float roundsPerMin, int projectilesPerShot, int damage, float projectileSpeed,
-        float spread, DamageTypes type, int penetration, Gradient color)
+        float spread, DamageTypes type, int penetration, bool hasKnockback, Gradient color)
         ApplyShootingBuff(Pickup activePickup, AttackScriptableObject usedConfig)
     {
         if (activePickup != null && activePickup.pickupType == PickupType.ShootingPickup)
         {
+            knockbackMultiplier = activePickup.shootingPickup.knockbackMultiplier;
             
             return (
                 MathF.Round(usedConfig.roundsPerMin * activePickup.shootingPickup.fireRateBuff),
@@ -52,12 +53,15 @@ public class Shooting : MonoBehaviour
                 usedConfig.spread * activePickup.shootingPickup.spreadChange,
                 activePickup.shootingPickup.damageType,
                 usedConfig.projectilePenetration + activePickup.shootingPickup.projectilePenetrationBuff,
+                activePickup.shootingPickup.hasKnockback,
                 activePickup.shootingPickup.color
                 
             );
+            
         }
-
         // Palautetaan alkuperäiset arvot jos pickuppia ei ole käytössä, tai pickup ei ole Shooting Pickup
+        knockbackMultiplier = originalKnockbackMultiplier;
+        
         return (
             usedConfig.roundsPerMin,
             usedConfig.projectilesPerShot,
@@ -66,6 +70,7 @@ public class Shooting : MonoBehaviour
             usedConfig.spread,
             usedConfig.damageType,
             usedConfig.projectilePenetration,
+            usedConfig.hasKnockback,
             usedConfig.projectileColor
         );
 
@@ -77,6 +82,9 @@ public class Shooting : MonoBehaviour
 
         animatorManager = GetComponent<AnimatorManager>();
         playerManager = GetComponent<PlayerManager>();
+        AudioSource[] audioSources = GetComponentsInChildren<AudioSource>();
+        shootingAudioSource = audioSources[0];
+
 
         readyToShoot = true;
         SetPlayerWeapon();
@@ -92,7 +100,7 @@ public class Shooting : MonoBehaviour
             if (readyToShoot && shooting && usedLeftAttack)
             {
                 AttackScriptableObject usedConfig = gunInUse.mainAttackConfig;
-
+                attackAudio = gunInUse.mainAttackAudio;
                 Shoot(usedConfig, pickupInUse);
 
 
@@ -100,7 +108,7 @@ public class Shooting : MonoBehaviour
             else if (readyToShoot && shooting && !usedLeftAttack)
             {
                 AttackScriptableObject usedConfig = gunInUse.altAttackConfig;
-
+                attackAudio = gunInUse.altAttackAudio;
                 Shoot(usedConfig, pickupInUse);
             }
         }
@@ -109,7 +117,7 @@ public class Shooting : MonoBehaviour
     }
 
     private void SetProjectileValues(ProjectileMove projectile, float projectileSpeed, int damage,
-        int penetration, float projectileLifeTime, DamageTypes type)
+        int penetration, bool hasKnockback, float knockBackMultiplier, float projectileLifeTime, DamageTypes type)
     {
 
         if (projectile != null)
@@ -119,17 +127,19 @@ public class Shooting : MonoBehaviour
             projectile.penetration = penetration;
             projectile.projectileLifeTime = projectileLifeTime;
             projectile.damageType = type;
+            projectile.hasKnockback = hasKnockback;
+            projectile.knockbackMultiplier = knockBackMultiplier;
         }
     }
     private void Shoot(AttackScriptableObject usedConfig, Pickup activePickup)
     {
-        var (roundsPerMin, projectilesPerShot, damage, projectileSpeed, spread, type, penetration, color) 
+        var (roundsPerMin, projectilesPerShot, damage, projectileSpeed, spread, type, penetration, hasKnockback, color) 
         = ApplyShootingBuff(activePickup, usedConfig);
 
         float projectileLifeTime = usedConfig.projectileLifetime;
         Transform projectileSpawnPoint = gunInUse.projectileSpawnPoint;
         GameObject projectilePrefab = usedConfig.projectilePrefab;
-
+        
         //käydään läpi kaikki partikkelisysteemit jos useita, ja asetetaan värit vastaamaan haluttua
         ParticleSystem[] allParticleSystems = projectilePrefab.GetComponentsInChildren<ParticleSystem>();
 
@@ -148,18 +158,24 @@ public class Shooting : MonoBehaviour
         if (Time.time > (60 / roundsPerMin) + lastShootTime)
         {
             lastShootTime = Time.time;
+            if(attackAudio != null)
+            {
+                
+                attackAudio.PlayAudio(shootingAudioSource);
 
-
+            }
+            
+            
             for (int i = 0; i < projectilesPerShot; i++)
             {
-
+                
                 // Luodaan projektiili käyttämällä bulletSpread suuntaa
                 GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, 
                     projectileSpawnPoint.rotation * Quaternion.AngleAxis(Random.Range(-spread, spread), Vector3.up));
 
                 // Asetetaan projektiilin nopeus ja vahinko
                 ProjectileMove projectileMove = projectile.GetComponent<ProjectileMove>();
-                SetProjectileValues(projectileMove, projectileSpeed, damage, penetration, projectileLifeTime, type);
+                SetProjectileValues(projectileMove, projectileSpeed, damage, penetration, hasKnockback, knockbackMultiplier, projectileLifeTime, type);
 
             }
         }

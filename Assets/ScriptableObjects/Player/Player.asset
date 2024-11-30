@@ -15,7 +15,7 @@ MonoBehaviour:
   moveSpeed: 30
   health: 1
   earnedPoints: 0
-  bestTime: 189.78
+  bestTime: 277
   turnThreshold: 45
   turnSpeed: 20
   availableGuns:
@@ -27,8 +27,9 @@ MonoBehaviour:
   - {fileID: 1910592109284520576, guid: 845b4d0b84d4fd24c94e24a1146cac90, type: 3}
   - {fileID: 1581274209897888783, guid: 83ce803917be873499ea7cea86d75ec7, type: 3}
   chosenPickups:
-  - {fileID: 7116851386659630341, guid: df473237b7932d24485f973d3c1a6095, type: 3}
+  - {fileID: 2797097486244281892, guid: 4b7dc82fd7a46524a98148edaeddcc29, type: 3}
+  - {fileID: 3687774558697405629, guid: 1e425621ae2ff9746ad348f091264174, type: 3}
   - {fileID: 1910592109284520576, guid: 845b4d0b84d4fd24c94e24a1146cac90, type: 3}
   - {fileID: 1581274209897888783, guid: 83ce803917be873499ea7cea86d75ec7, type: 3}
+  - {fileID: 7116851386659630341, guid: df473237b7932d24485f973d3c1a6095, type: 3}
   - {fileID: 6502403662898282900, guid: bb0dfc04e16d0ba4dba4966ea92c2543, type: 3}
-  - {fileID: 3687774558697405629, guid: 1e425621ae2ff9746ad348f091264174, type: 3}

@@ -19,6 +19,7 @@ MonoBehaviour:
   roundsPerMin: 100
   damageType: 1
   spread: 0.6
+  hasKnockback: 1
   projectilePrefab: {fileID: 3937464618939665349, guid: 9917fef4bd3a2e645899b3ac42dc6d92, type: 3}
   projectileLifetime: 5
   projectileColor:

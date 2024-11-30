@@ -13,19 +13,27 @@ MonoBehaviour:
   m_Name: QuadDamage
   m_EditorClassIdentifier: 
   pickupName: Quad Damage
-  pickupDescription: 
+  pickupDescription: Fast kills
   pickupTextColor: {r: 0.5660378, g: 0, b: 0.56054217, a: 1}
-  cooldown: 40
-  duration: 15
+  cooldown: 60
+  duration: 20
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: eee490e58df9b08478dce98906fac396, type: 2}
   pickupEffect: {fileID: 4032706368175596631, guid: f880c8c5f18e45d4e9b86677a030046c, type: 3}
+  pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
+  spacialSoundEffect: {fileID: 8300000, guid: 97ae8b2ef285d0b4993135f30d2b922f, type: 3}
+  pickedupSoundpitch: 0.5
+  pickedupSoundvolume: 0.5
+  spacialSoundpitch: 0.5
+  spacialSoundvolume: 0.5
   damageBuff: 4
-  fireRateBuff: 1
+  fireRateBuff: 1.5
   spreadChange: 1
   projectilesPerShotBuff: 1
   projectileSpeedBuff: 1.2
   projectilePenetrationBuff: 3
+  hasKnockback: 1
+  knockbackMultiplier: 0.5
   damageType: 2
   color:
     serializedVersion: 2
@@ -57,6 +65,3 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
-  invulnerabilityDurationBuff: 1
-  enemySlowDownBuff: 1
-  spawnTime: 0

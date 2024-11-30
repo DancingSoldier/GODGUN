@@ -1,15 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro.Examples;
 using UnityEngine;
 
 public class MADBombExplosion : MonoBehaviour
 {
 
+    public UtilityPickupScriptableObject script;
     public Vector3 targetScale = new Vector3(100f, 100f, 100f);
-    public float duration = 1f;
+    
     public int damage;
     public DamageTypes damageType;
+    public AnimationCurve scaleCurve;
     Vector3 position;
 
     Transform explosion;
@@ -18,11 +20,12 @@ public class MADBombExplosion : MonoBehaviour
     {
         Vector3 startScale = explosion.localScale;  // Alkuperäinen skaala
         float elapsedTime = 0f;                        // Aika kulunut
-
+        float duration = script.duration;
         while (elapsedTime < duration)
         {
 
-            explosion.localScale = Vector3.Lerp(startScale, targetScale, elapsedTime / duration);
+            float curveValue = scaleCurve.Evaluate(elapsedTime / duration);
+            explosion.localScale = Vector3.LerpUnclamped(startScale, targetScale, curveValue);
 
             // Lisää kulunut aika
             elapsedTime += Time.deltaTime;
@@ -42,7 +45,8 @@ public class MADBombExplosion : MonoBehaviour
         {
 
             var enemyAI = other.gameObject.GetComponentInParent<EnemyAI>();
-            enemyAI.TakeDamage(damage, damageType, other.gameObject.transform.position - position);
+            damage = Mathf.FloorToInt(script.effectFloat1);
+            enemyAI.TakeDamage(damage, damageType, false, 0, other.gameObject.transform.position);
         }
     }
 
