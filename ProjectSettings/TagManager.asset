@@ -13,6 +13,7 @@ TagManager:
   - PlayerBodyRig
   - GameUI
   - Pickup
+  - GODGUN
   layers:
   - Default
   - TransparentFX

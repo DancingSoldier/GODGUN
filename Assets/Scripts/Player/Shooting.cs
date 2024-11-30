@@ -116,7 +116,7 @@ public class Shooting : MonoBehaviour
 
     }
 
-    private void SetProjectileValues(ProjectileMove projectile, float projectileSpeed, int damage,
+    public void SetProjectileValues(ProjectileMove projectile, float projectileSpeed, int damage,
         int penetration, bool hasKnockback, float knockBackMultiplier, float projectileLifeTime, DamageTypes type)
     {
 
@@ -131,7 +131,7 @@ public class Shooting : MonoBehaviour
             projectile.knockbackMultiplier = knockBackMultiplier;
         }
     }
-    private void Shoot(AttackScriptableObject usedConfig, Pickup activePickup)
+    public void Shoot(AttackScriptableObject usedConfig, Pickup activePickup)
     {
         var (roundsPerMin, projectilesPerShot, damage, projectileSpeed, spread, type, penetration, hasKnockback, color) 
         = ApplyShootingBuff(activePickup, usedConfig);

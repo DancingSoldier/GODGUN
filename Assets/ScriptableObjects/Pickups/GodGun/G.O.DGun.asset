@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08e756bb6b4f4d54ca5c2e73e7119857, type: 3}
+  m_Name: G.O.DGun
+  m_EditorClassIdentifier: 
+  pickupName: G.O.D Gun
+  pickupDescription: 
+  pickupTextColor: {r: 1, g: 0.9011407, b: 0, a: 1}
+  cooldown: 5
+  duration: 25
+  pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
+  material: {fileID: 2100000, guid: e88ae903e5cac1342bfd5d95de15e014, type: 2}
+  pickupEffect: {fileID: 4032706368175596631, guid: f880c8c5f18e45d4e9b86677a030046c, type: 3}
+  pickedupSoundEffect: {fileID: 0}
+  spacialSoundEffect: {fileID: 0}
+  pickedupSoundpitch: 0.5
+  pickedupSoundvolume: 0.5
+  spacialSoundpitch: 0.5
+  spacialSoundvolume: 0.5
+  effectPrefab: {fileID: 3654075857279279701, guid: 36cd4b2582ca3154f86c4c8d0c4b3d76, type: 3}
+  effectFloat1: 10
+  effectFloat2: 10
