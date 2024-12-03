@@ -51,12 +51,23 @@ public class ArenaManager : MonoBehaviour
     private GameObjectPool ghostPool1;
     List<GameObjectPool> pools = new List<GameObjectPool>();
 
+
+
     //Pelaajan Spawn
 
     void PlayerSpawn()
     {
         Instantiate(playerPrefab, new Vector3(0, 0, 0), Quaternion.identity);
         
+    }
+
+    private void HidePlayerModel()
+    {
+        Renderer[] renderers = player.GetComponentsInChildren<Renderer>(); // Hakee kaikki Renderer-komponentit lapsista
+        foreach (Renderer renderer in renderers)
+        {
+            renderer.enabled = false; // Piilottaa pelaajan mallin
+        }
     }
 
     //Pelaajan kuolema
@@ -67,6 +78,9 @@ public class ArenaManager : MonoBehaviour
     void Overrun()
     {
         gameOver.GameOverSetup(Mathf.Round(elapsedTime * 100.0f) / 100f);
+        activePickupUi.activeShootingPickup.SetActive(false);
+        activePickupUi.activeUtilityPickup.SetActive(false);
+        HidePlayerModel();
         if (lastRecordTime < elapsedTime)
         {
             NewRecordRecorded();
@@ -117,7 +131,7 @@ public class ArenaManager : MonoBehaviour
 
 
         }
-        //lopetetaan pickuppien tarkistaminen kun kaikki on spawnattu
+        //lopetetaan pickuppien tarkistaminen kun kaikki on pawnattu
         if (elapsedTime < 300)
         {
             //PickupActivation();

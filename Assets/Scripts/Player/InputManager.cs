@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
@@ -21,18 +20,18 @@ public class InputManager : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
 
-
+    bool paused = false; // Hallinnoi pelin pause-tilaa
 
     private void Awake()
     {
         animatorManager = GetComponent<AnimatorManager>();
         weapons = GetComponent<Shooting>();
         playerManager = GetComponent<PlayerManager>();
-
     }
+
     private void OnEnable()
     {
-       if (playerControls == null)
+        if (playerControls == null)
         {
             playerControls = new PlayerControls();
 
@@ -42,69 +41,82 @@ public class InputManager : MonoBehaviour
             playerControls.PlayerMovement.ShootRight.performed += i => clickValueRight = i.ReadValue<float>();
             playerControls.PlayerMovement.ShootRight.canceled += i => clickValueRight = i.ReadValue<float>();
 
-
+            // Bindataan tauotusnappiin
+            playerControls.PlayerMovement.Pause.performed += _ => TogglePause();
         }
 
         playerControls.Enable();
     }
 
-
     private void OnDisable()
     {
         playerControls.Disable();
     }
+
     public void HandleAllInputs()
     {
-        if(!playerManager.touched && !playerManager.overrun)
-        {
-            HandleMovementInput();
-            HandleMouseClicks();
-            
-        }
-        else if(playerManager.touched && !playerManager.overrun)
+        if (!playerManager.touched && !playerManager.overrun)
         {
             HandleMovementInput();
             HandleMouseClicks();
         }
-        else if(playerManager.overrun)
+        else if (playerManager.touched && !playerManager.overrun)
+        {
+            HandleMovementInput();
+            HandleMouseClicks();
+        }
+        else if (playerManager.overrun)
         {
             return;
         }
-
     }
+
     private void HandleMovementInput()
     {
         verticalInput = movementInput.y;
         horizontalInput = movementInput.x;
         moveAmount = Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
 
-
         animatorManager.UpdateAnimatorValues(0, moveAmount);
+    }
 
+    private void TogglePause()
+    {
+        GameObject pauseMenu = GameObject.FindGameObjectsWithTag("GameUI")[0].transform.GetChild(6).gameObject;
+
+        if (!paused && !playerManager.touched)
+        {
+            Debug.Log("Game Paused");
+            Time.timeScale = 0f;
+            pauseMenu.SetActive(true);
+        }
+        else if(!playerManager.touched)
+        {
+            Debug.Log("Game Unpaused");
+            Time.timeScale = 1f;
+            pauseMenu.SetActive(false);
+        }
+
+        paused = !paused; // Vaihdetaan paused-tila
     }
 
     private void HandleMouseClicks()
     {
         if (clickValueLeft == 1 && clickValueRight != 1)
         {
-
             weapons.shooting = true;
             playerManager.gunBeingUsed.usedMainAttack = true;
             weapons.HandleShooting();
-
         }
         else if (clickValueLeft != 1 && clickValueRight == 1)
         {
-
             weapons.shooting = true;
             playerManager.gunBeingUsed.usedMainAttack = false;
             weapons.HandleShooting();
-
         }
         else
         {
             weapons.shooting = false;
         }
-
     }
 }

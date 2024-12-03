@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class SetPickupUIActive : MonoBehaviour
 {
-    [SerializeField] GameObject activeShootingPickup;
-    [SerializeField] GameObject activeUtilityPickup;
+    [SerializeField] public GameObject activeShootingPickup;
+    [SerializeField] public GameObject activeUtilityPickup;
     [SerializeField] TextMeshProUGUI shootingPickupText;
     [SerializeField] TextMeshProUGUI utilityPickupText;
 

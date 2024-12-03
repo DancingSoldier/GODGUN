@@ -122,7 +122,10 @@ public class GodGunScript : MonoBehaviour
     {
        
 
-        CameraTargeting();
+        if(!player.touched)
+        {
+            CameraTargeting();
+        }
         ShootingGodGun();
         WeaponAnimationMiniGunSpin(fireRate / 15);
         
