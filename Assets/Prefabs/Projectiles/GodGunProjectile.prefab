@@ -5044,8 +5044,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1662656345407601483}
   - component: {fileID: 5868803860374128340}
-  - component: {fileID: 3870510376974078815}
   - component: {fileID: 7344478965384778616}
+  - component: {fileID: 3870510376974078815}
   - component: {fileID: 2180572063837263727}
   m_Layer: 0
   m_Name: GodGunProjectile
@@ -5091,6 +5091,19 @@ MonoBehaviour:
   damageType: 0
   hasKnockback: 0
   knockbackMultiplier: 0
+--- !u!114 &7344478965384778616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7878465407859698095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d7c063be45c890478e3a6e0e825693f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionPrefab: {fileID: 2888973218161945282, guid: 96e3dd51a3265a949af51821db78d12a, type: 3}
 --- !u!135 &3870510376974078815
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5112,19 +5125,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 4.49
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7344478965384778616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7878465407859698095}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d7c063be45c890478e3a6e0e825693f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosionPrefab: {fileID: 8961804631898717092, guid: fce737204fd79b4499226489bbf7e4d5, type: 3}
 --- !u!54 &2180572063837263727
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5147,7 +5147,7 @@ Rigidbody:
     m_Bits: 1983
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0

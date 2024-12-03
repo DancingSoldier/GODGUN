@@ -15,17 +15,17 @@ MonoBehaviour:
   pickupName: G.O.D Gun
   pickupDescription: 
   pickupTextColor: {r: 1, g: 0.9011407, b: 0, a: 1}
-  cooldown: 5
+  cooldown: 80
   duration: 25
-  pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
-  material: {fileID: 2100000, guid: e88ae903e5cac1342bfd5d95de15e014, type: 2}
+  pickupModelPrefab: {fileID: 6580096821638066456, guid: 2fd57eee273d72b43ba1b576348f370a, type: 3}
+  material: {fileID: 2100000, guid: 9a48492f1991c7b48810cf5dc20ade3f, type: 2}
   pickupEffect: {fileID: 4032706368175596631, guid: f880c8c5f18e45d4e9b86677a030046c, type: 3}
-  pickedupSoundEffect: {fileID: 0}
-  spacialSoundEffect: {fileID: 0}
-  pickedupSoundpitch: 0.5
-  pickedupSoundvolume: 0.5
-  spacialSoundpitch: 0.5
-  spacialSoundvolume: 0.5
+  pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
+  spacialSoundEffect: {fileID: 8300000, guid: 39d7e392cdb526c42976ad6ba11b45e2, type: 3}
+  pickedupSoundpitch: 0.2
+  pickedupSoundvolume: 4
+  spacialSoundpitch: 1.4
+  spacialSoundvolume: 1.2
   effectPrefab: {fileID: 3654075857279279701, guid: 36cd4b2582ca3154f86c4c8d0c4b3d76, type: 3}
   effectFloat1: 10
   effectFloat2: 10

@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cfb3306d0aaad541afb435c41b4dd2c, type: 3}
   m_Name: AAMinigun
   m_EditorClassIdentifier: 
-  damage: 15
-  projectilesPerShot: 1
+  damage: 10
+  projectilesPerShot: 2
   projectilePenetration: 1
   projectileSpeed: 80
   roundsPerMin: 600
@@ -22,7 +22,7 @@ MonoBehaviour:
   hasKnockback: 0
   projectilePrefab: {fileID: 2041344977136216008, guid: 7c8dcd71263ebf34a936b65f6c5515a4, type: 3}
   projectileShooter: {fileID: 0}
-  projectileLifetime: 2
+  projectileLifetime: 1
   projectileColor:
     serializedVersion: 2
     key0: {r: 0.8160377, g: 0.8844888, b: 1, a: 1}

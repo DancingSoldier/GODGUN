@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 15
   projectilesPerShot: 1
-  projectilePenetration: 1
-  projectileSpeed: 80
+  projectilePenetration: 2
+  projectileSpeed: 100
   roundsPerMin: 300
   damageType: 0
   spread: 2
   hasKnockback: 1
   projectilePrefab: {fileID: 797254483403182715, guid: 6cb5b7203ac303e4a99c3175bbba90fe, type: 3}
   projectileShooter: {fileID: 0}
-  projectileLifetime: 2
+  projectileLifetime: 1
   projectileColor:
     serializedVersion: 2
     key0: {r: 1, g: 0.99463505, b: 0.7311321, a: 1}

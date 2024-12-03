@@ -23,7 +23,7 @@ MonoBehaviour:
   pickedupSoundEffect: {fileID: 8300000, guid: 47598ec81690cc94cb9f52e3ed7c85d2, type: 3}
   spacialSoundEffect: {fileID: 8300000, guid: 39d7e392cdb526c42976ad6ba11b45e2, type: 3}
   pickedupSoundpitch: 0.4
-  pickedupSoundvolume: 1
+  pickedupSoundvolume: 1.5
   spacialSoundpitch: 1
   spacialSoundvolume: 1
   effectPrefab: {fileID: 8961804631898717092, guid: fce737204fd79b4499226489bbf7e4d5, type: 3}

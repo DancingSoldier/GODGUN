@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cfb3306d0aaad541afb435c41b4dd2c, type: 3}
   m_Name: AttackConfigG.O.D Gun
   m_EditorClassIdentifier: 
-  damage: 75
+  damage: 200
   projectilesPerShot: 1
   projectilePenetration: 1
-  projectileSpeed: 180
-  roundsPerMin: 60
+  projectileSpeed: 200
+  roundsPerMin: 65
   damageType: 2
   spread: 4
   hasKnockback: 0
@@ -53,5 +53,5 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  audioConfig: {fileID: 0}
+  audioConfig: {fileID: 11400000, guid: bf251afa45f1abd468e0f7b6f8f34ae7, type: 2}
   playerMovementEffect: 1

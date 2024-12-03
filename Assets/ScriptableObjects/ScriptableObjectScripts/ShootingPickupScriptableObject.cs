@@ -33,7 +33,7 @@ public class ShootingPickupScriptableObject : ScriptableObject
 
 
     [Header("Shooting Pickup Effects")]
-    public int damageBuff = 1;
+    public float damageBuff = 1;
     public float fireRateBuff = 1f;
     public float spreadChange = 1f;
     public int projectilesPerShotBuff = 1;

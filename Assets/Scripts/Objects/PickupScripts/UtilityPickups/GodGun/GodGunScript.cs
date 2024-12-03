@@ -11,6 +11,7 @@ public class GodGunScript : MonoBehaviour
     Shooting shooting;
     public GameObject gunHolder;
     public GameObject projectileSpawnPoint;
+    public AudioSource audioSource;
     public AttackScriptableObject usedConfig;
     private float fireRate; // Ampumisen perusnopeus
     private float lastShootTime = 0f;
@@ -56,7 +57,7 @@ public class GodGunScript : MonoBehaviour
         fireRate = Mathf.Max(0, fireRate);
 
         currentFireRate = 60 / Mathf.Max(1, (usedConfig.roundsPerMin + fireRate));
-        Debug.Log("FireRate: " + fireRate);
+        
         // Tarkista, onko aika ampua
         if (Time.time > currentFireRate + lastShootTime)
         {
@@ -86,11 +87,17 @@ public class GodGunScript : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player").GetComponent<PlayerManager>();
         shooting = player.GetComponent<Shooting>();
+        audioSource = gameObject.GetComponent<AudioSource>();
 
         animatableObject = gameObject.transform.GetChild(0).transform.GetChild(0);
         projectileSpawnPoint = gameObject.transform.GetChild(0).transform.GetChild(1).gameObject;
         initialPosition = animatableObject.localPosition;
         initialRotation = animatableObject.localRotation;
+        audioSource.pitch = usedConfig.audioConfig.pitch;
+        audioSource.clip = usedConfig.audioConfig.attackAudioClips[0];
+        audioSource.volume = usedConfig.audioConfig.volume;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     private void RestoreOriginalVectors()
@@ -99,27 +106,16 @@ public class GodGunScript : MonoBehaviour
         animatableObject.localRotation = initialRotation;
     }
 
-    private void WeaponAnimationMiniGunSpin(float turnSpeed, bool online)
+    private void WeaponAnimationMiniGunSpin(float turnSpeed)
     {
-
-        if (online)
-        {
-            animatableObject.Rotate(0, turnSpeed, 0);
-        }
-        else
-        {
-            RestoreOriginalVectors();
-        }
+        animatableObject.Rotate(0, turnSpeed, 0);
     }
 
 
 
     void ShootingGodGun()
     {
-        if(shooting.shooting)
-        {
-            InstantiateProjectile(usedConfig);
-        }
+        InstantiateProjectile(usedConfig);
     }
 
     private void Update()
@@ -128,7 +124,7 @@ public class GodGunScript : MonoBehaviour
 
         CameraTargeting();
         ShootingGodGun();
-        WeaponAnimationMiniGunSpin(fireRate / 15, shooting.shooting);
+        WeaponAnimationMiniGunSpin(fireRate / 15);
         
         
     }

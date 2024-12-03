@@ -17,3 +17,11 @@ MonoBehaviour:
   acceleration: 30
   destinationInterval: 0.1
   health: 100
+  soundClip: {fileID: 8300000, guid: 701f6917a6d608a499a35912c8b2ab65, type: 3}
+  soundVolume: 2
+  soundPitch: 1
+  pitchRandomization: 1
+  onSpawn: 0
+  repeatAudio: 0
+  playAlways: 1
+  chance: 10

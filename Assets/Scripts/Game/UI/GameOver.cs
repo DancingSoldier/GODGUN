@@ -29,6 +29,15 @@ public class GameOver : MonoBehaviour
 
     public void ExitToMenu()
     {
-    
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void Quit()
+    {
+        Application.Quit();
+        Debug.Log("Quitting");
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
     }
 }

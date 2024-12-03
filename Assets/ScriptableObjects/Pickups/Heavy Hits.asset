@@ -23,17 +23,17 @@ MonoBehaviour:
   pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
   spacialSoundEffect: {fileID: 8300000, guid: 97ae8b2ef285d0b4993135f30d2b922f, type: 3}
   pickedupSoundpitch: 0.5
-  pickedupSoundvolume: 0.5
+  pickedupSoundvolume: 1.5
   spacialSoundpitch: 0.5
-  spacialSoundvolume: 0.5
-  damageBuff: 2
-  fireRateBuff: 0.8
+  spacialSoundvolume: 0.4
+  damageBuff: 1.5
+  fireRateBuff: 0.7
   spreadChange: 0
   projectilesPerShotBuff: 1
-  projectileSpeedBuff: 1.2
-  projectilePenetrationBuff: 3
+  projectileSpeedBuff: 1.4
+  projectilePenetrationBuff: 0
   hasKnockback: 1
-  knockbackMultiplier: 2
+  knockbackMultiplier: 1
   damageType: 0
   color:
     serializedVersion: 2

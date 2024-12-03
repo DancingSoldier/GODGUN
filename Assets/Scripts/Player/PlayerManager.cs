@@ -29,7 +29,7 @@ public class PlayerManager : MonoBehaviour
     public float moveSpeed;
     public bool invincible;
     public bool overrun;
-
+    public bool touched;
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -38,6 +38,7 @@ public class PlayerManager : MonoBehaviour
 
         invincible = false;
         overrun = false;
+        touched = false;
         SetPlayerStats();
         gunBeingUsed = player.ChooseGun(player.chosenGun, player.availableGuns);
         gunBeingUsed.Spawn();
@@ -92,10 +93,17 @@ public class PlayerManager : MonoBehaviour
         invincible = false;
     }
 
-    public void PlayerDeath()
+    private IEnumerator LastStand()
     {
+        touched = true;
+        yield return new WaitForSeconds(2);
         Debug.Log("Overrun");
         overrun = true;
+    }
+
+    public void PlayerDeath()
+    {
+        StartCoroutine(LastStand());
     }
 
 

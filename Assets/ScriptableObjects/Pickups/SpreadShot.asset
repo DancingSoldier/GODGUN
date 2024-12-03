@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupName: Spread Shot
   pickupDescription: 
   pickupTextColor: {r: 0.16522783, g: 0.6689273, b: 0.745283, a: 1}
-  cooldown: 30
+  cooldown: 50
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: d7776814e74408246b3748857dfe9a82, type: 2}
@@ -23,17 +23,17 @@ MonoBehaviour:
   pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
   spacialSoundEffect: {fileID: 8300000, guid: 12a66056b69767049b743009b7c1c427, type: 3}
   pickedupSoundpitch: 0.5
-  pickedupSoundvolume: 0.5
+  pickedupSoundvolume: 1.5
   spacialSoundpitch: 0.5
-  spacialSoundvolume: 0.5
+  spacialSoundvolume: 0.4
   damageBuff: 1
   fireRateBuff: 1
-  spreadChange: 18
-  projectilesPerShotBuff: 6
+  spreadChange: 10
+  projectilesPerShotBuff: 4
   projectileSpeedBuff: 1
   projectilePenetrationBuff: 1
   hasKnockback: 1
-  knockbackMultiplier: 0.1
+  knockbackMultiplier: 0.5
   damageType: 0
   color:
     serializedVersion: 2

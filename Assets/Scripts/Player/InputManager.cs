@@ -55,8 +55,22 @@ public class InputManager : MonoBehaviour
     }
     public void HandleAllInputs()
     {
-        HandleMovementInput();
-        HandleMouseClicks();
+        if(!playerManager.touched && !playerManager.overrun)
+        {
+            HandleMovementInput();
+            HandleMouseClicks();
+            
+        }
+        else if(playerManager.touched && !playerManager.overrun)
+        {
+            HandleMovementInput();
+            HandleMouseClicks();
+        }
+        else if(playerManager.overrun)
+        {
+            return;
+        }
+
     }
     private void HandleMovementInput()
     {

@@ -43,7 +43,7 @@ public class Shooting : MonoBehaviour
     {
         if (activePickup != null && activePickup.pickupType == PickupType.ShootingPickup)
         {
-            knockbackMultiplier = activePickup.shootingPickup.knockbackMultiplier;
+            knockbackMultiplier = activePickup.shootingPickup.knockbackMultiplier + originalKnockbackMultiplier;
             
             return (
                 MathF.Round(usedConfig.roundsPerMin * activePickup.shootingPickup.fireRateBuff),
@@ -84,6 +84,8 @@ public class Shooting : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         AudioSource[] audioSources = GetComponentsInChildren<AudioSource>();
         shootingAudioSource = audioSources[0];
+
+        
 
 
         readyToShoot = true;

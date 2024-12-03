@@ -195,7 +195,7 @@ public class Pickup : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider player)
+    private void OnTriggerStay(Collider player)
     {
         SetPickupValues();
         if(player.CompareTag("Player"))

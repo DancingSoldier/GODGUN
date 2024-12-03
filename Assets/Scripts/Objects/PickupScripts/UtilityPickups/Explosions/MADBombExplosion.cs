@@ -6,21 +6,23 @@ using UnityEngine;
 public class MADBombExplosion : MonoBehaviour
 {
 
-    public UtilityPickupScriptableObject script;
+    
     public Vector3 targetScale = new Vector3(100f, 100f, 100f);
     
     public int damage;
     public DamageTypes damageType;
     public AnimationCurve scaleCurve;
     Vector3 position;
-
+    public float duration = 1;
     Transform explosion;
 
+
+    AudioSource audioSource;
     private IEnumerator Explosion()
     {
         Vector3 startScale = explosion.localScale;  // Alkuperäinen skaala
         float elapsedTime = 0f;                        // Aika kulunut
-        float duration = script.duration;
+        
         while (elapsedTime < duration)
         {
 
@@ -45,13 +47,14 @@ public class MADBombExplosion : MonoBehaviour
         {
 
             var enemyAI = other.gameObject.GetComponentInParent<EnemyAI>();
-            damage = Mathf.FloorToInt(script.effectFloat1);
+            damage = Mathf.FloorToInt(damage);
             enemyAI.TakeDamage(damage, damageType, false, 0, other.gameObject.transform.position);
         }
     }
 
     private void Awake()
     {
+        audioSource = GetComponent<AudioSource>();
         explosion = transform.GetComponent<Transform>();
 
         position = transform.position;
@@ -60,6 +63,7 @@ public class MADBombExplosion : MonoBehaviour
 
     private void Start()
     {
+        audioSource.PlayDelayed(.5f);
         StartCoroutine(Explosion());
     }
 

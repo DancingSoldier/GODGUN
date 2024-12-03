@@ -25,7 +25,7 @@ public class ArenaManager : MonoBehaviour
     public float elapsedTime;
     [HideInInspector]
     public float lastRecordTime;
-    [HideInInspector]
+    
     public List<GameObject> spawnPointList;
 
     [Header("Pickup Slots")]
@@ -34,21 +34,8 @@ public class ArenaManager : MonoBehaviour
     //timer check at the beginning
     bool timerSetup = false;
 
-    [Header("Centipede Spawning")]
-    public int initialCentipedeAmount;
-    public int centipedeIncrease;
+    public EnemySpawnerScriptableObject spawnManager;
 
-    [Header("Elder Ghost Spawning")]
-    public int initialElderGhostAmount;
-    public int elderGhostIncrease;
-
-    [Header("Ghost Spawning")]
-    public int initialGhostAmount;
-    public int ghostIncrease;
-
-    //tänne mitä spawnataan ja milloin
-    [Header("List of Enemies")]
-    public List<GameObject> enemyList;
 
     
     [Header("Waves")]
@@ -58,10 +45,11 @@ public class ArenaManager : MonoBehaviour
     private bool online;
     [SerializeField]
     private int difficultyIncreaseRate;
-    private GameObjectPool centipedePool;
-    private GameObjectPool ghostPool;
-    private GameObjectPool elderPool;
-
+    private GameObjectPool centipedePool0;
+    private GameObjectPool centipedePool1;
+    private GameObjectPool ghostPool0;
+    private GameObjectPool ghostPool1;
+    List<GameObjectPool> pools = new List<GameObjectPool>();
 
     //Pelaajan Spawn
 
@@ -78,55 +66,34 @@ public class ArenaManager : MonoBehaviour
     }
     void Overrun()
     {
-        Time.timeScale = 0;
-
-        if(lastRecordTime < elapsedTime)
+        gameOver.GameOverSetup(Mathf.Round(elapsedTime * 100.0f) / 100f);
+        if (lastRecordTime < elapsedTime)
         {
             NewRecordRecorded();
         }
 
-        gameOver.GameOverSetup(Mathf.Round(elapsedTime * 100.0f) / 100f);
-    }
-
-    //Vihollisten Spawnaus
-
-    private void EnemyAmounts(GameObjectPool enemyToSpawn, int enemyWave)
-    {
-
-
-        for (int i = 0; i < enemyWave; i++) 
-        {
-            enemyToSpawn.GetObject(spawnPointList[Random.Range(0, 4)].transform.position);
-        }
-    }
-    IEnumerator SpawnEnemies(bool online)
-    {
-
-        
-        while (online == true)
-        {
-            
-            if (Mathf.FloorToInt(elapsedTime) % difficultyIncreaseRate == 0 && Mathf.FloorToInt(elapsedTime) != 0)
-            {
-                IncreaseDifficulty(ref initialCentipedeAmount, centipedeIncrease);
-                IncreaseDifficulty(ref initialGhostAmount, ghostIncrease);
-                IncreaseDifficulty(ref initialElderGhostAmount, elderGhostIncrease);
-            }
-            EnemyAmounts(centipedePool, initialCentipedeAmount);
-            EnemyAmounts(ghostPool, initialGhostAmount);
-            EnemyAmounts(elderPool, initialElderGhostAmount);
-            yield return new WaitForSeconds(cooldown);
-        }
-
-    }
-
-    private void IncreaseDifficulty(ref int initialAmount, int increase)
-    {
-        // Kasvatetaan vihollisten määrää
-        initialAmount += increase;
+        StartCoroutine(SlowTimeAndStop());
 
         
     }
+
+    private IEnumerator SlowTimeAndStop()
+    {
+        float duration = 2.0f; // Hidastumisen kesto
+        float startScale = Time.timeScale;
+        float targetScale = 0f;
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.unscaledDeltaTime; // Käytä unscaledDeltaTimeä, jotta ajan hidastuminen ei vaikuta laskuriin
+            Time.timeScale = Mathf.Lerp(startScale, targetScale, elapsed / duration);
+            yield return null; // Odota seuraavaa framea
+        }
+
+        Time.timeScale = 0f; // Varmista että aika on täysin pysähtynyt
+    }
+
     //funktiot joita kutsutaan updatessa
 
     //pickuppien UI asetus ja Spawnaus
@@ -160,12 +127,12 @@ public class ArenaManager : MonoBehaviour
 
     private void HandlePlayerDeath()
     {
-        if (player.overrun)
+        if (player.touched)
         {
-
             Overrun();
         }
     }
+
 
     private void HandleTime()
     {
@@ -194,7 +161,7 @@ public class ArenaManager : MonoBehaviour
         activePickupUi = gameUI.GetComponent<SetPickupUIActive>();
 
         lastRecordTime = player.player.bestTime;
-
+        
         pickupManager.SpawnPickups(player.player.chosenPickups, pickupPositions);
 
 
@@ -204,13 +171,22 @@ public class ArenaManager : MonoBehaviour
     {
 
         //luodaan vihollisten poolit
+        spawnManager.ResetVariables();
         
-        centipedePool = new GameObjectPool(enemyList[0], 50, 100);
-        ghostPool = new GameObjectPool(enemyList[1], 50, 100);
-        elderPool = new GameObjectPool(enemyList[2], 50, 100);
+        spawnPointList = spawnManager.GetSpawnPoints();
+        if (spawnPointList.Count ==0)
+        {
+            Debug.Log("No Spawnpoints!");
+        }
+        pools = spawnManager.GenerateSpawnPools();
+        if (pools.Count == 0)
+        {
+            Debug.Log("No Pools!");
+        }
 
-        
-        StartCoroutine(SpawnEnemies(online));
+        spawnManager.UpdateEnemyAmounts(elapsedTime);
+        //StartCoroutine(spawnManager.SpawnEnemies(pools, spawnPointList));
+        StartCoroutine(spawnManager.SpawnEnemies(pools, spawnPointList));
         Time.timeScale = 1.0f;
 
 
@@ -222,13 +198,15 @@ public class ArenaManager : MonoBehaviour
         //ajanlasku
         HandleTime();
         
+        
         //Pelaajan kuolema
         HandlePlayerDeath();
 
         //Pickupin nosto
 
         HandlePickups();
-        
+
+        spawnManager.UpdateEnemyAmounts(elapsedTime);
     }
 
 }

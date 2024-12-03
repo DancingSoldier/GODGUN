@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupName: Piercing Shots
   pickupDescription: 
   pickupTextColor: {r: 0.9786186, g: 1, b: 0, a: 1}
-  cooldown: 30
+  cooldown: 40
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: e88ae903e5cac1342bfd5d95de15e014, type: 2}
@@ -23,16 +23,16 @@ MonoBehaviour:
   pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
   spacialSoundEffect: {fileID: 8300000, guid: 549a6dc77c3741c429c13eca36f5c2a8, type: 3}
   pickedupSoundpitch: 0.5
-  pickedupSoundvolume: 0.5
+  pickedupSoundvolume: 1.5
   spacialSoundpitch: 0.5
-  spacialSoundvolume: 0.5
-  damageBuff: 2
+  spacialSoundvolume: 0.4
+  damageBuff: 1.5
   fireRateBuff: 1
   spreadChange: 0.2
   projectilesPerShotBuff: 1
   projectileSpeedBuff: 2
   projectilePenetrationBuff: 50
-  hasKnockback: 1
+  hasKnockback: 0
   knockbackMultiplier: 0.5
   damageType: 0
   color:

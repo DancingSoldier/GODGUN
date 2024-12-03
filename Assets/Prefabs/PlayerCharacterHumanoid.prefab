@@ -1036,15 +1036,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 5.3913927
+      value: 3.813694
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.506281
+      value: -0.20788002
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -19.352852
+      value: 1.2201452
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1260,9 +1260,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2117514803346287245}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8407118636637652303}
   m_SourcePrefab: {fileID: 100100000, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
 --- !u!4 &342641330873468715 stripped
 Transform:
@@ -1480,7 +1477,7 @@ Rigidbody:
   m_GameObject: {fileID: 8395225125929245323}
   serializedVersion: 4
   m_Mass: 0.2
-  m_Drag: 2
+  m_Drag: 1
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
@@ -1497,7 +1494,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 112
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!136 &1002035848527632639
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1517,8 +1514,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 4.579353
+  m_Radius: 0.68
+  m_Height: 4.9
   m_Direction: 1
   m_Center: {x: 0, y: 2.5029953, z: 0}
 --- !u!114 &3706112649703270011
@@ -1586,14 +1583,6 @@ MonoBehaviour:
   - m_Rig: {fileID: 6896951534627182830}
     m_Active: 1
   m_Effectors: []
---- !u!81 &8407118636637652303
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8395225125929245323}
-  m_Enabled: 1
 --- !u!4 &8810640850930215912 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -9077829442046079950, guid: 8e5d3f744bdc7a34bb660846ee7f9e13, type: 3}
