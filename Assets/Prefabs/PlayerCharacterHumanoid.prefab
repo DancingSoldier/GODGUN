@@ -208,7 +208,7 @@ Transform:
   m_GameObject: {fileID: 1570630723236444856}
   serializedVersion: 2
   m_LocalRotation: {x: -4.984031e-10, y: 0.00000002514571, z: 0.0068048555, w: 0.99997693}
-  m_LocalPosition: {x: 0.511, y: 2.785, z: 0.234}
+  m_LocalPosition: {x: 0.566, y: 2.92, z: 0.374}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -952,10 +952,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1758169731778611938}
+  - component: {fileID: 8726037801030950871}
   - component: {fileID: 2516300166553834764}
   m_Layer: 8
   m_Name: WeaponHolding
-  m_TagString: Untagged
+  m_TagString: PlayerHoldingRig
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -968,13 +969,67 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7881401384333876310}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.09503174, y: -0.4299371, z: 0.1937837, w: 0.8766818}
-  m_LocalPosition: {x: 0.013, y: 2.732, z: 0.453}
+  m_LocalRotation: {x: -0.06831206, y: 0.0042158295, z: 0.21653944, w: 0.9738719}
+  m_LocalPosition: {x: 0.258, y: 2.916, z: 0.122}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4266439449029376940}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7.752, y: -1.236, z: 25.155}
+--- !u!114 &8726037801030950871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881401384333876310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Weight: 1
+  m_Data:
+    m_ConstrainedObject: {fileID: 1758169731778611938}
+    m_SourceObjects:
+      m_Length: 1
+      m_Item0:
+        transform: {fileID: 0}
+        weight: 1
+      m_Item1:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item2:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item3:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item4:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item5:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item6:
+        transform: {fileID: 0}
+        weight: 0
+      m_Item7:
+        transform: {fileID: 0}
+        weight: 0
+    m_Offset: {x: 0, y: 0, z: 0}
+    m_MinLimit: -100
+    m_MaxLimit: 100
+    m_AimAxis: 4
+    m_UpAxis: 2
+    m_WorldUpType: 0
+    m_WorldUpObject: {fileID: 0}
+    m_WorldUpAxis: 2
+    m_MaintainOffset: 0
+    m_ConstrainedAxes:
+      x: 0
+      y: 1
+      z: 0
 --- !u!114 &2516300166553834764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1389,7 +1444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thisRig: {fileID: 0}
-  animationChangeSpeed: 0
+  animationChangeSpeed: 200
   movementInput: {x: 0, y: 0}
   clickValueLeft: 0
   clickValueRight: 0
@@ -1417,6 +1472,7 @@ MonoBehaviour:
   moveSpeed: 0
   invincible: 0
   overrun: 0
+  touched: 0
 --- !u!114 &5567685994075206580
 MonoBehaviour:
   m_ObjectHideFlags: 0

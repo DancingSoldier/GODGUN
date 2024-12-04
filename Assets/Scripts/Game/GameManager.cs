@@ -6,6 +6,9 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
 
+    public List<GameObject> earnedPickups = new List<GameObject>();
+    public List<GameObject> chosenPickups = new List<GameObject>();
+    PlayerScriptableObject playerScriptableObject;
     private void Awake()
     {
         //luodaan singleton
@@ -19,8 +22,10 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void Overrun()
+
+    public void ChoosePickup()
     {
 
     }
+
 }

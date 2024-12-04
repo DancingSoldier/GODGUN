@@ -11,17 +11,14 @@ public class Pause : MonoBehaviour
 
     public void Continue()
     {
-        pauseScreen.SetActive(false);
-        if(Time.timeScale == 0f)
-        {
-            Time.timeScale = 1f;
-        }
+        GameObject player = GameObject.FindGameObjectsWithTag("Player")[0].gameObject;
+        player.transform.GetComponent<InputManager>().TogglePause();
     }
 
 
     private void Start()
     {
-        pauseScreen = transform.GetChild(6).gameObject;
+        pauseScreen = transform.GetChild(7).gameObject;
         pauseScreen.SetActive(false);
     }
 }

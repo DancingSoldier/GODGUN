@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupName: Heavy Hits
   pickupDescription: Kicks back Hard!
   pickupTextColor: {r: 0.3962264, g: 0.13269848, b: 0.15121986, a: 1}
-  cooldown: 30
+  cooldown: 20
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: 271c45776012afd4489b27a49047ab18, type: 2}
@@ -26,14 +26,14 @@ MonoBehaviour:
   pickedupSoundvolume: 1.5
   spacialSoundpitch: 0.5
   spacialSoundvolume: 0.4
-  damageBuff: 1.5
-  fireRateBuff: 0.7
-  spreadChange: 0
-  projectilesPerShotBuff: 1
+  damageBuff: 1
+  fireRateBuff: 0.9
+  spreadChange: 4
+  projectilesPerShotBuff: 2
   projectileSpeedBuff: 1.4
-  projectilePenetrationBuff: 0
+  projectilePenetrationBuff: 2
   hasKnockback: 1
-  knockbackMultiplier: 1
+  knockbackMultiplier: 1.5
   damageType: 0
   color:
     serializedVersion: 2

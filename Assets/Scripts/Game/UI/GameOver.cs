@@ -12,7 +12,7 @@ public class GameOver : MonoBehaviour
 
     private void Start()
     {
-        gameOverScreen = transform.GetChild(3).gameObject;
+        gameOverScreen = transform.GetChild(4).gameObject;
 
     }
     public void GameOverSetup(float elapsedTime)

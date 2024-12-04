@@ -21,9 +21,9 @@ MonoBehaviour:
     increaseCooldown: 20
     spawnListAddTime: 0
     spawnCooldown: 40
-    currentAmount: 6
-    lastIncreaseTime: 60.010036
-    lastSpawnTime: 40.002575
+    currentAmount: 12
+    lastIncreaseTime: 120.016426
+    lastSpawnTime: 120.01199
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 5675684089280056180, guid: dfaab173ab8917e4190ecba71b9b9929, type: 3}
@@ -32,9 +32,9 @@ MonoBehaviour:
     increaseCooldown: 20
     spawnListAddTime: 0
     spawnCooldown: 20
-    currentAmount: 50
-    lastIncreaseTime: 60.010036
-    lastSpawnTime: 60.010036
+    currentAmount: 80
+    lastIncreaseTime: 120.016426
+    lastSpawnTime: 120.016426
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 2948208927644960171, guid: 2d33ca366b2d97e41a9e86aedc25eaa5, type: 3}
@@ -43,9 +43,9 @@ MonoBehaviour:
     increaseCooldown: 30
     spawnListAddTime: 0
     spawnCooldown: 20
-    currentAmount: 10
-    lastIncreaseTime: 60.010036
-    lastSpawnTime: 60.010036
+    currentAmount: 20
+    lastIncreaseTime: 120.016426
+    lastSpawnTime: 120.016426
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 265630621879026613, guid: 7822f0cdf7d697244b15d1c9a18a62fd, type: 3}
@@ -54,9 +54,9 @@ MonoBehaviour:
     increaseCooldown: 60
     spawnListAddTime: 100
     spawnCooldown: 60
-    currentAmount: 0
-    lastIncreaseTime: 0
-    lastSpawnTime: 0
+    currentAmount: 1
+    lastIncreaseTime: 100.0022
+    lastSpawnTime: 100.0022
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   spawnList:
@@ -66,9 +66,9 @@ MonoBehaviour:
     increaseCooldown: 20
     spawnListAddTime: 0
     spawnCooldown: 40
-    currentAmount: 6
-    lastIncreaseTime: 60.010036
-    lastSpawnTime: 40.002575
+    currentAmount: 12
+    lastIncreaseTime: 120.016426
+    lastSpawnTime: 120.01199
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 5675684089280056180, guid: dfaab173ab8917e4190ecba71b9b9929, type: 3}
@@ -77,9 +77,9 @@ MonoBehaviour:
     increaseCooldown: 20
     spawnListAddTime: 0
     spawnCooldown: 20
-    currentAmount: 50
-    lastIncreaseTime: 60.010036
-    lastSpawnTime: 60.010036
+    currentAmount: 80
+    lastIncreaseTime: 120.016426
+    lastSpawnTime: 120.016426
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 2948208927644960171, guid: 2d33ca366b2d97e41a9e86aedc25eaa5, type: 3}
@@ -88,8 +88,19 @@ MonoBehaviour:
     increaseCooldown: 30
     spawnListAddTime: 0
     spawnCooldown: 20
-    currentAmount: 10
-    lastIncreaseTime: 60.010036
-    lastSpawnTime: 60.010036
+    currentAmount: 20
+    lastIncreaseTime: 120.016426
+    lastSpawnTime: 120.016426
+    onSpawnCooldown: 1
+    onIncreaseCooldown: 0
+  - enemyPrefab: {fileID: 265630621879026613, guid: 7822f0cdf7d697244b15d1c9a18a62fd, type: 3}
+    initialAmount: 0
+    amountIncrease: 1
+    increaseCooldown: 60
+    spawnListAddTime: 100
+    spawnCooldown: 60
+    currentAmount: 1
+    lastIncreaseTime: 100.0022
+    lastSpawnTime: 100.0022
     onSpawnCooldown: 1
     onIncreaseCooldown: 0

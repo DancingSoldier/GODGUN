@@ -19,7 +19,7 @@ public class PlayerLocomotion : MonoBehaviour
     public GameObject cursorTarget;
     Rigidbody playerRigidbody;
 
-
+    MultiAimConstraint holdingAimConstraint;
     MultiAimConstraint gunAimConstraint;
     MultiAimConstraint headAimConstraint;
     MultiAimConstraint bodyAimConstraint;
@@ -56,6 +56,10 @@ public class PlayerLocomotion : MonoBehaviour
         {
             SetWeightedTransform(bodyAimConstraint, cursorTarget.transform);
         }
+        if (holdingAimConstraint != null)
+        {
+            SetWeightedTransform(holdingAimConstraint, cursorTarget.transform);
+        }
 
         rigs.Build();
     }
@@ -75,10 +79,10 @@ public class PlayerLocomotion : MonoBehaviour
         gunAimConstraint = GameObject.FindWithTag("PlayerGunRig").GetComponent<MultiAimConstraint>();
         headAimConstraint = GameObject.FindWithTag("PlayerHeadRig").GetComponent<MultiAimConstraint>();
         bodyAimConstraint = GameObject.FindWithTag("PlayerBodyRig").GetComponent<MultiAimConstraint>();
-
+        holdingAimConstraint = GameObject.FindWithTag("PlayerHoldingRig").GetComponent<MultiAimConstraint>();
         rigs = GetComponent<RigBuilder>();
 
-        if (gunAimConstraint == null || headAimConstraint == null || bodyAimConstraint == null)
+        if (gunAimConstraint == null || headAimConstraint == null || bodyAimConstraint == null || holdingAimConstraint == null)
         {
             Debug.LogError("Tarkista MultiAimConstraintit.");
         }

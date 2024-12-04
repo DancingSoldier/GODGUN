@@ -64,15 +64,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6698113, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.5686275, g: 0.10980393, b: 0.050980397, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 32c235f280684c244ab7ad7730df2a7b, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: ddd8c6863ab4c6d4d85088b0041ed6e5, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_ChildAlignment: 4
   m_StartCorner: 0
   m_StartAxis: 1
-  m_CellSize: {x: 120, y: 30}
+  m_CellSize: {x: 140, y: 30}
   m_Spacing: {x: 0, y: 10}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -202,6 +202,10 @@ PrefabInstance:
       value: 'Restart
 
 '
+      objectReference: {fileID: 0}
+    - target: {fileID: 5382450460171391354, guid: d6197a1367d22db469d0749050369e33, type: 3}
+      propertyPath: m_fontSize
+      value: 16.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -306,8 +310,8 @@ PrefabInstance:
       value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5382450460171391354, guid: d6197a1367d22db469d0749050369e33, type: 3}
-      propertyPath: m_text
-      value: Continue
+      propertyPath: m_fontSize
+      value: 16.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -417,6 +421,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 5382450460171391354, guid: d6197a1367d22db469d0749050369e33, type: 3}
+      propertyPath: m_fontSize
+      value: 16.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -525,6 +533,10 @@ PrefabInstance:
 
 '
       objectReference: {fileID: 0}
+    - target: {fileID: 5382450460171391354, guid: d6197a1367d22db469d0749050369e33, type: 3}
+      propertyPath: m_fontSize
+      value: 16.2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -628,8 +640,8 @@ PrefabInstance:
       value: Button
       objectReference: {fileID: 0}
     - target: {fileID: 5382450460171391354, guid: d6197a1367d22db469d0749050369e33, type: 3}
-      propertyPath: m_text
-      value: Settings
+      propertyPath: m_fontSize
+      value: 16.2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

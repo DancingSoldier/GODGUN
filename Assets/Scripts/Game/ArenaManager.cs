@@ -176,7 +176,7 @@ public class ArenaManager : MonoBehaviour
 
         lastRecordTime = player.player.bestTime;
         
-        pickupManager.SpawnPickups(player.player.chosenPickups, pickupPositions);
+        pickupManager.SpawnPickups(GameManager.manager.chosenPickups, pickupPositions);
 
 
 

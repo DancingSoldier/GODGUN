@@ -123,6 +123,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   duration: 0.5
+  impactEffectEnemy: {fileID: 378307337032262533, guid: 5bcb30d730f2dfd43b2db6982d97ab28, type: 3}
+  impactEffectObelisk: {fileID: 6057517796409563900, guid: c044ed6d947de36439951d164cee9fa8, type: 3}
 --- !u!135 &8546074120701491955
 SphereCollider:
   m_ObjectHideFlags: 0

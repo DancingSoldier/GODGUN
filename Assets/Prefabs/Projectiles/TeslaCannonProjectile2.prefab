@@ -4889,7 +4889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f94e7fd10a707604a99d9bc3dd9e01e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitPrefab: {fileID: 1725776896026827194, guid: 7e3e5a66d51be9944ae194fba78dab28, type: 3}
+  hitPrefab: {fileID: 378307337032262533, guid: 5bcb30d730f2dfd43b2db6982d97ab28, type: 3}
+  obeliskHitPrefab: {fileID: 6057517796409563900, guid: c044ed6d947de36439951d164cee9fa8, type: 3}
   projectileSpeed: 40
   projectileLifeTime: 1
   damage: 1

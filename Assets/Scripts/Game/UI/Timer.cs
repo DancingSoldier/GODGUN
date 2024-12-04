@@ -12,8 +12,8 @@ public class Timer : MonoBehaviour
     
     private void Start()
     {
-        timerText = transform.GetChild(0).transform.GetComponent<TextMeshProUGUI>();
-        lastPersonalBest = transform.GetChild(1).transform.GetComponent<TextMeshProUGUI>();
+        timerText = transform.GetChild(1).transform.GetComponent<TextMeshProUGUI>();
+        lastPersonalBest = transform.GetChild(2).transform.GetComponent<TextMeshProUGUI>();
         //testinä hardcode Personal Best;
         
 

@@ -7,6 +7,7 @@ public class ProjectileMove : MonoBehaviour
 {
 
     public GameObject hitPrefab;
+    public GameObject obeliskHitPrefab;
     public float projectileSpeed = 10;
     public float projectileLifeTime = 1;
     public int damage, penetration;
@@ -26,9 +27,9 @@ public class ProjectileMove : MonoBehaviour
         }
     }
 
-    private void PenetrationCount()
+    private void PenetrationCount(int amount)
     {
-        passedThroughTriggers++;
+        passedThroughTriggers += amount;
 
     }
 
@@ -47,14 +48,25 @@ public class ProjectileMove : MonoBehaviour
         {
 
             GameObject impactEffect = Instantiate(hitPrefab, transform.position, Quaternion.identity);
-            Destroy(impactEffect, 2f);
-            PenetrationCount();
+            Destroy(impactEffect, 1f);
+            PenetrationCount(1);
             var enemyAI = collider.gameObject.GetComponentInParent<EnemyAI>();
             Vector3 projectileVector = transform.forward;
             if (enemyAI != null)
             {
                 enemyAI.TakeDamage(damage, damageType, hasKnockback, knockbackMultiplier, projectileVector);
             }
+            if (passedThroughTriggers >= penetration)
+            {
+                Destroyed();
+            }
+        }
+        if(collider.CompareTag("Obelisk") && passedThroughTriggers < 3)
+        {
+            GameObject impactEffect = Instantiate(obeliskHitPrefab, transform.position, Quaternion.identity);
+            Destroy(impactEffect, 1f);
+            PenetrationCount(2);
+            Debug.Log("Hit Obelisk");
             if (passedThroughTriggers >= penetration)
             {
                 Destroyed();

@@ -42,8 +42,8 @@ public class SetPickupUIActive : MonoBehaviour
     }
     private void Start()
     {
-        activeShootingPickup = transform.GetChild(4).gameObject;
-        activeUtilityPickup = transform.GetChild(5).gameObject;
+        activeShootingPickup = transform.GetChild(5).gameObject;
+        activeUtilityPickup = transform.GetChild(6).gameObject;
 
         shootingPickupText = activeShootingPickup.GetComponentInChildren<TextMeshProUGUI>();
         utilityPickupText = activeUtilityPickup.GetComponentInChildren<TextMeshProUGUI>();

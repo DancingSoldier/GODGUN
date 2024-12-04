@@ -26,8 +26,8 @@ MonoBehaviour:
   pickedupSoundvolume: 1.5
   spacialSoundpitch: 0.5
   spacialSoundvolume: 0.4
-  damageBuff: 1.5
-  fireRateBuff: 1
+  damageBuff: 1
+  fireRateBuff: 1.2
   spreadChange: 0.2
   projectilesPerShotBuff: 1
   projectileSpeedBuff: 2

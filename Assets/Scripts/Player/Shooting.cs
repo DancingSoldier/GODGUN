@@ -96,7 +96,7 @@ public class Shooting : MonoBehaviour
     {
 
 
-        if (animatorManager.thisRig.weight >= 0.99f)            //est‰‰ asetta ampumasta maahan hiirt‰ painaessa
+        if (animatorManager.thisRig.weight >= 0.3f)            //est‰‰ asetta ampumasta maahan hiirt‰ painaessa
         {
             usedLeftAttack = gunInUse.usedMainAttack;
             if (readyToShoot && shooting && usedLeftAttack)

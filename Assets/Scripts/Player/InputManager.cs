@@ -80,9 +80,9 @@ public class InputManager : MonoBehaviour
         animatorManager.UpdateAnimatorValues(0, moveAmount);
     }
 
-    private void TogglePause()
+    public void TogglePause()
     {
-        GameObject pauseMenu = GameObject.FindGameObjectsWithTag("GameUI")[0].transform.GetChild(6).gameObject;
+        GameObject pauseMenu = GameObject.FindGameObjectsWithTag("GameUI")[0].transform.GetChild(7).gameObject;
 
         if (!paused && !playerManager.touched)
         {
@@ -102,13 +102,13 @@ public class InputManager : MonoBehaviour
 
     private void HandleMouseClicks()
     {
-        if (clickValueLeft == 1 && clickValueRight != 1)
+        if (clickValueLeft == 1 && clickValueRight != 1 && !paused)
         {
             weapons.shooting = true;
             playerManager.gunBeingUsed.usedMainAttack = true;
             weapons.HandleShooting();
         }
-        else if (clickValueLeft != 1 && clickValueRight == 1)
+        else if (clickValueLeft != 1 && clickValueRight == 1 && !paused)
         {
             weapons.shooting = true;
             playerManager.gunBeingUsed.usedMainAttack = false;

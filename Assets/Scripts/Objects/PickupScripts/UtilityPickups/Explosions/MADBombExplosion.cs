@@ -15,7 +15,8 @@ public class MADBombExplosion : MonoBehaviour
     Vector3 position;
     public float duration = 1;
     Transform explosion;
-
+    public GameObject impactEffectEnemy;
+    public GameObject impactEffectObelisk;
 
     AudioSource audioSource;
     private IEnumerator Explosion()
@@ -45,10 +46,18 @@ public class MADBombExplosion : MonoBehaviour
     {
         if(other.CompareTag("Enemy"))
         {
+            GameObject impactEffect = Instantiate(impactEffectEnemy, other.transform.position, Quaternion.identity);
 
             var enemyAI = other.gameObject.GetComponentInParent<EnemyAI>();
             damage = Mathf.FloorToInt(damage);
             enemyAI.TakeDamage(damage, damageType, false, 0, other.gameObject.transform.position);
+            Destroy(impactEffect, 2f);
+        }
+        if (other.CompareTag("Obelisk"))
+        {
+            GameObject impactEffect = Instantiate(impactEffectObelisk, other.transform.position, Quaternion.identity);
+
+            Destroy(impactEffect, 2f);
         }
     }
 
