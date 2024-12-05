@@ -13,7 +13,7 @@ public class ShootingPickupScriptableObject : ScriptableObject
     public string pickupName;
     public string pickupDescription;
     public Color pickupTextColor = Color.white;
-
+    public int killsRequired;
 
     [Header("Time Floats")]
     public float cooldown = 30f;

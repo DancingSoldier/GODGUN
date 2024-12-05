@@ -8,11 +8,12 @@ public class UtilityPickupScriptableObject : ScriptableObject
     [Header("Pickup Properties")]
     public string pickupName;
     public string pickupDescription;
-    public Color pickupTextColor;
+    public Color pickupTextColor = Color.white;
+    public int killsRequired;
 
     [Header("Time Floats")]
-    public float cooldown;
-    public float duration;
+    public float cooldown = 30f;
+    public float duration = 10f;
 
     [Header("Pickup Audio Visuals")]
     public GameObject pickupModelPrefab;

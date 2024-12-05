@@ -132,10 +132,11 @@ public class ArenaManager : MonoBehaviour
 
         }
         //lopetetaan pickuppien tarkistaminen kun kaikki on pawnattu
-        if (elapsedTime < 300)
+        if (elapsedTime < 280)
         {
             //PickupActivation();
             pickupManager.ActivatePickup(elapsedTime);
+            pickupManager.ActivateGodGun(elapsedTime);
         }
     }
 
@@ -162,6 +163,7 @@ public class ArenaManager : MonoBehaviour
     }
 
 
+    
 
     private void Awake()
     {
@@ -175,9 +177,8 @@ public class ArenaManager : MonoBehaviour
         activePickupUi = gameUI.GetComponent<SetPickupUIActive>();
 
         lastRecordTime = player.player.bestTime;
-        
         pickupManager.SpawnPickups(GameManager.manager.chosenPickups, pickupPositions);
-
+        pickupManager.SetGodGun();
 
 
     }

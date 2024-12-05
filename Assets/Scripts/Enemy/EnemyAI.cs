@@ -18,7 +18,7 @@ public class EnemyAI : MonoBehaviour
     Material origMaterial;
     NavMeshAgent enemy;
 
-
+    bool killGained = false;
 
     public void TakeDamage(int damage, DamageTypes damageType, bool hasKnockback, float knockbackMultiplier, Vector3 projectileVector)
     {
@@ -34,8 +34,14 @@ public class EnemyAI : MonoBehaviour
         //Debug.Log(gameObject.name + " Taken Damage " + damage);
         if (currentHealth <= 0)
         {
-            Destroyed();
+            if(!killGained)
+            {
+                killGained = true;
+                GameManager.manager.IncreaseKills();
+                Destroyed();
+            }
 
+            
         }
     }
 

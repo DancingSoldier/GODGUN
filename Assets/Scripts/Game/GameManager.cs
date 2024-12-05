@@ -8,7 +8,11 @@ public class GameManager : MonoBehaviour
 
     public List<GameObject> earnedPickups = new List<GameObject>();
     public List<GameObject> chosenPickups = new List<GameObject>();
+    public List<int> pickupSpawnTimes = new List<int>();
     PlayerScriptableObject playerScriptableObject;
+
+    public int playerKillsTotal = 0;
+    public bool godGunGained = false;
     private void Awake()
     {
         //luodaan singleton
@@ -22,10 +26,18 @@ public class GameManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
-    public void ChoosePickup()
+    public void Save(int kills)
     {
+        playerKillsTotal = kills;
+    }
 
+    public void IncreaseKills()
+    {
+        playerKillsTotal += 1;
+    }
+    private void Start()
+    {
+        Save(250);
     }
 
 }

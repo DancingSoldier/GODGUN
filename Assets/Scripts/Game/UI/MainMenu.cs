@@ -11,8 +11,12 @@ public class MainMenu : MonoBehaviour
 
     public void Play()
     {
-        SceneManager.LoadScene("Combat");
+        SceneManager.LoadScene("Loadout");
 
+    }
+    public void Combat()
+    {
+        SceneManager.LoadScene("Combat");
     }
     public void Quit()
     {
@@ -24,7 +28,15 @@ public class MainMenu : MonoBehaviour
 #endif
 
     }
+    public void ConfirmLoadout()
+    {
+        SceneManager.LoadScene("Combat");
+    }
 
+    public void BackToMainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
     // Start is called before the first frame update
     void Start()
     {

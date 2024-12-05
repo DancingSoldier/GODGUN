@@ -15,6 +15,7 @@ MonoBehaviour:
   pickupName: M.A.D Bomb
   pickupDescription: Boom!
   pickupTextColor: {r: 0.9811321, g: 0.6381694, b: 0.19900322, a: 1}
+  killsRequired: 800
   cooldown: 60
   duration: 5
   pickupModelPrefab: {fileID: 8609801350961030187, guid: 32aee57366d1d4e4f804b4176984ca77, type: 3}

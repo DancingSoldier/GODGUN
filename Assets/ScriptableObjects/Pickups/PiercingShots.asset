@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: PiercingShots
   m_EditorClassIdentifier: 
   pickupName: Piercing Shots
-  pickupDescription: 
+  pickupDescription: Pierces everything
   pickupTextColor: {r: 0.9786186, g: 1, b: 0, a: 1}
+  killsRequired: 400
   cooldown: 40
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}

@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 708017912}
   m_Layer: 0
   m_Name: UtilityPickupSlot
-  m_TagString: Untagged
+  m_TagString: GodGunPosition
   m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2523,7 +2523,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupPositions: []
   spawnedPickups: []
-  positionSpawnTimes: 010000000100000001000000010000000100000001000000
+  positionSpawnTimes: 0100000001000000010000000100000001000000
+  godgunPos: {fileID: 708017912}
+  godGunPrefab: {fileID: 5042605157653727788, guid: 87f6973c14e02274882248f86a35ef5b, type: 3}
 --- !u!1001 &1588795511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3204,6 +3206,7 @@ GameObject:
   - component: {fileID: 1775229391}
   - component: {fileID: 1775229392}
   - component: {fileID: 1775229393}
+  - component: {fileID: 1775229394}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: GameUI
@@ -3361,6 +3364,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseScreen: {fileID: 0}
+--- !u!114 &1775229394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1775229384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1ab8bda93dfbc745bc3154ceb3a268f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1777902136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3988261960685482275, guid: bc664d72d331bcf4b824b27daccb395d, type: 3}

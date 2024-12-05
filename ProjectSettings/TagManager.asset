@@ -16,6 +16,11 @@ TagManager:
   - GODGUN
   - PlayerHoldingRig
   - Obelisk
+  - ShootingIcon
+  - SelectionManager
+  - PickupIndicator
+  - Info
+  - GodGunPosition
   layers:
   - Default
   - TransparentFX
@@ -28,7 +33,7 @@ TagManager:
   - Player
   - Pickup
   - ProjectileForceField
-  - 
+  - PickupToggles
   - 
   - 
   - 

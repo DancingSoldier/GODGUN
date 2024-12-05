@@ -10,53 +10,53 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0c84cdd8bd04f12478626ac69c6e7efa, type: 3}
-  m_Name: Heavy Hits
+  m_Name: Upgraded Fast Fire
   m_EditorClassIdentifier: 
-  pickupName: Heavy Hits
-  pickupDescription: Packs a real punch!
-  pickupTextColor: {r: 0.8490566, g: 0.35644355, b: 0.39320576, a: 1}
-  killsRequired: 75
-  cooldown: 20
-  duration: 10
+  pickupName: Upgraded Fast Fire
+  pickupDescription: Kills Faster.
+  pickupTextColor: {r: 0.9339623, g: 0.40219596, b: 0.15419187, a: 1}
+  killsRequired: 1000
+  cooldown: 80
+  duration: 15
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
-  material: {fileID: 2100000, guid: 271c45776012afd4489b27a49047ab18, type: 2}
-  pickupEffect: {fileID: 4138426286751005871, guid: 954584617f73f774bb3080d1f29543cd, type: 3}
+  material: {fileID: 2100000, guid: ff5c38c59fc32074cab87050a4972ff8, type: 2}
+  pickupEffect: {fileID: 7217470295840364289, guid: a50dc41bbb4a94b4bb8e99dee6ef3193, type: 3}
   pickedupSoundEffect: {fileID: 8300000, guid: 6da9f9fbb5283264b95ecdd2dcf1039a, type: 3}
-  spacialSoundEffect: {fileID: 8300000, guid: 97ae8b2ef285d0b4993135f30d2b922f, type: 3}
+  spacialSoundEffect: {fileID: 8300000, guid: 12a66056b69767049b743009b7c1c427, type: 3}
   pickedupSoundpitch: 0.5
   pickedupSoundvolume: 1.5
   spacialSoundpitch: 0.5
   spacialSoundvolume: 0.4
   damageBuff: 1
-  fireRateBuff: 0.9
-  spreadChange: 4
-  projectilesPerShotBuff: 2
-  projectileSpeedBuff: 1.4
-  projectilePenetrationBuff: 2
+  fireRateBuff: 2.5
+  spreadChange: 1.2
+  projectilesPerShotBuff: 1
+  projectileSpeedBuff: 1.2
+  projectilePenetrationBuff: 0
   hasKnockback: 1
-  knockbackMultiplier: 1.5
+  knockbackMultiplier: 0.5
   damageType: 0
   color:
     serializedVersion: 2
-    key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 0.554735, g: 0.4236383, b: 0.754717, a: 1}
-    key2: {r: 0, g: 0, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
+    key0: {r: 0.9150943, g: 0.5395603, b: 0.5395603, a: 1}
+    key1: {r: 0.026032407, g: 0.06117009, b: 0.4245283, a: 1}
+    key2: {r: 1, g: 0.029075116, b: 0, a: 0}
+    key3: {r: 0.4528302, g: 0, b: 0.008868092, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 17926
-    ctime2: 0
-    ctime3: 0
+    ctime1: 2699
+    ctime2: 5975
+    ctime3: 65535
     ctime4: 0
     ctime5: 0
     ctime6: 0
     ctime7: 0
     atime0: 0
-    atime1: 65535
-    atime2: 0
+    atime1: 3277
+    atime2: 49922
     atime3: 0
     atime4: 0
     atime5: 0
@@ -64,5 +64,5 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 2
-    m_NumAlphaKeys: 2
+    m_NumColorKeys: 4
+    m_NumAlphaKeys: 3

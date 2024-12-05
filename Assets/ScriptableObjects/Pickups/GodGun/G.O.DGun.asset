@@ -13,8 +13,9 @@ MonoBehaviour:
   m_Name: G.O.DGun
   m_EditorClassIdentifier: 
   pickupName: G.O.D Gun
-  pickupDescription: 
+  pickupDescription: Congratulations on surviving this long!
   pickupTextColor: {r: 1, g: 0.9011407, b: 0, a: 1}
+  killsRequired: 0
   cooldown: 80
   duration: 25
   pickupModelPrefab: {fileID: 6580096821638066456, guid: 2fd57eee273d72b43ba1b576348f370a, type: 3}
