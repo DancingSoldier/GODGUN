@@ -22,7 +22,7 @@ public class SelectionScreen : MonoBehaviour
         foreach (GameObject icon in shootingIcons)
         {
             Debug.Log("Found icon: " + icon.name);
-            ShootingPickupHolder script = icon.GetComponent<ShootingPickupHolder>();
+            PickupHolder script = icon.GetComponent<PickupHolder>();
             if (script != null)
             {
                 if (kills >= script.killsRequired)
@@ -101,6 +101,7 @@ public class SelectionScreen : MonoBehaviour
     private void Start()
     {
         SetIcons(GameManager.manager.playerKillsTotal);
+        GameManager.manager.chosenPickups.Clear();
         //FindIndicators();
     }
 }

@@ -129,7 +129,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 741545630245659866}
-        m_TargetAssemblyTypeName: ShootingPickupHolder, Assembly-CSharp
+        m_TargetAssemblyTypeName: PickupHolder, Assembly-CSharp
         m_MethodName: SendMessage
         m_Mode: 0
         m_Arguments:
@@ -150,17 +150,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 1618162530224198245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e22f2e691ba1024aba9abe39afabf62, type: 3}
+  m_Script: {fileID: 11500000, guid: ad83897c52c8b9342a8517a3f2bb7c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup: {fileID: 3687774558697405629, guid: 1e425621ae2ff9746ad348f091264174, type: 3}
+  pickup: {fileID: 0}
   pickupSO: {fileID: 0}
   pickupUO: {fileID: 0}
   pickupName: 
   desc: 
   cooldown: 
   duration: 
-  color: {r: 1, g: 1, b: 1, a: 0}
+  color: {r: 0, g: 0, b: 0, a: 0}
   killsRequired: 0
   pickupIcon: {fileID: 0}
   nameText: {fileID: 0}

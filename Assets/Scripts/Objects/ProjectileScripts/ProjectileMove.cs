@@ -29,7 +29,7 @@ public class ProjectileMove : MonoBehaviour
 
     private void PenetrationCount(int amount)
     {
-        passedThroughTriggers += amount;
+        passedThroughTriggers  = passedThroughTriggers + amount;
 
     }
 
@@ -56,23 +56,15 @@ public class ProjectileMove : MonoBehaviour
             {
                 enemyAI.TakeDamage(damage, damageType, hasKnockback, knockbackMultiplier, projectileVector);
             }
-            if (passedThroughTriggers >= penetration)
-            {
-                Destroyed();
-            }
         }
-        if(collider.CompareTag("Obelisk") && passedThroughTriggers < 3)
+        if(collider.CompareTag("Obelisk"))
         {
             GameObject impactEffect = Instantiate(obeliskHitPrefab, transform.position, Quaternion.identity);
             Destroy(impactEffect, 1f);
-            PenetrationCount(2);
+            PenetrationCount(10);
             Debug.Log("Hit Obelisk");
-            if (passedThroughTriggers >= penetration)
-            {
-                Destroyed();
-            }
         }
-        else
+        if (passedThroughTriggers >= penetration)
         {
             Destroyed();
         }

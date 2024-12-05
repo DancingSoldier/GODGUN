@@ -6,7 +6,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class ShootingPickupHolder : MonoBehaviour
+public class PickupHolder : MonoBehaviour
 {
     public GameObject pickup;
     public ShootingPickupScriptableObject pickupSO;
@@ -159,15 +159,15 @@ public class ShootingPickupHolder : MonoBehaviour
             cb.normalColor = Color.red;
             cb.selectedColor = Color.red;
             cb.highlightedColor = cb.normalColor;
-            Debug.Log("Color is now Black");
+            
             
         }
-        else
+        else if(!isOn && selectionManager.chosenPickups.Count <= 5)
         {
             cb.normalColor = Color.black;
             cb.selectedColor = Color.black;
             cb.highlightedColor = cb.normalColor;
-            Debug.Log("Color is now White");
+            
         }
         toggle.colors = cb;
     }

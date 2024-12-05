@@ -37,7 +37,7 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        Save(250);
+        Save(1000);
     }
 
 }

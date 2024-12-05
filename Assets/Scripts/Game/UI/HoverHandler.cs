@@ -16,7 +16,7 @@ public class HoverHandler : MonoBehaviour, IPointerEnterHandler
     // Kutsutaan, kun hiiri menee elementin p‰‰lle
     public void OnPointerEnter(PointerEventData eventData)
     {
-        ShootingPickupHolder script = gameObject.GetComponent<ShootingPickupHolder>();
+        PickupHolder script = gameObject.GetComponent<PickupHolder>();
         int layerMask = LayerMask.NameToLayer("PickupToggles"); 
 
         if (script != null && gameObject.layer == layerMask)  // Vertailu oikeaan layeriin

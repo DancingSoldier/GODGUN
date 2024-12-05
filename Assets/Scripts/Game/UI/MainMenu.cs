@@ -42,6 +42,7 @@ public class MainMenu : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
+        GameManager.manager.chosenPickups.Clear();
     }
 
     // Update is called once per frame
