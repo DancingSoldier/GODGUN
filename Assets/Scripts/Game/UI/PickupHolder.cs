@@ -149,7 +149,7 @@ public class PickupHolder : MonoBehaviour
             
             
         }
-        //selectionManager.UpdatePickupSlotColors();
+        
     }
     private void OnToggleValueChanged(bool isOn)
     {

@@ -15,6 +15,9 @@ public class ProjectileMove : MonoBehaviour
     private int passedThroughTriggers = 0;
     public bool hasKnockback;
     public float knockbackMultiplier;
+
+    private HashSet<GameObject> hitObjects = new HashSet<GameObject>();
+
     public void MoveProjectile()
     {
         if (projectileSpeed != 0)
@@ -44,26 +47,42 @@ public class ProjectileMove : MonoBehaviour
 
     private void OnTriggerEnter(Collider collider)
     {
+        GameObject hitObject = collider.gameObject;
+
+        if (hitObjects.Contains(hitObject))
+        {
+            // Jos kohde on jo osuttu, ei tehd‰ mit‰‰n
+            return;
+        }
+
         if (collider.CompareTag("Enemy"))
         {
-
             GameObject impactEffect = Instantiate(hitPrefab, transform.position, Quaternion.identity);
             Destroy(impactEffect, 1f);
-            PenetrationCount(1);
-            var enemyAI = collider.gameObject.GetComponentInParent<EnemyAI>();
+
+            var enemyAI = hitObject.GetComponentInParent<EnemyAI>();
             Vector3 projectileVector = transform.forward;
+
             if (enemyAI != null)
             {
+                PenetrationCount(1);
                 enemyAI.TakeDamage(damage, damageType, hasKnockback, knockbackMultiplier, projectileVector);
             }
         }
-        if(collider.CompareTag("Obelisk"))
+
+        if (collider.CompareTag("Obelisk"))
         {
             GameObject impactEffect = Instantiate(obeliskHitPrefab, transform.position, Quaternion.identity);
             Destroy(impactEffect, 1f);
+
             PenetrationCount(10);
-            Debug.Log("Hit Obelisk");
+           
         }
+
+        // Lis‰‰ kohde osuttujen joukkoon
+        hitObjects.Add(hitObject);
+
+        // Tuhoa luoti, jos sen l‰p‰isyraja on saavutettu
         if (passedThroughTriggers >= penetration)
         {
             Destroyed();

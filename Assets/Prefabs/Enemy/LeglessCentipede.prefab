@@ -1205,7 +1205,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 6028656337610022745}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 1
   m_Speed: 30
   m_Acceleration: 20
   avoidancePriority: 50
@@ -1236,7 +1236,7 @@ AudioSource:
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 145
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 150
@@ -1274,7 +1274,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0.9
       inSlope: 0
       outSlope: 0
       tangentMode: 0

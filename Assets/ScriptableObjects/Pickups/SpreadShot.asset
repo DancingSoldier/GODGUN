@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupName: Spread Shot
   pickupDescription: A Storm of Projectiles
   pickupTextColor: {r: 0.16522783, g: 0.6689273, b: 0.745283, a: 1}
-  killsRequired: 150
+  killsRequired: 300
   cooldown: 50
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
@@ -30,7 +30,7 @@ MonoBehaviour:
   damageBuff: 1.5
   fireRateBuff: 1
   spreadChange: 8
-  projectilesPerShotBuff: 3
+  projectilesPerShotBuff: 4
   projectileSpeedBuff: 0.7
   projectilePenetrationBuff: 1
   hasKnockback: 1

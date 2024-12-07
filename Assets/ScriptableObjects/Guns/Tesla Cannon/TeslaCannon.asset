@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainAttackConfig: {fileID: 11400000, guid: 17a30d4603d580844b75578c6d216343, type: 2}
   altAttackConfig: {fileID: 11400000, guid: e05a0918d2302d140b315c18cf28b7d0, type: 2}
+  mainAttackAudio: {fileID: 11400000, guid: 825c7af5afe26374eb9fee76a23cbf83, type: 2}
+  altAttackAudio: {fileID: 11400000, guid: 10659257e44e9c7408e133d96e379e86, type: 2}
   usedMainAttack: 1
   gunModelPrefab: {fileID: 6145739047866781701, guid: 1aa04c1026a429c40a715b1fbb2c9902, type: 3}
   type: 1

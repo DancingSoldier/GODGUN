@@ -30,6 +30,8 @@ public class PlayerManager : MonoBehaviour
     public bool invincible;
     public bool overrun;
     public bool touched;
+
+    public bool pickupTaken = true;
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();
@@ -52,33 +54,40 @@ public class PlayerManager : MonoBehaviour
         moveSpeed = player.moveSpeed;
     }
 
+
     public IEnumerator ActivateShootingPickup()
     {
-
-        
         weapons.pickupInUse = activeShootingPickup;
         Debug.Log("Buff Gained: " + activeShootingPickup.pickupName);
 
-
         // Buffin vaikutuksen kesto
         yield return new WaitForSeconds(activeShootingPickup.pickupDuration);
+
+        // Nollaa tila vaikutuksen p‰‰ttyess‰
+        pickupTaken = false;
+        Debug.Log("pickupTaken reset: " + pickupTaken);
 
         // Palauta alkuper‰iset arvot
         Debug.Log("Buff Ending");
         weapons.pickupInUse = null;
         activeShootingPickup = null;
-        
     }
+
 
     public IEnumerator ActivateUtilityPickup()
     {
-        
         ApplyUtilityPickup();
+        Debug.Log("Utility pickup activated.");
 
         yield return new WaitForSeconds(activeUtilityPickup.pickupDuration);
 
+        // Nollaa tila vaikutuksen p‰‰ttyess‰
+        pickupTaken = false;
+        Debug.Log("pickupTaken reset: " + pickupTaken);
+
         activeUtilityPickup = null;
     }
+
     private void ApplyUtilityPickup()
     {
         GameObject utilityObject = Instantiate(activeUtilityPickup.utilityPickup.effectPrefab, transform.position, Quaternion.identity);

@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupName: Upgraded Fast Fire
   pickupDescription: Kills Faster.
   pickupTextColor: {r: 0.9339623, g: 0.40219596, b: 0.15419187, a: 1}
-  killsRequired: 1000
+  killsRequired: 3000
   cooldown: 80
   duration: 15
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
@@ -30,7 +30,7 @@ MonoBehaviour:
   damageBuff: 1
   fireRateBuff: 2.5
   spreadChange: 1.2
-  projectilesPerShotBuff: 1
+  projectilesPerShotBuff: 0
   projectileSpeedBuff: 1.2
   projectilePenetrationBuff: 0
   hasKnockback: 1

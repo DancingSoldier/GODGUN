@@ -18,7 +18,7 @@ public class GunScriptableObject : ScriptableObject
     Transform gunParent;
     private GameObject model;
 
-
+    
     public Transform projectileSpawnPoint;
     public void Spawn()
     {

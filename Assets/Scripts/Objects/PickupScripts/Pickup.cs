@@ -58,7 +58,7 @@ public class Pickup : MonoBehaviour
         
         PickupSpawn();
         pickupTrigger = GetComponentInChildren<CapsuleCollider>();
-        pickupTrigger.radius = 2.5f;
+        pickupTrigger.radius = 4.47f;
         if(instantiatedModel.GetComponent<SkinnedMeshRenderer>() != null)
         {
             modelRenderer = instantiatedModel.GetComponent<SkinnedMeshRenderer>();
@@ -217,6 +217,8 @@ public class Pickup : MonoBehaviour
             }
         }
     }
+
+
 
     void Update()
     {

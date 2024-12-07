@@ -1,18 +1,36 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager manager;
 
-    public List<GameObject> earnedPickups = new List<GameObject>();
-    public List<GameObject> chosenPickups = new List<GameObject>();
-    public List<int> pickupSpawnTimes = new List<int>();
-    PlayerScriptableObject playerScriptableObject;
-
+    public float initialRecord = 49.99f;
+    [HideInInspector]
     public int playerKillsTotal = 0;
+    [HideInInspector]
     public bool godGunGained = false;
+    public Guns chosenGun;
+    public EnemySpawnerScriptableObject enemySpawner;
+    public UtilityPickupScriptableObject godGun;
+    public PlayerScriptableObject player;
+    public List<GameObject> chosenPickups = new List<GameObject>();
+    
+    [Header("Game PickupSettings")]
+    public List<int> pickupSpawnTimes = new List<int>();
+    public float godGunSpawnTime = 200;
+    public float godGunSecondSpawnTime = 69;
+    public float godGunCooldown;
+    public float recordTime = 0;
+    [Header("Spawner")]
+    public float waveFrequency;
+    public bool spawnerOnline;
+
+
+
     private void Awake()
     {
         //luodaan singleton
@@ -25,8 +43,19 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
     }
-    public void Save(int kills)
+
+
+
+    public IEnumerator ClearText(int seconds, TextMeshProUGUI text)
+    {
+        yield return new WaitForSeconds(seconds);
+        text.text = "";
+    }
+
+
+    public void UpdateKills(int kills)
     {
         playerKillsTotal = kills;
     }
@@ -35,9 +64,82 @@ public class GameManager : MonoBehaviour
     {
         playerKillsTotal += 1;
     }
+    public void UpdateRecord(float time)
+    {
+        if(time > recordTime)
+        {
+            recordTime = time;
+        }
+
+        if(recordTime > 200)
+        {
+            godGunGained = true;
+        }
+    }
+
+
+    public void SaveData()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void ChangeWeapon(Guns gun)
+    {
+        chosenGun = gun;
+        player.chosenGun = chosenGun;
+    }
+    
+    public string LoadData()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+        string godGunStatus;
+        if(data != null)
+        {
+            playerKillsTotal = data.playerKillsTotal;
+            godGunGained = data.godGunGained;
+            recordTime = data.recordTime;
+            if(godGunGained)
+            {
+                godGunStatus = "Gained";
+            }
+            else
+            {
+                godGunStatus = "Not Gained";
+            }
+            Debug.Log($"Player Stats\n Kills:{playerKillsTotal} Record: {recordTime} GodGunGained: {godGunGained}");
+            string message = $"Save Data Loaded\n Player Stats\n Kills:{playerKillsTotal}\n Record: {recordTime}\n GodGun {godGunStatus} ";
+            return message;
+        }
+        return "No Save Data Found. Create a Save";
+    }
+    public void ResetData()
+    {
+        SaveSystem.ResetPlayer();
+        
+        Debug.Log($"Player Stats Reset!\n Kills:{playerKillsTotal} Record: {recordTime} GodGunGained: {godGunGained}");
+    }
+    public float LastRecord()
+    {
+        return recordTime;
+    }
     private void Start()
     {
-        Save(1000);
+        if(recordTime <= initialRecord)
+        {
+            recordTime = initialRecord;
+        }
+        godGun.cooldown = godGunCooldown;
+        enemySpawner.cooldown = waveFrequency;
+        enemySpawner.online = spawnerOnline;
+        
     }
+
+}
+[Serializable]
+public class PlayerData
+{
+    public int playerKillsTotal;
+    public bool godGunGained;
+    public float recordTime;
 
 }

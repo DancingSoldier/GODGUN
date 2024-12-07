@@ -8,7 +8,8 @@ using UnityEngine.UI;
 
 public class SelectionScreen : MonoBehaviour
 {
-    
+    public Canvas PickupLoadoutCanvas;
+    public Canvas WeaponSelectionCanvas;
     public int playerKills;
     
     public List<GameObject> shootingIcons = new List<GameObject>();
@@ -39,31 +40,7 @@ public class SelectionScreen : MonoBehaviour
         }
     }
 
-    public void UpdatePickupSlotColors()
-    {
-        if(chosenPickups.Count != null)
-        {
-            for (int i = 0; i < chosenPickups.Count; i++)
-            {
-                Color shootNodeColor = chosenPickups[i].GetComponent<Pickup>().shootingPickup.pickupTextColor;
-                Color utiliNodeColor = chosenPickups[i].GetComponent<Pickup>().utilityPickup.pickupTextColor;
-                if (shootNodeColor != null)
-                {
-                    Debug.Log("shoot");
-                }
-                else if (utiliNodeColor != null)
-                {
-                    Debug.Log("utility");
-                }
-                else
-                {
-                    Debug.Log("none");
-                }
-            }
-        }
 
-
-    }
 
     
     void ConfirmPickupSelection()
@@ -75,11 +52,17 @@ public class SelectionScreen : MonoBehaviour
         
     }
 
+    public void ReturnToLoadout()
+    {
+        PickupLoadoutCanvas.enabled = true;
+        WeaponSelectionCanvas.enabled = false;
+    }
 
-    public void Combat()
+    public void ConfirmPickups()
     {
         ConfirmPickupSelection();
-        SceneManager.LoadScene("Combat");
+        PickupLoadoutCanvas.enabled = false;
+        WeaponSelectionCanvas.enabled = true;
     }
     public void Quit()
     {
@@ -102,6 +85,8 @@ public class SelectionScreen : MonoBehaviour
     {
         SetIcons(GameManager.manager.playerKillsTotal);
         GameManager.manager.chosenPickups.Clear();
-        //FindIndicators();
+        PickupLoadoutCanvas.enabled = true;
+        WeaponSelectionCanvas.enabled = false;
+        
     }
 }

@@ -14,7 +14,8 @@ public class PickupManager : MonoBehaviour
     GameObject godGun;
     public void SpawnPickups(List<GameObject> chosenPickups, List<Transform> pickupPositions)
     {
-
+        positionSpawnTimes.Clear();
+        positionSpawnTimes.AddRange(GameManager.manager.pickupSpawnTimes);
         if (chosenPickups != null && chosenPickups.Count > 0 && GameManager.manager.chosenPickups != null)
         {
             
@@ -24,22 +25,72 @@ public class PickupManager : MonoBehaviour
                 {
                     
                     GameObject pickup = Instantiate(chosenPickups[i]);
-                    
+                    float pickupCooldown = 0;
+                    Color pickupColor = Color.white;
                     pickup.transform.position = pickupPositions[i].transform.position;
                     spawnedPickups.Add(pickup);
+                    if(GetShootingPickupScript(pickup) != null)
+                    {
+                        ShootingPickupScriptableObject script = GetShootingPickupScript(pickup);
+                        pickupCooldown = script.cooldown;
+                        pickupColor = script.pickupTextColor;
+                    }
+                    else if(GetUtilityPickupScript(pickup) != null)
+                    {
+                        UtilityPickupScriptableObject script = GetUtilityPickupScript(pickup);
+                        pickupCooldown = script.cooldown;
+                        pickupColor = script.pickupTextColor;
+                    }
+                    PickupTimer timer = pickupPositions[i].GetComponent<PickupTimer>();
+                    if(timer != null)
+                    {
+                        timer.cooldown = pickupCooldown;
+                        timer.spawnTime = positionSpawnTimes[i];
+                        timer.color = pickupColor;
+                        Debug.Log($"Cooldown: {pickupCooldown}, {positionSpawnTimes[i]}");
+                    }
+                    
                     pickup.SetActive(false);
                 }
             }
+
+
         }
         else
         {
             Debug.LogWarning("No chosen pickups available or chosenPickups is null!");
         }
 
-        positionSpawnTimes = GameManager.manager.pickupSpawnTimes;
 
     }
 
+
+    ShootingPickupScriptableObject GetShootingPickupScript(GameObject pickup)
+    {
+        if (pickup.GetComponent<Pickup>().shootingPickup != null)
+        {
+            ShootingPickupScriptableObject script = pickup.GetComponent<Pickup>().shootingPickup;
+            return script;
+        }
+        else
+        {
+            Debug.LogError("No script found");
+            return null;
+        }
+    }
+    UtilityPickupScriptableObject GetUtilityPickupScript(GameObject pickup)
+    {
+        if (pickup.GetComponent<Pickup>().utilityPickup != null)
+        {
+            UtilityPickupScriptableObject script = pickup.GetComponent<Pickup>().utilityPickup;
+            return script;
+        }
+        else
+        {
+            Debug.LogError("No script found");
+            return null;
+        }
+    }
     public void ActivatePickup(float elapsedTime)
     {
         for (int i = 0; i < spawnedPickups.Count; i++)
@@ -47,6 +98,7 @@ public class PickupManager : MonoBehaviour
             
             if (elapsedTime >= positionSpawnTimes[i])
             {
+                
                 spawnedPickups[i].SetActive(true);
 
             }
@@ -55,13 +107,13 @@ public class PickupManager : MonoBehaviour
 
     public void ActivateGodGun(float elapsedTime)
     {
-        if (elapsedTime >= 200 && !GameManager.manager.godGunGained)
+        if (elapsedTime >= GameManager.manager.godGunSpawnTime && !GameManager.manager.godGunGained)
         {
             godGun.SetActive(true);
             GameManager.manager.godGunGained = true;
 
         }
-        if(elapsedTime >= 69 && GameManager.manager.godGunGained)
+        if(elapsedTime >= GameManager.manager.godGunSecondSpawnTime && GameManager.manager.godGunGained)
         {
             godGun.SetActive(true);
         }

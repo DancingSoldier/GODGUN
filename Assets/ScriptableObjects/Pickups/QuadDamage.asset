@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupName: Quad Damage
   pickupDescription: Fast Kills.
   pickupTextColor: {r: 0.5660378, g: 0, b: 0.56054217, a: 1}
-  killsRequired: 500
+  killsRequired: 1600
   cooldown: 80
   duration: 20
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
@@ -29,11 +29,11 @@ MonoBehaviour:
   spacialSoundvolume: 0.4
   damageBuff: 4
   fireRateBuff: 1.2
-  spreadChange: 3
-  projectilesPerShotBuff: 1
+  spreadChange: 1
+  projectilesPerShotBuff: 0
   projectileSpeedBuff: 1.2
   projectilePenetrationBuff: 0
-  hasKnockback: 0
+  hasKnockback: 1
   knockbackMultiplier: 0.2
   damageType: 2
   color:

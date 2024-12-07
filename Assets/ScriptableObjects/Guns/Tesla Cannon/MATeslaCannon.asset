@@ -12,16 +12,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cfb3306d0aaad541afb435c41b4dd2c, type: 3}
   m_Name: MATeslaCannon
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 7
   projectilesPerShot: 1
-  projectilePenetration: 6
-  projectileSpeed: 55
-  roundsPerMin: 100
+  projectilePenetration: 2
+  projectileSpeed: 70
+  roundsPerMin: 200
   damageType: 1
-  spread: 0.6
+  spread: 6
   hasKnockback: 1
   projectilePrefab: {fileID: 3937464618939665349, guid: 9917fef4bd3a2e645899b3ac42dc6d92, type: 3}
-  projectileLifetime: 5
+  projectileShooter: {fileID: 0}
+  projectileLifetime: 2
   projectileColor:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
@@ -52,4 +53,5 @@ MonoBehaviour:
     m_ColorSpace: -1
     m_NumColorKeys: 3
     m_NumAlphaKeys: 3
-  playerMovementEffect: 0.9
+  audioConfig: {fileID: 11400000, guid: 825c7af5afe26374eb9fee76a23cbf83, type: 2}
+  playerMovementEffect: 0.8

@@ -15,7 +15,7 @@ MonoBehaviour:
   pickupName: Piercing Shots
   pickupDescription: Pierces everything
   pickupTextColor: {r: 0.9786186, g: 1, b: 0, a: 1}
-  killsRequired: 400
+  killsRequired: 1200
   cooldown: 40
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
@@ -30,7 +30,7 @@ MonoBehaviour:
   damageBuff: 1
   fireRateBuff: 1.2
   spreadChange: 0.2
-  projectilesPerShotBuff: 1
+  projectilesPerShotBuff: 0
   projectileSpeedBuff: 2
   projectilePenetrationBuff: 50
   hasKnockback: 0

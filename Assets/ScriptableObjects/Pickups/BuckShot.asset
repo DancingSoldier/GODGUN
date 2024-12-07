@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c84cdd8bd04f12478626ac69c6e7efa, type: 3}
+  m_Name: BuckShot
+  m_EditorClassIdentifier: 
+  pickupName: Buckshot
+  pickupDescription: Extremely Potent, though at the cost of low duration and firerate
+  pickupTextColor: {r: 0.16579843, g: 1, b: 0, a: 1}
+  killsRequired: 200
+  cooldown: 20
+  duration: 5
+  pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
+  material: {fileID: 2100000, guid: 2f4be8ac35576404ea0368637b26ea83, type: 2}
+  pickupEffect: {fileID: 7740365309751377096, guid: 9f48e8895c284e44b9eb4bffaf3ed54f, type: 3}
+  pickedupSoundEffect: {fileID: 8300000, guid: a2140781533657948a2e9b7da14dc7bb, type: 3}
+  spacialSoundEffect: {fileID: 8300000, guid: 97ae8b2ef285d0b4993135f30d2b922f, type: 3}
+  pickedupSoundpitch: 0.2
+  pickedupSoundvolume: 1
+  spacialSoundpitch: 0.5
+  spacialSoundvolume: 0.5
+  damageBuff: 2
+  fireRateBuff: 0.35
+  spreadChange: 6
+  projectilesPerShotBuff: 15
+  projectileSpeedBuff: 1.5
+  projectilePenetrationBuff: 3
+  hasKnockback: 1
+  knockbackMultiplier: 0.5
+  damageType: 0
+  color:
+    serializedVersion: 2
+    key0: {r: 0.16470589, g: 1, b: 0, a: 1}
+    key1: {r: 0.5377358, g: 0, b: 0, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 39321
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 37586
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 3

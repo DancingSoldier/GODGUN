@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupName: Heavy Hits
   pickupDescription: Packs a real punch!
-  pickupTextColor: {r: 0.8490566, g: 0.35644355, b: 0.39320576, a: 1}
-  killsRequired: 75
+  pickupTextColor: {r: 0.16470589, g: 0.2392157, b: 0.4901961, a: 1}
+  killsRequired: 100
   cooldown: 20
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
@@ -27,14 +27,14 @@ MonoBehaviour:
   pickedupSoundvolume: 1.5
   spacialSoundpitch: 0.5
   spacialSoundvolume: 0.4
-  damageBuff: 1
-  fireRateBuff: 0.9
-  spreadChange: 4
-  projectilesPerShotBuff: 2
+  damageBuff: 1.5
+  fireRateBuff: 0.85
+  spreadChange: 2
+  projectilesPerShotBuff: 0
   projectileSpeedBuff: 1.4
   projectilePenetrationBuff: 2
   hasKnockback: 1
-  knockbackMultiplier: 1.5
+  knockbackMultiplier: 1
   damageType: 0
   color:
     serializedVersion: 2

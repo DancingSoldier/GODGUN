@@ -24,4 +24,4 @@ MonoBehaviour:
   onSpawn: 0
   repeatAudio: 0
   playAlways: 0
-  chance: 20
+  chance: 100

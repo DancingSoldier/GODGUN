@@ -8,15 +8,21 @@ using TMPro.Examples;
 
 public class MainMenu : MonoBehaviour
 {
+    public TextMeshProUGUI infoText;
+    public GameObject deletePopup;
+    public GameObject animationObject;
+    Animator animator;
 
-    public void Play()
-    {
-        SceneManager.LoadScene("Loadout");
-
-    }
     public void Combat()
     {
         SceneManager.LoadScene("Combat");
+    }
+
+
+    public void ConfirmDeletion()
+    {
+        GameManager.manager.ResetData();
+        SceneManager.LoadScene("MainMenu");
     }
     public void Quit()
     {
@@ -28,26 +34,34 @@ public class MainMenu : MonoBehaviour
 #endif
 
     }
-    public void ConfirmLoadout()
+
+    public void ClearData()
     {
-        SceneManager.LoadScene("Combat");
+        deletePopup.SetActive(true);
     }
 
-    public void BackToMainMenu()
+    public void CancelDeletion()
     {
-        SceneManager.LoadScene("MainMenu");
+        deletePopup.SetActive(false);
     }
-    // Start is called before the first frame update
+
+    private IEnumerator ClearText(int seconds, TextMeshProUGUI text)
+    {
+        yield return new WaitForSeconds(seconds);
+        text.text = "";
+    }
     void Start()
     {
+        infoText.text = GameManager.manager.LoadData();
+        StartCoroutine(GameManager.manager.ClearText(5,infoText));
+        GameManager.manager.chosenPickups.Clear();
+        animator = animationObject.GetComponent<Animator>();
+        animator.Play("mainMenuBombAnimation");
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
-        GameManager.manager.chosenPickups.Clear();
+        deletePopup.SetActive(false);
+        Time.timeScale = 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 }

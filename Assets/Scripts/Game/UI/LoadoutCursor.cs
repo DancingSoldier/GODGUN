@@ -20,7 +20,7 @@ public class LoadoutCursor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.visible = false;
+        Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
         manager = GameObject.FindGameObjectWithTag("SelectionManager").GetComponent<SelectionScreen>();
     }

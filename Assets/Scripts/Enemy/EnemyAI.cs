@@ -19,7 +19,7 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent enemy;
 
     bool killGained = false;
-
+  
     public void TakeDamage(int damage, DamageTypes damageType, bool hasKnockback, float knockbackMultiplier, Vector3 projectileVector)
     {
 
@@ -31,7 +31,7 @@ public class EnemyAI : MonoBehaviour
             rb.AddForce(projectileVector * forceMagnitude, ForceMode.Impulse);
         }
 
-        //Debug.Log(gameObject.name + " Taken Damage " + damage);
+        
         if (currentHealth <= 0)
         {
             if(!killGained)

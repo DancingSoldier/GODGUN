@@ -12,32 +12,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cfb3306d0aaad541afb435c41b4dd2c, type: 3}
   m_Name: AATeslaCannon
   m_EditorClassIdentifier: 
-  damage: 15
+  damage: 150
   projectilesPerShot: 1
-  projectilePenetration: 20
+  projectilePenetration: 1
   projectileSpeed: 130
-  roundsPerMin: 60
+  roundsPerMin: 90
   damageType: 1
   spread: 0.3
   hasKnockback: 0
   projectilePrefab: {fileID: 3937464618939665349, guid: 11362177c6a9e6c4eb57f507375dfb0f, type: 3}
+  projectileShooter: {fileID: 0}
   projectileLifetime: 3
   projectileColor:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
-    key1: {r: 1, g: 0.93780255, b: 0.36320752, a: 1}
-    key2: {r: 0.8867924, g: 0.017388087, b: 0, a: 0}
-    key3: {r: 0.08027767, g: 0.20905331, b: 0.41509432, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0.023584902, g: 0.72511184, b: 1, a: 1}
+    key2: {r: 0.6886792, g: 0, b: 0.24253215, a: 0}
+    key3: {r: 0, g: 0.67700386, b: 1, a: 0}
+    key4: {r: 0.4339623, g: 0.0757387, b: 0.105250284, a: 0}
+    key5: {r: 0.4339623, g: 0.0757387, b: 0.10525029, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 6361
     ctime2: 13493
-    ctime3: 28913
-    ctime4: 0
-    ctime5: 0
+    ctime3: 22937
+    ctime4: 56861
+    ctime5: 65535
     ctime6: 0
     ctime7: 0
     atime0: 0
@@ -50,6 +51,7 @@ MonoBehaviour:
     atime7: 0
     m_Mode: 0
     m_ColorSpace: -1
-    m_NumColorKeys: 4
+    m_NumColorKeys: 6
     m_NumAlphaKeys: 3
-  playerMovementEffect: 0.8
+  audioConfig: {fileID: 11400000, guid: 10659257e44e9c7408e133d96e379e86, type: 2}
+  playerMovementEffect: 0.2

@@ -25,7 +25,8 @@ public class ArenaManager : MonoBehaviour
     public float elapsedTime;
     [HideInInspector]
     public float lastRecordTime;
-    
+    [HideInInspector]
+    public static ArenaManager manager;
     public List<GameObject> spawnPointList;
 
     [Header("Pickup Slots")]
@@ -36,8 +37,9 @@ public class ArenaManager : MonoBehaviour
 
     public EnemySpawnerScriptableObject spawnManager;
 
+    //Check if Saved
+    bool saved = false;
 
-    
     [Header("Waves")]
     [SerializeField]
     private float cooldown;
@@ -73,7 +75,8 @@ public class ArenaManager : MonoBehaviour
     //Pelaajan kuolema
     void NewRecordRecorded()
     {
-        player.player.bestTime = Mathf.Round(elapsedTime *100.0f) / 100f;
+        GameManager.manager.UpdateRecord(Mathf.Round(elapsedTime * 100.0f) / 100f);
+        
     }
     void Overrun()
     {
@@ -81,13 +84,11 @@ public class ArenaManager : MonoBehaviour
         activePickupUi.activeShootingPickup.SetActive(false);
         activePickupUi.activeUtilityPickup.SetActive(false);
         HidePlayerModel();
+        StartCoroutine(SlowTimeAndStop());
         if (lastRecordTime < elapsedTime)
         {
             NewRecordRecorded();
         }
-
-        StartCoroutine(SlowTimeAndStop());
-
         
     }
 
@@ -106,6 +107,13 @@ public class ArenaManager : MonoBehaviour
         }
 
         Time.timeScale = 0f; // Varmista että aika on täysin pysähtynyt
+
+        if (!saved)
+        {
+            GameManager.manager.SaveData();
+            saved = true;
+        }
+
     }
 
     //funktiot joita kutsutaan updatessa
@@ -142,9 +150,10 @@ public class ArenaManager : MonoBehaviour
 
     private void HandlePlayerDeath()
     {
+        
         if (player.touched)
         {
-            Overrun();
+            Overrun();       
         }
     }
 
@@ -175,16 +184,16 @@ public class ArenaManager : MonoBehaviour
         gameOver = gameUI.GetComponent<GameOver>();
         pickupManager = transform.GetComponent<PickupManager>();
         activePickupUi = gameUI.GetComponent<SetPickupUIActive>();
+        manager = this;
 
-        lastRecordTime = player.player.bestTime;
-        pickupManager.SpawnPickups(GameManager.manager.chosenPickups, pickupPositions);
-        pickupManager.SetGodGun();
 
 
     }
     private void Start()
     {
-
+        lastRecordTime = GameManager.manager.LastRecord();
+        pickupManager.SpawnPickups(GameManager.manager.chosenPickups, pickupPositions);
+        pickupManager.SetGodGun();
         //luodaan vihollisten poolit
         spawnManager.ResetVariables();
         
@@ -203,7 +212,7 @@ public class ArenaManager : MonoBehaviour
         //StartCoroutine(spawnManager.SpawnEnemies(pools, spawnPointList));
         StartCoroutine(spawnManager.SpawnEnemies(pools, spawnPointList));
         Time.timeScale = 1.0f;
-
+        Cursor.visible = true;
 
     }
 

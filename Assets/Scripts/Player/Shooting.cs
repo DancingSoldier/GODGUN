@@ -47,7 +47,7 @@ public class Shooting : MonoBehaviour
             
             return (
                 MathF.Round(usedConfig.roundsPerMin * activePickup.shootingPickup.fireRateBuff),
-                usedConfig.projectilesPerShot * activePickup.shootingPickup.projectilesPerShotBuff,
+                usedConfig.projectilesPerShot + activePickup.shootingPickup.projectilesPerShotBuff,
                 (int)MathF.Floor(usedConfig.damage * activePickup.shootingPickup.damageBuff),
                 MathF.Round(usedConfig.projectileSpeed * activePickup.shootingPickup.projectileSpeedBuff),
                 usedConfig.spread * activePickup.shootingPickup.spreadChange,
