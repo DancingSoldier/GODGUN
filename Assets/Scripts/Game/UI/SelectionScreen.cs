@@ -40,8 +40,12 @@ public class SelectionScreen : MonoBehaviour
         }
     }
 
-
-
+    //odottaa framen est‰‰kseen bugin buildiss‰
+    private IEnumerator InitializeIcons()
+    {
+        yield return null;
+        SetIcons(GameManager.manager.playerKillsTotal);
+    }
     
     void ConfirmPickupSelection()
     {
@@ -83,7 +87,7 @@ public class SelectionScreen : MonoBehaviour
 
     private void Start()
     {
-        SetIcons(GameManager.manager.playerKillsTotal);
+        StartCoroutine(InitializeIcons());
         GameManager.manager.chosenPickups.Clear();
         PickupLoadoutCanvas.enabled = true;
         WeaponSelectionCanvas.enabled = false;

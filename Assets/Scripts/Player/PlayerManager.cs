@@ -31,7 +31,7 @@ public class PlayerManager : MonoBehaviour
     public bool overrun;
     public bool touched;
 
-    public bool pickupTaken = true;
+    public bool pickupTaken = false;
     private void Awake()
     {
         inputManager = GetComponent<InputManager>();

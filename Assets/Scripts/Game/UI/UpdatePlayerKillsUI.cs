@@ -20,7 +20,7 @@ public class UpdatePlayerKillsUI : MonoBehaviour
         if(GameManager.manager.playerKillsTotal != currentKills)
         {
             int currentKills = GameManager.manager.playerKillsTotal;
-            killsText.text = currentKills.ToString();
+            killsText.text = $"Kills: {currentKills.ToString()}";
         }
 
     }

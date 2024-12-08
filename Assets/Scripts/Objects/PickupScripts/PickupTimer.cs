@@ -27,26 +27,24 @@ public class PickupTimer : MonoBehaviour
 private void HandlePickup(Collider other)
 {
     PlayerManager player = other.GetComponent<PlayerManager>();
-        Debug.Log(player.pickupTaken);
+        
     if (player != null && !player.pickupTaken) // Tarkista, että pelaaja voi ottaa pickupin
     {
-        player.pickupTaken = true; // Päivitä tila heti
+       
         
 
         if (!firstTimeTaken)
         {
+
             firstTimeTaken = true;
             taken = true;
-            
+                timer = cooldown;
+                StartCoroutine(ActivateCollider(cooldown)); // Deaktivoi collider
+                Debug.Log($"FirstTimeTaken: {firstTimeTaken}, Taken: {taken} Player Taken: {player.pickupTaken}");
         }
-        else if (!taken)
-        {
-            taken = true; // Estä uudelleenaktivointi
-            timer = cooldown; // Aloita cooldown
-            StartCoroutine(ActivateCollider(cooldown)); // Deaktivoi collider
-            
+
+            player.pickupTaken = true; // Päivitä tila heti
         }
-    }
 }
 
 
@@ -98,33 +96,22 @@ private void HandlePickup(Collider other)
 
         text.color = color;
         timer = cooldown;
-        StartCoroutine(ActivateCollider(spawnTime));
+       
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spawnTime > 0 && !firstTimeTaken)
+        if (spawnTime > 0)
         {
             // Ensimmäisen kerran spawn-timer
             spawnTime -= Time.deltaTime;
             text.text = Mathf.Ceil(spawnTime).ToString();
         }
-        else if (timer > 0 && taken && firstTimeTaken)
-        {
-            // Cooldown-timer, kun pickup on otettu
-            timer -= Time.deltaTime;
-            text.text = Mathf.Ceil(timer).ToString();
-        }
         else
         {
             text.text = "";
-            if (taken) // Resetoi timer seuraavaa käyttökertaa varten
-            {
-                timer = cooldown;
-                taken = false;
-            }
 
         }
     }

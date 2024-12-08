@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,9 +23,8 @@ public class SetPickupUIActive : MonoBehaviour
         pickupText.color = textColor;
         pickupText.text = name;
         uiActive = true;
-
-
     }
+
     void UpdateDurationText(float duration)
     {
         // Muuta aika sekunneista muotoon mm:ss tai ss

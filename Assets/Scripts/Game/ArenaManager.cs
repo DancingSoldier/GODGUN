@@ -27,6 +27,8 @@ public class ArenaManager : MonoBehaviour
     public float lastRecordTime;
     [HideInInspector]
     public static ArenaManager manager;
+    [HideInInspector]
+    PickupTimerIcons timerIcons;
     public List<GameObject> spawnPointList;
 
     [Header("Pickup Slots")]
@@ -128,6 +130,8 @@ public class ArenaManager : MonoBehaviour
                     player.activeShootingPickup.pickupName,
                     player.activeShootingPickup.pickupTextColor
             ));
+            timerIcons.OnPickupTaken(player.activeShootingPickup.pickupName, player.activeShootingPickup);
+            Debug.Log(player.activeShootingPickup.pickupName);
         }
         if (player.activeUtilityPickup != null && !activePickupUi.utilityUIActive)
         {
@@ -184,6 +188,7 @@ public class ArenaManager : MonoBehaviour
         gameOver = gameUI.GetComponent<GameOver>();
         pickupManager = transform.GetComponent<PickupManager>();
         activePickupUi = gameUI.GetComponent<SetPickupUIActive>();
+        timerIcons = gameUI.GetComponent<PickupTimerIcons>();
         manager = this;
 
 
