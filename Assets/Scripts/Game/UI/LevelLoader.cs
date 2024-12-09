@@ -9,11 +9,11 @@ using System;
 public class LevelLoader : MonoBehaviour
 {
     public LevelLoader levelLoader;
-
+    
 
 
     public Animator animator;
-    public float transitionTime = 2;
+    public float transitionTime = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,13 +33,8 @@ public class LevelLoader : MonoBehaviour
         Debug.Log("Playing Transition End");
         animator.SetTrigger("End");
     }
-    public IEnumerator TransitionOut()
-    {
-        animator.SetTrigger("End");
-        Debug.Log("Playing Transition");
-        yield return new WaitForSeconds(2f);
-        animator.SetTrigger("Start");
-    }
+
+
 
     public void LoadScene(string sceneName)
     {

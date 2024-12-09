@@ -16,7 +16,7 @@ MonoBehaviour:
   pickupDescription: Kills Faster.
   pickupTextColor: {r: 0.9339623, g: 0.40219596, b: 0.15419187, a: 1}
   killsRequired: 3000
-  cooldown: 80
+  cooldown: 60
   duration: 15
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: ff5c38c59fc32074cab87050a4972ff8, type: 2}

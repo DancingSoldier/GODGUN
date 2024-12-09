@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: Heavy Hits
   m_EditorClassIdentifier: 
   pickupName: Heavy Hits
-  pickupDescription: Packs a real punch!
+  pickupDescription: Gives your bullets a bit more punch!
   pickupTextColor: {r: 0.16470589, g: 0.2392157, b: 0.4901961, a: 1}
   killsRequired: 100
-  cooldown: 20
+  cooldown: 25
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: 271c45776012afd4489b27a49047ab18, type: 2}
@@ -28,13 +28,13 @@ MonoBehaviour:
   spacialSoundpitch: 0.5
   spacialSoundvolume: 0.4
   damageBuff: 1.5
-  fireRateBuff: 0.85
-  spreadChange: 2
+  fireRateBuff: 0.9
+  spreadChange: 1
   projectilesPerShotBuff: 0
-  projectileSpeedBuff: 1.4
+  projectileSpeedBuff: 1.2
   projectilePenetrationBuff: 2
   hasKnockback: 1
-  knockbackMultiplier: 1
+  knockbackMultiplier: 0.5
   damageType: 0
   color:
     serializedVersion: 2

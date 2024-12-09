@@ -15,6 +15,10 @@ public class SelectionScreen : MonoBehaviour
     public List<GameObject> shootingIcons = new List<GameObject>();
     public List<GameObject> chosenPickups = new List<GameObject>();
     public List<Image> pickupSlots = new List<Image>();
+
+    public GameObject popup1;
+    public GameObject popup2;
+    public GameObject popup3;
     void SetIcons(int kills)
     {
         shootingIcons.Clear();
@@ -84,13 +88,55 @@ public class SelectionScreen : MonoBehaviour
         SceneManager.LoadScene("MainMenu");
     }
 
+    public void PlayFirstTime()
+    {
+        if (GameManager.manager.firstTimePlaying)
+        {
+            DialogueScript script = popup1.GetComponent<DialogueScript>();
+            if (script != null)
+            {
+                script.StartDialogue();
+                GameManager.manager.firstTimePlaying = false;
+            }
+        }
+    }
 
+    public void FirstPickup()
+    {
+        if (!GameManager.manager.firstPickupEarned)
+        {
+            DialogueScript script = popup2.GetComponent<DialogueScript>();
+            if (script != null && !GameManager.manager.firstPickupEarned)
+            {
+                script.StartDialogue();
+                GameManager.manager.firstPickupEarned = true;
+            }
+        }
+    }
+    public void FirstTimeChoosingGun()
+    {
+        if (GameManager.manager.firstTimeChoosingGun)
+        {
+            DialogueScript script = popup3.GetComponent<DialogueScript>();
+            if (script != null)
+            {
+                script.StartDialogue();
+                GameManager.manager.firstTimeChoosingGun = false;
+            }
+        }
+    }
+
+    private IEnumerator FirstTimePopupDelayed()
+    {
+        yield return new WaitForSeconds(1);
+        PlayFirstTime();
+    }
     private void Start()
     {
         StartCoroutine(InitializeIcons());
         GameManager.manager.chosenPickups.Clear();
         PickupLoadoutCanvas.enabled = true;
         WeaponSelectionCanvas.enabled = false;
-        
+        StartCoroutine(FirstTimePopupDelayed());
     }
 }

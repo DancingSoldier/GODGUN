@@ -9,10 +9,50 @@ public class AudioManager : MonoBehaviour
     public static AudioManager manager;
     public AudioSource audioSource;
     public AudioClip music;
+    public AudioClip ambiance;
     public float volume;
 
     public List<string> scenesWithMusic;
-    void MusicState(Scene scene)
+
+    private void OnEnable()
+    {
+        // Rekisteröidy kohtauksen vaihtumisen tapahtumaan
+        SceneManager.activeSceneChanged += OnSceneChanged;
+    }
+
+    private void OnDisable()
+    {
+        // Poista tapahtuma rekisteristä
+        SceneManager.activeSceneChanged -= OnSceneChanged;
+    }
+
+    private void Start()
+    {
+        if (audioSource == null)
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
+
+        audioSource.volume = volume;
+
+        // Aseta ensimmäisen kohtauksen musiikki viiveellä
+        StartCoroutine(StartMusicDelay(SceneManager.GetActiveScene()));
+    }
+
+    private void OnSceneChanged(Scene oldScene, Scene newScene)
+    {
+        // Aloita musiikkitilan päivitys viiveellä
+        StartCoroutine(StartMusicDelay(newScene));
+    }
+
+    private IEnumerator StartMusicDelay(Scene scene)
+    {
+        // Viive ennen musiikin päivittämistä
+        yield return new WaitForSeconds(2f);
+        MusicState(scene);
+    }
+
+    private void MusicState(Scene scene)
     {
         if (scenesWithMusic.Contains(scene.name))
         {
@@ -44,52 +84,10 @@ public class AudioManager : MonoBehaviour
         {
             elapsed += Time.deltaTime;
             audioSource.volume = Mathf.Lerp(startVolume, 0f, elapsed / duration);
-            yield return null; // Odottaa seuraavaa framea
+            yield return null;
         }
 
         audioSource.volume = 0f;
-        audioSource.Stop(); // Pysäytä soitto, kun äänenvoimakkuus on nolla
+        audioSource.Stop();
     }
-    void OnSceneChanged(Scene oldScene, Scene newScene)
-    {
-        // Päivitä musiikkitila, kun kohtaus vaihtuu
-        MusicState(newScene);
-    }
-
-
-
-    void OnEnable()
-    {
-        // Rekisteröi tapahtuma kohtauksen vaihtoon
-        SceneManager.activeSceneChanged += OnSceneChanged;
-    }
-
-    void OnDisable()
-    {
-        // Poista tapahtuma rekisteristä
-        SceneManager.activeSceneChanged -= OnSceneChanged;
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        if (audioSource == null)
-        {
-            audioSource = GetComponent<AudioSource>();
-        }
-
-        audioSource.volume = volume;
-
-        // Aseta ensimmäisen kohtauksen musiikki oikein
-        StartCoroutine(StartMusicDelay());
-        Debug.Log(SceneManager.GetActiveScene().name);
-    }
-
-    private IEnumerator StartMusicDelay()
-    {
-        
-        yield return new WaitForSeconds(1);
-        MusicState(SceneManager.GetActiveScene());
-    }
-
-
 }

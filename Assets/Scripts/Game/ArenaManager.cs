@@ -140,7 +140,7 @@ public class ArenaManager : MonoBehaviour
                     player.activeUtilityPickup.pickupName,
                     player.activeUtilityPickup.pickupTextColor
             ));
-
+            timerIcons.OnPickupTaken(player.activeUtilityPickup.pickupName, player.activeUtilityPickup);
 
         }
         //lopetetaan pickuppien tarkistaminen kun kaikki on pawnattu

@@ -39,11 +39,21 @@ public class PickupTimerIcons : MonoBehaviour
                     GameObject instantiatedIcon = Instantiate(iconPrefab, timerHolder.transform);
                     instantiatedIcon.name = pickup.name;
                     Image image = instantiatedIcon.GetComponent<Image>();
-                    
-                    if(pickup.GetComponent<Pickup>() != null)
+                    float cooldown = 20f;
+                    if (pickup.GetComponent<Pickup>() != null)
                     {
-                        float cooldown = pickup.GetComponent<Pickup>().shootingPickup.cooldown;
-                        image.color = pickup.GetComponent<Pickup>().shootingPickup.pickupTextColor;
+                        
+                        if(pickup.GetComponent<Pickup>().shootingPickup != null)
+                        {
+                            cooldown = pickup.GetComponent<Pickup>().shootingPickup.cooldown;
+                            image.color = pickup.GetComponent<Pickup>().shootingPickup.pickupTextColor;
+                        }
+                        else if(pickup.GetComponent<Pickup>().utilityPickup != null)
+                        {
+                            cooldown = pickup.GetComponent<Pickup>().utilityPickup.cooldown;
+                            image.color = pickup.GetComponent<Pickup>().utilityPickup.pickupTextColor;
+                        }
+                        
                         cooldowns.Add(cooldown);
                         icons.Add(instantiatedIcon);
                     }
@@ -103,7 +113,17 @@ public class PickupTimerIcons : MonoBehaviour
         if (index >= 0 && index < icons.Count)
         {
             GameObject correspondingIcon = icons[index];
-            StartCoroutine(StartPickupCooldown(correspondingIcon, pickup.shootingPickup.cooldown));
+            float cooldown = 20f;
+            if(pickup.shootingPickup != null)
+            {
+                Debug.Log(pickup.shootingPickup);
+                cooldown = pickup.shootingPickup.cooldown;
+            }
+            else
+            {
+                cooldown = pickup.utilityPickup.cooldown;
+            }
+            StartCoroutine(StartPickupCooldown(correspondingIcon, cooldown));
         }
         else
         {

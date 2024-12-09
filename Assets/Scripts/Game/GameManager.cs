@@ -29,8 +29,9 @@ public class GameManager : MonoBehaviour
     public float waveFrequency;
     public bool spawnerOnline;
 
-
-
+    public bool firstTimePlaying = true;
+    public bool firstPickupEarned = false;
+    public bool firstTimeChoosingGun = true;
     private void Awake()
     {
         //luodaan singleton
@@ -98,6 +99,9 @@ public class GameManager : MonoBehaviour
             playerKillsTotal = data.playerKillsTotal;
             godGunGained = data.godGunGained;
             recordTime = data.recordTime;
+            firstPickupEarned = data.firstPickupEarned;
+            firstTimePlaying = data.firstTimePlaying;
+            firstTimeChoosingGun = data.firstTimeChoosingGun;
             if(godGunGained)
             {
                 godGunStatus = "Gained";
@@ -141,5 +145,7 @@ public class PlayerData
     public int playerKillsTotal;
     public bool godGunGained;
     public float recordTime;
-
+    public bool firstTimePlaying;
+    public bool firstPickupEarned;
+    public bool firstTimeChoosingGun;
 }

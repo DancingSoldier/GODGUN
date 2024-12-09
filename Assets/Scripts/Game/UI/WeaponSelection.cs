@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,9 +8,10 @@ public class WeaponSelection : MonoBehaviour
 {
     public List<GameObject> weaponList = new List<GameObject>();
     public List<GameObject> weaponSelectionModels = new List<GameObject>();
+    public List<string> weaponInfos = new List<string>();
     public Guns currentGun;
     public Transform gunHolderPosition;
-
+    public TextMeshProUGUI weaponInfo;
     private int currentIndex = 0; // Pitää yllä valitun aseen indeksiä
 
     public void Combat()
@@ -25,12 +27,20 @@ public class WeaponSelection : MonoBehaviour
         if (next)
         {
             currentIndex = (currentIndex + 1) % weaponList.Count; // Siirry seuraavaan (kiertävä lista)
+            
         }
         else
         {
             currentIndex = (currentIndex - 1 + weaponList.Count) % weaponList.Count; // Siirry edelliseen (kiertävä lista)
         }
-
+        if (currentIndex >= 0 && currentIndex < weaponInfos.Count)
+        {
+            weaponInfo.text = weaponInfos[currentIndex];
+        }
+        else
+        {
+            weaponInfo.text = "No weapon info available";
+        }
         // Päivitä nykyinen ase ja näkyvyys
         UpdateSelection();
     }
@@ -47,10 +57,13 @@ public class WeaponSelection : MonoBehaviour
             {
                 renderer.enabled = isActive;
             }
+                
+
         }
 
-        // Päivitä nykyinen ase (enum)
-        currentGun = (Guns)currentIndex;
+
+            // Päivitä nykyinen ase (enum)
+            currentGun = (Guns)currentIndex;
         GameManager.manager.ChangeWeapon(currentGun);
 
         Debug.Log("Selected weapon: " + GameManager.manager.chosenGun);
@@ -70,9 +83,10 @@ public class WeaponSelection : MonoBehaviour
             {
                 renderer.enabled = false; // kaikki piilossa aluksi
             }
-
+            
             Debug.Log("Spawned gunmodel: " + gun.name);
         }
+
 
         // ensimmäinen näkyväksi
         if (weaponSelectionModels.Count > 0)

@@ -21,6 +21,7 @@ TagManager:
   - PickupIndicator
   - Info
   - GodGunPosition
+  - DialoguePopup
   layers:
   - Default
   - TransparentFX

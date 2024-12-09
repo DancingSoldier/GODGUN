@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cfb3306d0aaad541afb435c41b4dd2c, type: 3}
   m_Name: AAMinigun
   m_EditorClassIdentifier: 
-  damage: 10
-  projectilesPerShot: 2
+  damage: 4
+  projectilesPerShot: 3
   projectilePenetration: 1
-  projectileSpeed: 80
+  projectileSpeed: 90
   roundsPerMin: 550
   damageType: 0
   spread: 8

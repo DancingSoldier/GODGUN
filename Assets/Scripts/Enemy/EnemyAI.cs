@@ -19,6 +19,7 @@ public class EnemyAI : MonoBehaviour
     NavMeshAgent enemy;
 
     bool killGained = false;
+    
   
     public void TakeDamage(int damage, DamageTypes damageType, bool hasKnockback, float knockbackMultiplier, Vector3 projectileVector)
     {

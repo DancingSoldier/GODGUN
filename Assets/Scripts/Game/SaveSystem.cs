@@ -19,6 +19,9 @@ public static class SaveSystem
         data.playerKillsTotal = manager.playerKillsTotal;
         data.godGunGained = manager.godGunGained;
         data.recordTime = manager.recordTime;
+        data.firstTimePlaying = manager.firstTimePlaying;
+        data.firstPickupEarned = manager.firstPickupEarned;
+        data.firstTimeChoosingGun = manager.firstTimeChoosingGun;
         formatter.Serialize(stream, data);
         stream.Close();
 
@@ -42,13 +45,13 @@ public static class SaveSystem
             }
             catch (Exception ex)
             {
-                Debug.LogError("Failed to load data: " + ex.Message);
+                Debug.Log("Failed to load data: " + ex.Message);
                 return null;
             }
         }
         else
         {
-            Debug.LogError("Save file not found in " + path);
+            Debug.Log("Save file not found in " + path);
             return null;
         }
     }
@@ -64,6 +67,9 @@ public static class SaveSystem
         data.playerKillsTotal = 0;
         data.godGunGained = false;
         data.recordTime = 0;
+        data.firstTimePlaying = true;
+        data.firstPickupEarned = false;
+        data.firstTimeChoosingGun = true;
         formatter.Serialize(stream, data);
         stream.Close();
         Debug.Log("Data Reset");

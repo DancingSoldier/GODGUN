@@ -58,7 +58,7 @@ public class PickupManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No chosen pickups available or chosenPickups is null!");
+            Debug.Log("No chosen pickups available or chosenPickups is null!");
         }
 
 
@@ -74,7 +74,7 @@ public class PickupManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No script found");
+            
             return null;
         }
     }
@@ -87,7 +87,7 @@ public class PickupManager : MonoBehaviour
         }
         else
         {
-            Debug.LogError("No script found");
+            Debug.Log("No script found");
             return null;
         }
     }

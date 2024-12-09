@@ -15,8 +15,8 @@ MonoBehaviour:
   pickupName: Fast Fire
   pickupDescription: Kills Fast.
   pickupTextColor: {r: 0.9058824, g: 0.023529414, b: 0, a: 1}
-  killsRequired: 900
-  cooldown: 50
+  killsRequired: 800
+  cooldown: 40
   duration: 10
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: ff5c38c59fc32074cab87050a4972ff8, type: 2}

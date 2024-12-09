@@ -21,7 +21,28 @@ public class PickupTimer : MonoBehaviour
 
 
 
-    //korjaa cooldownin resetointi koodiin!
+ private IEnumerator StartWait()
+    {
+        yield return null;
+        if (gameObject.CompareTag("GodGunPosition") && !GameManager.manager.godGunGained)
+        {
+            spawnTime = GameManager.manager.godGunSpawnTime;
+            cooldown = GameManager.manager.godGunCooldown;
+            color = Color.yellow;
+        }
+        else if (gameObject.CompareTag("GodGunPosition") && GameManager.manager.godGunGained)
+        {
+            spawnTime = GameManager.manager.godGunSecondSpawnTime;
+            cooldown = GameManager.manager.godGunCooldown;
+            color = Color.yellow;
+        }
+        if (pickupAreaEffect != null)
+        {
+            pickupAreaEffect.color = color;
+        }
+        text.color = color;
+        timer = cooldown;
+    }
 
 
 private void HandlePickup(Collider other)
@@ -75,27 +96,12 @@ private void HandlePickup(Collider other)
         pickupCheck = GetComponent<Collider>();
         pickupCheck.enabled = false;
         
-        if (gameObject.CompareTag("GodGunPosition") && !GameManager.manager.godGunGained)
-        {
-            spawnTime = GameManager.manager.godGunSpawnTime;
-            cooldown = GameManager.manager.godGunCooldown;
-            color = Color.yellow;
-        }
-        else if (gameObject.CompareTag("GodGunPosition") && GameManager.manager.godGunGained)
-        {
-            spawnTime = GameManager.manager.godGunSecondSpawnTime;
-            cooldown = GameManager.manager.godGunCooldown;
-            color = Color.yellow;
-        }
+
 
         pickupAreaEffect = transform.GetComponentInChildren<SpriteRenderer>();
-        if (pickupAreaEffect != null)
-        {
-            pickupAreaEffect.color = color;
-        }
+        StartCoroutine(StartWait());
 
-        text.color = color;
-        timer = cooldown;
+
        
         
     }

@@ -15,7 +15,7 @@ MonoBehaviour:
   moveSpeed: 30
   angularSpeed: 600
   acceleration: 30
-  destinationInterval: 0.1
+  destinationInterval: 0.2
   health: 100
   soundClip: {fileID: 8300000, guid: 701f6917a6d608a499a35912c8b2ab65, type: 3}
   soundVolume: 2

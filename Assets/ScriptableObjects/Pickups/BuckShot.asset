@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: BuckShot
   m_EditorClassIdentifier: 
   pickupName: Buckshot
-  pickupDescription: Extremely Potent, though at the cost of low duration and firerate
+  pickupDescription: Wipes out most of your targets at once, but has a low duration
   pickupTextColor: {r: 0.16579843, g: 1, b: 0, a: 1}
-  killsRequired: 200
-  cooldown: 20
-  duration: 5
+  killsRequired: 1000
+  cooldown: 35
+  duration: 7
   pickupModelPrefab: {fileID: 9053158579892282751, guid: cbc0755955d60b34a9b037d04f402551, type: 3}
   material: {fileID: 2100000, guid: 2f4be8ac35576404ea0368637b26ea83, type: 2}
   pickupEffect: {fileID: 7740365309751377096, guid: 9f48e8895c284e44b9eb4bffaf3ed54f, type: 3}

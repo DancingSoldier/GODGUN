@@ -13,6 +13,8 @@ public class MainMenu : MonoBehaviour
     public GameObject animationObject;
     Animator animator;
 
+
+
     public void Combat()
     {
         SceneManager.LoadScene("Combat");
@@ -50,13 +52,20 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(seconds);
         text.text = "";
     }
+    private IEnumerator AnimationDelay()
+    {
+        animator.enabled = false;
+        yield return new WaitForSeconds(1.5f);
+        animator.enabled = true;
+        animator.Play("mainMenuBombAnimation");
+    }
     void Start()
     {
         infoText.text = GameManager.manager.LoadData();
         StartCoroutine(GameManager.manager.ClearText(5,infoText));
         GameManager.manager.chosenPickups.Clear();
         animator = animationObject.GetComponent<Animator>();
-        animator.Play("mainMenuBombAnimation");
+        StartCoroutine(AnimationDelay());
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = true;
         deletePopup.SetActive(false);
