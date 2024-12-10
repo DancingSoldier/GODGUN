@@ -96,7 +96,8 @@ public class InputManager : MonoBehaviour
             Time.timeScale = 1f;
             pauseMenu.SetActive(false);
         }
-
+        //vaihdetaan asetuksista fog
+        ArenaManager.manager.FogToggle();
         paused = !paused; // Vaihdetaan paused-tila
     }
 

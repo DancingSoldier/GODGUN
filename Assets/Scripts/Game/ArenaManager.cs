@@ -56,7 +56,7 @@ public class ArenaManager : MonoBehaviour
     private GameObjectPool ghostPool0;
     private GameObjectPool ghostPool1;
     List<GameObjectPool> pools = new List<GameObjectPool>();
-
+    public bool fog = true;
 
 
     //Pelaajan Spawn
@@ -170,6 +170,19 @@ public class ArenaManager : MonoBehaviour
         }
     }
 
+    public void FogToggle()
+    {
+        GameObject[] fogs = GameObject.FindGameObjectsWithTag("Fog");
+
+        fog = !fog;
+        foreach (GameObject f in fogs)
+        {
+            if(fogs.Length != 0)
+            {
+                f.SetActive(!fog);
+            }
+        }
+    }
 
     private void HandleTime()
     {

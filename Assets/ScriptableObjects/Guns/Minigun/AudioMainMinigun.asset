@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7facb0ccd8860154db2fcc9e6bf56d1f, type: 3}
   m_Name: AudioMainMinigun
   m_EditorClassIdentifier: 
-  volume: 0.6
-  pitch: 1
+  volume: 0.4
+  pitch: 2
   attackAudioClips:
-  - {fileID: 8300000, guid: 1b9930ef7b283964a80b59e7b393e2f3, type: 3}
+  - {fileID: 8300000, guid: 47598ec81690cc94cb9f52e3ed7c85d2, type: 3}
