@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TMPro.Examples;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -21,8 +22,8 @@ public class GameManager : MonoBehaviour
     
     [Header("Game PickupSettings")]
     public List<int> pickupSpawnTimes = new List<int>();
-    public float godGunSpawnTime = 200;
-    public float godGunSecondSpawnTime = 69;
+    public float godGunSpawnTime = 300;
+    public float godGunSecondSpawnTime = 100;
     public float godGunCooldown;
     public float recordTime = 0;
     [Header("Spawner")]
@@ -72,15 +73,12 @@ public class GameManager : MonoBehaviour
             recordTime = time;
         }
 
-        if(recordTime > 200)
-        {
-            godGunGained = true;
-        }
     }
 
 
     public void SaveData()
     {
+
         SaveSystem.SavePlayer(this);
     }
 
@@ -114,7 +112,12 @@ public class GameManager : MonoBehaviour
             string message = $"Save Data Loaded\n Player Stats\n Kills:{playerKillsTotal}\n Record: {recordTime}\n GodGun {godGunStatus} ";
             return message;
         }
-        return "No Save Data Found. Create a Save";
+        else
+        {
+            
+            ResetData();
+            return "No Data, creating a Save File";
+        }
     }
     public void ResetData()
     {

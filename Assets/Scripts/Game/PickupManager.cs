@@ -110,7 +110,7 @@ public class PickupManager : MonoBehaviour
         if (elapsedTime >= GameManager.manager.godGunSpawnTime && !GameManager.manager.godGunGained)
         {
             godGun.SetActive(true);
-            GameManager.manager.godGunGained = true;
+            
 
         }
         if(elapsedTime >= GameManager.manager.godGunSecondSpawnTime && GameManager.manager.godGunGained)

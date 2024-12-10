@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8798238576500294536}
   - component: {fileID: 6588022455916702575}
   - component: {fileID: 7450006532437368351}
+  - component: {fileID: 1619552531050093964}
   - component: {fileID: 2144858463019805932}
   - component: {fileID: 521245821203989646}
   m_Layer: 9
@@ -83,6 +84,18 @@ MonoBehaviour:
   pickupCooldown: 0
   pickupName: 
   pickupTextColor: {r: 0, g: 0, b: 0, a: 0}
+--- !u!114 &1619552531050093964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5042605157653727788}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0183bd2fad1e824396f39c9f432e5e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!82 &2144858463019805932
 AudioSource:
   m_ObjectHideFlags: 0

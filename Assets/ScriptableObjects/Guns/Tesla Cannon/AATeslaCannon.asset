@@ -54,4 +54,4 @@ MonoBehaviour:
     m_NumColorKeys: 6
     m_NumAlphaKeys: 3
   audioConfig: {fileID: 11400000, guid: 10659257e44e9c7408e133d96e379e86, type: 2}
-  playerMovementEffect: 0.2
+  playerMovementEffect: 0.05

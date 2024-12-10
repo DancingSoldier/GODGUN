@@ -64,6 +64,7 @@ public class SelectionScreen : MonoBehaviour
     {
         PickupLoadoutCanvas.enabled = true;
         WeaponSelectionCanvas.enabled = false;
+        GameManager.manager.chosenPickups.Clear();
     }
 
     public void ConfirmPickups()

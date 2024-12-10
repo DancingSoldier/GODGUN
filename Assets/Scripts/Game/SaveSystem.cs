@@ -66,7 +66,7 @@ public static class SaveSystem
         PlayerData data = new PlayerData();
         data.playerKillsTotal = 0;
         data.godGunGained = false;
-        data.recordTime = 0;
+        data.recordTime = 49.99f;
         data.firstTimePlaying = true;
         data.firstPickupEarned = false;
         data.firstTimeChoosingGun = true;

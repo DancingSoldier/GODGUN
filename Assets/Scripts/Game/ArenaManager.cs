@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using TMPro.Examples;
 using UnityEngine;
+using UnityEngine.Analytics;
 
 public class ArenaManager : MonoBehaviour
 {
@@ -90,8 +92,10 @@ public class ArenaManager : MonoBehaviour
         if (lastRecordTime < elapsedTime)
         {
             NewRecordRecorded();
+            
         }
         
+
     }
 
     private IEnumerator SlowTimeAndStop()
@@ -114,6 +118,10 @@ public class ArenaManager : MonoBehaviour
         {
             GameManager.manager.SaveData();
             saved = true;
+            Debug.Log("Saved, sending data");
+            float flooredTime = Mathf.Round(elapsedTime * 100f) * 0.01f;
+            AnalyticsManager.Instance.TimeRecorded(flooredTime);
+            AnalyticsManager.Instance.PlayerDeath();
         }
 
     }
@@ -144,7 +152,7 @@ public class ArenaManager : MonoBehaviour
 
         }
         //lopetetaan pickuppien tarkistaminen kun kaikki on pawnattu
-        if (elapsedTime < 280)
+        if (elapsedTime < 600)
         {
             //PickupActivation();
             pickupManager.ActivatePickup(elapsedTime);
@@ -157,7 +165,8 @@ public class ArenaManager : MonoBehaviour
         
         if (player.touched)
         {
-            Overrun();       
+            Overrun();
+            
         }
     }
 

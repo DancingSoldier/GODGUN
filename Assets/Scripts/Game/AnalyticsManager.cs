@@ -2,18 +2,18 @@ using Unity.Services.Analytics;
 using Unity.Services.Core;
 using UnityEngine;
 
-public class AnalyticsSingleton : MonoBehaviour
+public class AnalyticsManager : MonoBehaviour
 {
-    private static AnalyticsSingleton _instance;
+    private static AnalyticsManager _instance;
 
-    public static AnalyticsSingleton Instance
+    public static AnalyticsManager Instance
     {
         get
         {
             if (_instance == null)
             {
                 GameObject instance = new("Analytics Manager");
-                instance.AddComponent<AnalyticsSingleton>();
+                instance.AddComponent<AnalyticsManager>();
             }
 
             return _instance;
@@ -25,14 +25,21 @@ public class AnalyticsSingleton : MonoBehaviour
     public void PlayerDeath()
     {
         AnalyticsService.Instance.RecordEvent("playerDeath");
+        
     }
 
     public void GodgunGained()
     {
-        AnalyticsService.Instance.RecordEvent("Godgun Gained");
+        AnalyticsService.Instance.RecordEvent("godgunGained");
+        
     }
 
-
+    public void TimeRecorded(float elapsedTime)
+    {
+        TimeOfDeathEvent deathEvent = new() { timeOfDeath = elapsedTime };
+        AnalyticsService.Instance.RecordEvent(deathEvent);
+        
+    }
     // Shot events
 
 
@@ -69,13 +76,37 @@ public class AnalyticsSingleton : MonoBehaviour
         }
     }
 
+    
+
+    public void StartAnalytics()
+    {
+        Debug.Log("Analytics Started");
+        AnalyticsService.Instance.StartDataCollection();
+        
+    }
+    public void StopAnalytics()
+    {
+        Debug.Log("Analytics Stopped");
+        AnalyticsService.Instance.StopDataCollection();
+        
+    }
     // Get the connection to UGS
     private async void Awake()
     {
         _instance = this;
 
         await UnityServices.InitializeAsync();
-        AnalyticsService.Instance.StartDataCollection();
+        
     }
 }
 
+class TimeOfDeathEvent : Unity.Services.Analytics.Event
+{
+    public TimeOfDeathEvent()
+        : base("timeOfDeath") { }
+
+    public float timeOfDeath
+    {
+        set { SetParameter("timeOfDeathValue", value); }
+    }
+}
