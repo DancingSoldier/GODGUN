@@ -144,12 +144,15 @@ public class Shooting : MonoBehaviour
         
         //k‰yd‰‰n l‰pi kaikki partikkelisysteemit jos useita, ja asetetaan v‰rit vastaamaan haluttua
         ParticleSystem[] allParticleSystems = projectilePrefab.GetComponentsInChildren<ParticleSystem>();
-
-        foreach (var particleSystem in allParticleSystems)
+        if(allParticleSystems.Length != 0)
         {
-            var mainModule = particleSystem.main;
-            mainModule.startColor = color; 
+            foreach (var particleSystem in allParticleSystems)
+            {
+                var mainModule = particleSystem.main;
+                mainModule.startColor = color;
+            }
         }
+        
         TrailRenderer projectileTrail = projectilePrefab.GetComponentInChildren<TrailRenderer>();
         if(projectileTrail != null)
         {

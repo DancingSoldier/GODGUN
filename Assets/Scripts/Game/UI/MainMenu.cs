@@ -11,6 +11,7 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI infoText;
     public GameObject deletePopup;
     public GameObject animationObject;
+    public GameObject dialoguePopup;
     Animator animator;
 
 
@@ -59,6 +60,20 @@ public class MainMenu : MonoBehaviour
         animator.enabled = true;
         animator.Play("mainMenuBombAnimation");
     }
+
+    public void GodGunDialogue()
+    {
+        if(GameManager.manager.firstTimeGodGunGained)
+        {
+            DialogueScript dialogue = dialoguePopup.GetComponent<DialogueScript>();
+            dialogue.StartDialogue();
+        }
+    }
+    IEnumerator StartGodGunDialogue()
+    {
+        yield return new WaitForSeconds(1f);
+        GodGunDialogue();
+    }
     void Start()
     {
         infoText.text = GameManager.manager.LoadData();
@@ -70,6 +85,7 @@ public class MainMenu : MonoBehaviour
         Cursor.visible = true;
         deletePopup.SetActive(false);
         Time.timeScale = 1;
+        StartCoroutine(StartGodGunDialogue());
     }
 
 

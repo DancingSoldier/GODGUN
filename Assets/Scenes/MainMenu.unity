@@ -7126,6 +7126,7 @@ MonoBehaviour:
   infoText: {fileID: 199158372}
   deletePopup: {fileID: 338449914}
   animationObject: {fileID: 1615723625}
+  dialoguePopup: {fileID: 3953451100184526971}
 --- !u!4 &1400180955
 Transform:
   m_ObjectHideFlags: 0
@@ -7515,13 +7516,14 @@ MonoBehaviour:
   pickupSpawnTimes: 190000003c0000006400000082000000a0000000
   godGunSpawnTime: 300
   godGunSecondSpawnTime: 100
-  godGunCooldown: 60
+  godGunCooldown: 100
   recordTime: 0
   waveFrequency: 20
   spawnerOnline: 1
   firstTimePlaying: 1
   firstPickupEarned: 0
   firstTimeChoosingGun: 1
+  firstTimeGodGunGained: 0
 --- !u!4 &1499928781
 Transform:
   m_ObjectHideFlags: 0
@@ -8096,13 +8098,55 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2001945590}
     m_Modifications:
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: textSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[0]
+      value: Seeker, you have finally reached the G.O.D Gun.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[1]
+      value: You won. Was it what you expected?
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[2]
+      value: I should congratulate you, though that doesnt change the fact that there
+        is no escape from this void for me.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[3]
+      value: Though, neither for you.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[4]
+      value: But go on, its yours, and will return to you earlier than before from
+        now on.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[5]
+      value: So i guess we're both stuck here, chasing longer and longer records.
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[6]
+      value: He-he-he-he....
+      objectReference: {fileID: 0}
+    - target: {fileID: 3829261968091060738, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+      propertyPath: dialogueLines.Array.data[7]
+      value: ......
+      objectReference: {fileID: 0}
     - target: {fileID: 6565291641483507443, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
       propertyPath: m_Name
       value: PlayDialogPopup
       objectReference: {fileID: 0}
     - target: {fileID: 6565291641483507443, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8368236573787889597, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
       propertyPath: m_Pivot.x
@@ -8189,6 +8233,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+--- !u!1 &3953451100184526971 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6565291641483507443, guid: bd5c06820078ee5468cfff0289ee549f, type: 3}
+  m_PrefabInstance: {fileID: 3953451100184526970}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4617254062836153081
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,6 +22,7 @@ public static class SaveSystem
         data.firstTimePlaying = manager.firstTimePlaying;
         data.firstPickupEarned = manager.firstPickupEarned;
         data.firstTimeChoosingGun = manager.firstTimeChoosingGun;
+        data.firstTimeGodGunGained = manager.firstTimeGodGunGained;
         formatter.Serialize(stream, data);
         stream.Close();
 
@@ -70,6 +71,7 @@ public static class SaveSystem
         data.firstTimePlaying = true;
         data.firstPickupEarned = false;
         data.firstTimeChoosingGun = true;
+        data.firstTimeGodGunGained = false;
         formatter.Serialize(stream, data);
         stream.Close();
         Debug.Log("Data Reset");

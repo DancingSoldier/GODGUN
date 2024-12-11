@@ -21,7 +21,7 @@ MonoBehaviour:
   soundVolume: 2
   soundPitch: 0.6
   pitchRandomization: 1
-  onSpawn: 1
-  repeatAudio: 1
+  onSpawn: 0
+  repeatAudio: 0
   playAlways: 0
   chance: 30

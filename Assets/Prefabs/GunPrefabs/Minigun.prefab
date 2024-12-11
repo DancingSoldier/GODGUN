@@ -365,6 +365,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 40ad3a47dbff16845a5a9ae9144e0a40, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f26dd96eb0fce944b8fce94eb64e1edf, type: 2}
     - target: {fileID: 919132149155446097, guid: 40ad3a47dbff16845a5a9ae9144e0a40, type: 3}
       propertyPath: m_Name
       value: MinigunBarrel

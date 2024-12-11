@@ -57,8 +57,12 @@ public class ProjectileMove : MonoBehaviour
 
         if (collider.CompareTag("Enemy"))
         {
-            GameObject impactEffect = Instantiate(hitPrefab, transform.position, Quaternion.identity);
-            Destroy(impactEffect, 1f);
+            if(Random.Range(0,3) == 1)
+            {
+                GameObject impactEffect = Instantiate(hitPrefab, transform.position, Quaternion.identity);
+                Destroy(impactEffect, 1f);
+            }
+           
 
             var enemyAI = hitObject.GetComponentInParent<EnemyAI>();
             Vector3 projectileVector = transform.forward;

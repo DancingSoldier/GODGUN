@@ -72,6 +72,7 @@ public class SelectionScreen : MonoBehaviour
         ConfirmPickupSelection();
         PickupLoadoutCanvas.enabled = false;
         WeaponSelectionCanvas.enabled = true;
+        FirstTimeChoosingGun();
     }
     public void Quit()
     {

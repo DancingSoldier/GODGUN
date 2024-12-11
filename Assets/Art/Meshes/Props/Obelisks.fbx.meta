@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 40ad3a47dbff16845a5a9ae9144e0a40
+guid: 61b09898fe805bc409fcce6b8a98f6e1
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Minigun
-    second: {fileID: 2100000, guid: 1f63b591824556642bbdd942a55e89a7, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -83,7 +78,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 1
+  importAnimation: 0
   humanDescription:
     serializedVersion: 3
     human: []

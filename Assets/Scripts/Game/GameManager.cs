@@ -33,6 +33,7 @@ public class GameManager : MonoBehaviour
     public bool firstTimePlaying = true;
     public bool firstPickupEarned = false;
     public bool firstTimeChoosingGun = true;
+    public bool firstTimeGodGunGained = false;
     private void Awake()
     {
         //luodaan singleton
@@ -100,6 +101,7 @@ public class GameManager : MonoBehaviour
             firstPickupEarned = data.firstPickupEarned;
             firstTimePlaying = data.firstTimePlaying;
             firstTimeChoosingGun = data.firstTimeChoosingGun;
+            firstTimeGodGunGained = data.firstTimeGodGunGained;
             if(godGunGained)
             {
                 godGunStatus = "Gained";
@@ -151,4 +153,5 @@ public class PlayerData
     public bool firstTimePlaying;
     public bool firstPickupEarned;
     public bool firstTimeChoosingGun;
+    public bool firstTimeGodGunGained;
 }

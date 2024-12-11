@@ -20,7 +20,7 @@ MonoBehaviour:
   damageType: 0
   spread: 2
   hasKnockback: 1
-  projectilePrefab: {fileID: 797254483403182715, guid: 6cb5b7203ac303e4a99c3175bbba90fe, type: 3}
+  projectilePrefab: {fileID: 2041344977136216008, guid: 7c8dcd71263ebf34a936b65f6c5515a4, type: 3}
   projectileShooter: {fileID: 0}
   projectileLifetime: 1
   projectileColor:
