@@ -11,6 +11,7 @@ public class GodProjectileExplosions : MonoBehaviour
     {
         GameObject explosion = Instantiate(explosionPrefab);
         explosion.transform.position = transform.position;
+        explosion.transform.rotation = Quaternion.Euler(0, Random.Range(0, 360), 0);
         Destroy(explosion, .5f);
     }
 

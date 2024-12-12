@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour
     AnimatorManager animatorManager;
     Shooting weapons;
     PlayerManager playerManager;
-
+    public GameObject settingsMenu;
     public Rig thisRig;
     public float animationChangeSpeed;
 
@@ -83,7 +83,7 @@ public class InputManager : MonoBehaviour
     public void TogglePause()
     {
         GameObject pauseMenu = GameObject.FindGameObjectsWithTag("GameUI")[0].transform.GetChild(7).gameObject;
-
+        
         if (!paused && !playerManager.touched)
         {
             Debug.Log("Game Paused");
@@ -92,12 +92,18 @@ public class InputManager : MonoBehaviour
         }
         else if(!playerManager.touched)
         {
+            settingsMenu = pauseMenu.transform.GetChild(2).gameObject;
             Debug.Log("Game Unpaused");
             Time.timeScale = 1f;
             pauseMenu.SetActive(false);
+            if (settingsMenu.activeSelf)
+            {
+                settingsMenu.SetActive(false);
+            }
         }
-        //vaihdetaan asetuksista fog
-        ArenaManager.manager.FogToggle();
+        
+        
+        
         paused = !paused; // Vaihdetaan paused-tila
     }
 

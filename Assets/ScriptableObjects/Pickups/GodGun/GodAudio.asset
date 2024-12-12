@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: GodAudio
   m_EditorClassIdentifier: 
   volume: 0.2
-  pitch: 0.4
+  pitch: 0.7
   attackAudioClips:
-  - {fileID: 8300000, guid: 97ae8b2ef285d0b4993135f30d2b922f, type: 3}
+  - {fileID: 8300000, guid: 49cd9bd1e6646cf4ab33a00e618acafd, type: 3}

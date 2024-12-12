@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3271f4334191fb428645a591e58f5a4, type: 3}
   m_Name: ElderExpressionGhost
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 17
   angularSpeed: 600
   acceleration: 7
   destinationInterval: 0.3

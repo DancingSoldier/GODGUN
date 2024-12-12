@@ -51,14 +51,9 @@ public class MADBombExplosion : MonoBehaviour
             var enemyAI = other.gameObject.GetComponentInParent<EnemyAI>();
             damage = Mathf.FloorToInt(damage);
             enemyAI.TakeDamage(damage, damageType, false, 0, other.gameObject.transform.position);
-            Destroy(impactEffect, 2f);
+            Destroy(impactEffect, impactEffect.GetComponent<ParticleSystem>().main.duration + impactEffect.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
         }
-        if (other.CompareTag("Obelisk"))
-        {
-            GameObject impactEffect = Instantiate(impactEffectObelisk, other.transform.position, Quaternion.identity);
 
-            Destroy(impactEffect, 2f);
-        }
     }
 
     private void Awake()

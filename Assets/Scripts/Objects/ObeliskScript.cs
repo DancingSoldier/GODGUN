@@ -26,7 +26,7 @@ public class ObeliskScript : MonoBehaviour
             // Vaihda triggeredMaterialiin, kun trigger osuu tähän objektiin
             if (meshRenderer != null && triggeredMaterial != null)
             {
-                meshRenderer.material = triggeredMaterial;
+                meshRenderer.enabled = false;
                 
             }
         }
@@ -39,7 +39,7 @@ public class ObeliskScript : MonoBehaviour
             // Palauta defaultMaterial, kun trigger poistuu tästä objektista
             if (meshRenderer != null && defaultMaterial != null)
             {
-                meshRenderer.material = defaultMaterial;
+                meshRenderer.enabled = true;
                 
             }
         }

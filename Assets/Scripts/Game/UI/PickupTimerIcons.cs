@@ -107,7 +107,7 @@ public class PickupTimerIcons : MonoBehaviour
 
     public void OnPickupTaken(string pickupName, Pickup pickup)
     {
-        string name = "pickup_" + pickupName;
+        string name = pickupName;
         int index = GameManager.manager.chosenPickups.FindIndex(p => p.name == name);
         
         if (index >= 0 && index < icons.Count)
@@ -134,7 +134,7 @@ public class PickupTimerIcons : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        timerHolder = transform.GetChild(10).gameObject;
+        timerHolder = transform.GetChild(9).gameObject;
         InstantiatePickupIcons();
         foreach (var pickup in GameManager.manager.chosenPickups)
         {

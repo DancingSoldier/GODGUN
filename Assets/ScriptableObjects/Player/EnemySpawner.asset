@@ -21,31 +21,31 @@ MonoBehaviour:
     increaseCooldown: 20
     spawnListAddTime: 0
     spawnCooldown: 40
-    currentAmount: 2
-    lastIncreaseTime: 40.00234
-    lastSpawnTime: 40.00234
+    currentAmount: 4
+    lastIncreaseTime: 80.02226
+    lastSpawnTime: 80.02226
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 5675684089280056180, guid: dfaab173ab8917e4190ecba71b9b9929, type: 3}
-    initialAmount: 20
-    amountIncrease: 13
+    initialAmount: 10
+    amountIncrease: 10
     increaseCooldown: 20
     spawnListAddTime: 0
     spawnCooldown: 20
-    currentAmount: 46
-    lastIncreaseTime: 40.00234
-    lastSpawnTime: 40.00234
+    currentAmount: 72
+    lastIncreaseTime: 80.02226
+    lastSpawnTime: 80.02226
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 2948208927644960171, guid: 2d33ca366b2d97e41a9e86aedc25eaa5, type: 3}
     initialAmount: 0
-    amountIncrease: 4
+    amountIncrease: 2
     increaseCooldown: 30
     spawnListAddTime: 0
     spawnCooldown: 20
-    currentAmount: 4
-    lastIncreaseTime: 30.003351
-    lastSpawnTime: 40.00234
+    currentAmount: 12
+    lastIncreaseTime: 90.03063
+    lastSpawnTime: 80.02226
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
   - enemyPrefab: {fileID: 265630621879026613, guid: 7822f0cdf7d697244b15d1c9a18a62fd, type: 3}
@@ -59,37 +59,4 @@ MonoBehaviour:
     lastSpawnTime: 0
     onSpawnCooldown: 1
     onIncreaseCooldown: 0
-  spawnList:
-  - enemyPrefab: {fileID: 6028656337610022745, guid: ff292d999831e1a47ac9c17b81579132, type: 3}
-    initialAmount: 0
-    amountIncrease: 1
-    increaseCooldown: 20
-    spawnListAddTime: 0
-    spawnCooldown: 40
-    currentAmount: 2
-    lastIncreaseTime: 40.00234
-    lastSpawnTime: 40.00234
-    onSpawnCooldown: 1
-    onIncreaseCooldown: 0
-  - enemyPrefab: {fileID: 5675684089280056180, guid: dfaab173ab8917e4190ecba71b9b9929, type: 3}
-    initialAmount: 20
-    amountIncrease: 13
-    increaseCooldown: 20
-    spawnListAddTime: 0
-    spawnCooldown: 20
-    currentAmount: 46
-    lastIncreaseTime: 40.00234
-    lastSpawnTime: 40.00234
-    onSpawnCooldown: 1
-    onIncreaseCooldown: 0
-  - enemyPrefab: {fileID: 2948208927644960171, guid: 2d33ca366b2d97e41a9e86aedc25eaa5, type: 3}
-    initialAmount: 0
-    amountIncrease: 4
-    increaseCooldown: 30
-    spawnListAddTime: 0
-    spawnCooldown: 20
-    currentAmount: 4
-    lastIncreaseTime: 30.003351
-    lastSpawnTime: 40.00234
-    onSpawnCooldown: 1
-    onIncreaseCooldown: 0
+  spawnList: []

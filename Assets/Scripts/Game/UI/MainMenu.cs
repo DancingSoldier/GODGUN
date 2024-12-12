@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
     public GameObject deletePopup;
     public GameObject animationObject;
     public GameObject dialoguePopup;
+    public GameObject settingsMenu;
     Animator animator;
 
 
@@ -46,6 +47,10 @@ public class MainMenu : MonoBehaviour
     public void CancelDeletion()
     {
         deletePopup.SetActive(false);
+    }
+    public void OpenSettings()
+    {
+        settingsMenu.SetActive(true);
     }
 
     private IEnumerator ClearText(int seconds, TextMeshProUGUI text)

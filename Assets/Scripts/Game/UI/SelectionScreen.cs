@@ -44,6 +44,46 @@ public class SelectionScreen : MonoBehaviour
         }
     }
 
+    public void DisableToggleInteractions()
+    {
+        foreach (GameObject icon in shootingIcons)
+        {
+            // Hae PickupHolder-komponentti
+            PickupHolder pickupHolder = icon.GetComponent<PickupHolder>();
+
+            if (pickupHolder != null)
+            {
+                // Tarkista, onko pickup mukana chosenPickups-listassa
+                if (!chosenPickups.Contains(pickupHolder.pickup))
+                {
+                    // Disabloi toggle-nappi
+                    Toggle toggle = icon.GetComponent<Toggle>();
+                    if (toggle != null)
+                    {
+                        toggle.interactable = false;
+                    }
+                }
+                else
+                {
+                    // Varmista, ett‰ valittujen pickupien napit pysyv‰t aktiivisina
+                    Toggle toggle = icon.GetComponent<Toggle>();
+                    if (toggle != null)
+                    {
+                        toggle.interactable = true;
+                    }
+                }
+            }
+        }
+    }
+
+    void CheckIcons()
+    {
+        if(chosenPickups.Count == 5)
+        {
+            DisableToggleInteractions();
+        }
+    }
+
     //odottaa framen est‰‰kseen bugin buildiss‰
     private IEnumerator InitializeIcons()
     {
@@ -73,6 +113,12 @@ public class SelectionScreen : MonoBehaviour
         PickupLoadoutCanvas.enabled = false;
         WeaponSelectionCanvas.enabled = true;
         FirstTimeChoosingGun();
+    }
+
+    public void ResetPickups()
+    {
+        GameManager.manager.chosenPickups.Clear();
+        SceneManager.LoadScene("Loadout");
     }
     public void Quit()
     {
@@ -140,5 +186,9 @@ public class SelectionScreen : MonoBehaviour
         PickupLoadoutCanvas.enabled = true;
         WeaponSelectionCanvas.enabled = false;
         StartCoroutine(FirstTimePopupDelayed());
+    }
+    private void Update()
+    {
+        CheckIcons();
     }
 }

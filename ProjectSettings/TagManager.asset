@@ -23,6 +23,7 @@ TagManager:
   - GodGunPosition
   - DialoguePopup
   - Fog
+  - Settings
   layers:
   - Default
   - TransparentFX

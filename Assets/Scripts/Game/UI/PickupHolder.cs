@@ -21,7 +21,7 @@ public class PickupHolder : MonoBehaviour
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI killsText;
     SelectionScreen selectionManager;
-    
+
     Toggle toggle;
 
     public void SetActive()
@@ -34,10 +34,10 @@ public class PickupHolder : MonoBehaviour
             nameText.color = color;
             nameText.text = pickupName;
             toggle.interactable = true;
-            
+
         }
 
-        
+
     }
     public void SetInactive(int kills)
     {
@@ -52,9 +52,9 @@ public class PickupHolder : MonoBehaviour
             killsText.color = Color.white;
             killsText.text = "Kills Required: " + killsRequired;
             toggle.interactable = false;
-            
+
         }
-        
+
     }
 
 
@@ -64,7 +64,7 @@ public class PickupHolder : MonoBehaviour
         nameText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         pickupIcon = transform.GetChild(1).GetComponent<Image>();
         killsText = transform.GetChild(2).GetComponent<TextMeshProUGUI>();
-        
+
 
         if (pickup != null)
         {
@@ -118,7 +118,7 @@ public class PickupHolder : MonoBehaviour
         if (selectionManager.chosenPickups.Count >= 5)
         {
             //StartCoroutine(BlinkRed()); // Aktivoi punainen vilkkumisen
-            
+
             Debug.Log($"Max pickups reached {selectionManager.chosenPickups.Count}, cannot add more.");
         }
         else
@@ -137,19 +137,20 @@ public class PickupHolder : MonoBehaviour
 
     public void SendMessage(bool value)
     {
-        if(value)
+        if (value)
         {
             AddPickup();
-            
-            
+
+
         }
         else
         {
             RemovePickup();
-            
-            
+
+
         }
         
+
     }
     private void OnToggleValueChanged(bool isOn)
     {
@@ -159,15 +160,15 @@ public class PickupHolder : MonoBehaviour
             cb.normalColor = Color.red;
             cb.selectedColor = Color.red;
             cb.highlightedColor = cb.normalColor;
-            
-            
+
+
         }
-        else if(!isOn && selectionManager.chosenPickups.Count <= 5)
+        else if (!isOn && selectionManager.chosenPickups.Count <= 5)
         {
             cb.normalColor = Color.black;
             cb.selectedColor = Color.black;
             cb.highlightedColor = cb.normalColor;
-            
+
         }
         toggle.colors = cb;
     }
@@ -178,7 +179,7 @@ public class PickupHolder : MonoBehaviour
         SetIconInfo();
         toggle = GetComponent<Toggle>();
         toggle.onValueChanged.AddListener(OnToggleValueChanged);
-        
+
         selectionManager = GameObject.FindGameObjectsWithTag("SelectionManager")[0].transform.GetComponent<SelectionScreen>();
     }
 

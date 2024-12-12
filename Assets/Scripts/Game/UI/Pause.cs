@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class Pause : MonoBehaviour
 {
     public GameObject pauseScreen;
-    
+    public GameObject settingsMenu;
 
     public void Continue()
     {
@@ -15,7 +15,10 @@ public class Pause : MonoBehaviour
         player.transform.GetComponent<InputManager>().TogglePause();
     }
 
-
+    public void Settings()
+    {
+        settingsMenu.SetActive(true);
+    }
     private void Start()
     {
         pauseScreen = transform.GetChild(7).gameObject;

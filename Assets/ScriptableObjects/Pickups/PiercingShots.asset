@@ -32,7 +32,7 @@ MonoBehaviour:
   spreadChange: 0.2
   projectilesPerShotBuff: 0
   projectileSpeedBuff: 2
-  projectilePenetrationBuff: 50
+  projectilePenetrationBuff: 20
   hasKnockback: 0
   knockbackMultiplier: 0.5
   damageType: 0

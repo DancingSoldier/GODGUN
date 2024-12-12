@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5042605157653727788
+--- !u!1 &1581274209897888783
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,41 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8798238576500294536}
-  - component: {fileID: 6588022455916702575}
-  - component: {fileID: 7450006532437368351}
-  - component: {fileID: 1619552531050093964}
-  - component: {fileID: 2144858463019805932}
-  - component: {fileID: 521245821203989646}
+  - component: {fileID: 3583321328281225187}
+  - component: {fileID: 4249412393429568813}
+  - component: {fileID: 6168271883071869508}
+  - component: {fileID: 9218828661362165947}
+  - component: {fileID: 7238232077379971019}
   m_Layer: 9
-  m_Name: pickup_G.O.DGUN
+  m_Name: Quad Damage
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8798238576500294536
+--- !u!4 &3583321328281225187
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042605157653727788}
+  m_GameObject: {fileID: 1581274209897888783}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
-  m_LocalPosition: {x: 0, y: 0.5, z: 0}
+  m_LocalPosition: {x: 15, y: 0, z: -15}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!136 &6588022455916702575
+--- !u!136 &4249412393429568813
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042605157653727788}
+  m_GameObject: {fileID: 1581274209897888783}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -59,20 +58,20 @@ CapsuleCollider:
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 0.82, z: 0}
---- !u!114 &7450006532437368351
+--- !u!114 &6168271883071869508
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042605157653727788}
+  m_GameObject: {fileID: 1581274209897888783}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef6039162281e1c4bacdbb265c7667b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingPickup: {fileID: 0}
-  utilityPickup: {fileID: 11400000, guid: f63ae1b8cc11215428d209a2071436a6, type: 2}
+  shootingPickup: {fileID: 11400000, guid: e2957f63b0f7a5746a289204f65c641e, type: 2}
+  utilityPickup: {fileID: 0}
   pickupEffectPrefab: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
   pickupType: 0
@@ -84,28 +83,16 @@ MonoBehaviour:
   pickupCooldown: 0
   pickupName: 
   pickupTextColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &1619552531050093964
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042605157653727788}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0183bd2fad1e824396f39c9f432e5e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!82 &2144858463019805932
+--- !u!82 &9218828661362165947
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042605157653727788}
+  m_GameObject: {fileID: 1581274209897888783}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cf1aea97c6af8fd46ae6b9f284f084eb, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -115,7 +102,7 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 0
+  DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 50
   Pan2D: 0
@@ -192,16 +179,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &521245821203989646
+--- !u!82 &7238232077379971019
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5042605157653727788}
+  m_GameObject: {fileID: 1581274209897888783}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cf1aea97c6af8fd46ae6b9f284f084eb, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

@@ -8,6 +8,7 @@ public class ProjectileMove : MonoBehaviour
 
     public GameObject hitPrefab;
     public GameObject obeliskHitPrefab;
+
     public float projectileSpeed = 10;
     public float projectileLifeTime = 1;
     public int damage, penetration;
@@ -57,7 +58,7 @@ public class ProjectileMove : MonoBehaviour
 
         if (collider.CompareTag("Enemy"))
         {
-            if(Random.Range(0,3) == 1)
+            if(Random.Range(1,1) == 1)
             {
                 GameObject impactEffect = Instantiate(hitPrefab, transform.position, Quaternion.identity);
                 Destroy(impactEffect, 1f);
@@ -77,9 +78,9 @@ public class ProjectileMove : MonoBehaviour
         if (collider.CompareTag("Obelisk"))
         {
             GameObject impactEffect = Instantiate(obeliskHitPrefab, transform.position, Quaternion.identity);
-            Destroy(impactEffect, 1f);
+            Destroy(impactEffect, impactEffect.GetComponent<ParticleSystem>().main.duration + impactEffect.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
 
-            PenetrationCount(10);
+            PenetrationCount(3);
            
         }
 
@@ -93,6 +94,17 @@ public class ProjectileMove : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Obelisk"))
+        {
+            GameObject impactEffect = Instantiate(obeliskHitPrefab, transform.position, Quaternion.identity);
+            Destroy(impactEffect, impactEffect.GetComponent<ParticleSystem>().main.duration + impactEffect.GetComponent<ParticleSystem>().main.startLifetime.constantMax);
+
+            PenetrationCount(3);
+
+        }
+    }
     private IEnumerator ProjectileLifeTime()
     {
         //MuzzleEffect(); // Play the muzzle effect when the projectile is created

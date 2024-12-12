@@ -16,7 +16,7 @@ MonoBehaviour:
   angularSpeed: 900
   acceleration: 30
   destinationInterval: 1
-  health: 3000
+  health: 1800
   soundClip: {fileID: 8300000, guid: c895b2665d9dbd241859ea25dc2ab94f, type: 3}
   soundVolume: 2
   soundPitch: 1

@@ -16,8 +16,8 @@ MonoBehaviour:
   pickupDescription: Congratulations on surviving this long!
   pickupTextColor: {r: 1, g: 0.9011407, b: 0, a: 1}
   killsRequired: 0
-  cooldown: 80
-  duration: 25
+  cooldown: 100
+  duration: 21
   pickupModelPrefab: {fileID: 6580096821638066456, guid: 2fd57eee273d72b43ba1b576348f370a, type: 3}
   material: {fileID: 2100000, guid: 9a48492f1991c7b48810cf5dc20ade3f, type: 2}
   pickupEffect: {fileID: 4032706368175596631, guid: f880c8c5f18e45d4e9b86677a030046c, type: 3}

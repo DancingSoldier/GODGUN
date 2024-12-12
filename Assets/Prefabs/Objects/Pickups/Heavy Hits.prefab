@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1910592109284520576
+--- !u!1 &2797097486244281892
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,25 +8,25 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 9211223328393562504}
-  - component: {fileID: 2727479838112929164}
-  - component: {fileID: 4656649488455995465}
-  - component: {fileID: 3556111181280733525}
-  - component: {fileID: 4703265450740781862}
+  - component: {fileID: 2447085541677448201}
+  - component: {fileID: 1304558508982124084}
+  - component: {fileID: 6608883538197076507}
+  - component: {fileID: 8410135659308040575}
+  - component: {fileID: 3940658861993928724}
   m_Layer: 9
-  m_Name: pickup_Piercing Shots
+  m_Name: Heavy Hits
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &9211223328393562504
+--- !u!4 &2447085541677448201
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910592109284520576}
+  m_GameObject: {fileID: 2797097486244281892}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -1, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: 0.5, z: 0}
@@ -35,13 +35,13 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!136 &2727479838112929164
+--- !u!136 &1304558508982124084
 CapsuleCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910592109284520576}
+  m_GameObject: {fileID: 2797097486244281892}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -58,19 +58,19 @@ CapsuleCollider:
   m_Height: 20
   m_Direction: 1
   m_Center: {x: 0, y: 0.82, z: 0}
---- !u!114 &4656649488455995465
+--- !u!114 &6608883538197076507
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910592109284520576}
+  m_GameObject: {fileID: 2797097486244281892}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ef6039162281e1c4bacdbb265c7667b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootingPickup: {fileID: 11400000, guid: 63f9fc9bdc254b24d807213f217b6336, type: 2}
+  shootingPickup: {fileID: 11400000, guid: f50aa0e160df3354ea1cf7b154cf9729, type: 2}
   utilityPickup: {fileID: 0}
   pickupEffectPrefab: {fileID: 0}
   pickupModelPrefab: {fileID: 0}
@@ -83,16 +83,16 @@ MonoBehaviour:
   pickupCooldown: 0
   pickupName: 
   pickupTextColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!82 &3556111181280733525
+--- !u!82 &8410135659308040575
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910592109284520576}
+  m_GameObject: {fileID: 2797097486244281892}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cf1aea97c6af8fd46ae6b9f284f084eb, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
@@ -179,16 +179,16 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!82 &4703265450740781862
+--- !u!82 &3940658861993928724
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1910592109284520576}
+  m_GameObject: {fileID: 2797097486244281892}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: cf1aea97c6af8fd46ae6b9f284f084eb, type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
