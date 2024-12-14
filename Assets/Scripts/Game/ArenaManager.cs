@@ -88,7 +88,10 @@ public class ArenaManager : MonoBehaviour
         activePickupUi.activeShootingPickup.SetActive(false);
         activePickupUi.activeUtilityPickup.SetActive(false);
         HidePlayerModel();
+        
         StartCoroutine(SlowTimeAndStop());
+        
+        
         if (lastRecordTime < elapsedTime)
         {
             NewRecordRecorded();
@@ -104,16 +107,23 @@ public class ArenaManager : MonoBehaviour
         float startScale = Time.timeScale;
         float targetScale = 0f;
         float elapsed = 0f;
+        if(gameOver.saveIcon != null)
+        {
+            gameOver.saveIcon.SetActive(true);
+            gameOver.animator.PlayInFixedTime("SavingAnimation");
+        }
+        
 
         while (elapsed < duration)
         {
             elapsed += Time.unscaledDeltaTime; // Käytä unscaledDeltaTimeä, jotta ajan hidastuminen ei vaikuta laskuriin
             Time.timeScale = Mathf.Lerp(startScale, targetScale, elapsed / duration);
+            
             yield return null; // Odota seuraavaa framea
         }
 
         Time.timeScale = 0f; // Varmista että aika on täysin pysähtynyt
-
+        
         if (!saved)
         {
             GameManager.manager.SaveData();
@@ -122,7 +132,14 @@ public class ArenaManager : MonoBehaviour
             float flooredTime = Mathf.Round(elapsedTime * 100f) * 0.01f;
             AnalyticsManager.Instance.TimeRecorded(flooredTime);
             AnalyticsManager.Instance.PlayerDeath();
+            if (gameOver.saveIcon != null)
+            {
+                Destroy(gameOver.saveIcon);
+            }
+            
         }
+        
+ 
 
     }
 

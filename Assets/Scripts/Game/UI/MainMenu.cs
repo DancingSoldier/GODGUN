@@ -68,10 +68,13 @@ public class MainMenu : MonoBehaviour
 
     public void GodGunDialogue()
     {
-        if(GameManager.manager.firstTimeGodGunGained)
+        if(GameManager.manager.godGunGained && !GameManager.manager.firstTimeGodGunGained)
         {
             DialogueScript dialogue = dialoguePopup.GetComponent<DialogueScript>();
             dialogue.StartDialogue();
+            GameManager.manager.firstTimeGodGunGained = true;
+            GameManager.manager.SaveData();
+
         }
     }
     IEnumerator StartGodGunDialogue()

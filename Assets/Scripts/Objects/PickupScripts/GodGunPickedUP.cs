@@ -17,13 +17,6 @@ public class GodGunPickedUP : MonoBehaviour
                 GameManager.manager.godGunGained = true;
                 
             }
-            if(!GameManager.manager.firstTimeGodGunGained)
-            {
-                GameManager.manager.firstTimeGodGunGained = true;
-                Debug.Log("GodGunGained for the first time");
-            }
-            
-            
         }
     }
 }

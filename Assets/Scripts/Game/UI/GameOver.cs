@@ -9,15 +9,22 @@ public class GameOver : MonoBehaviour
 {
     public GameObject gameOverScreen;
     public TextMeshProUGUI timeText;
-
+    public GameObject saveIcon;
+    public Animator animator;
     private void Start()
     {
         gameOverScreen = transform.GetChild(4).gameObject;
+        saveIcon = transform.GetChild(10).gameObject;
+        animator = saveIcon.GetComponentInChildren<Animator>();
+
 
     }
+
+
     public void GameOverSetup(float elapsedTime)
     {
         gameOverScreen.SetActive(true);
+        
         timeText.text = "Time: " + elapsedTime.ToString();
     }
 
